@@ -103,7 +103,7 @@ const photos: PhotoItem[] = [
   {
     image: '/assets/photos/61228c71_crhx.jpeg',
     title: '2021 EIEC新零售巅峰对话',
-    description: '我主导的lululemon中国1号员工Flora对话星巴克总裁霍华德',
+    description: '主导的lululemon中国1号员工Flora对话星巴克总裁霍华德',
   },
   {
     image: '/assets/photos/594a0792_9k1r.jpeg',
@@ -152,15 +152,22 @@ export function ProjectGallery() {
             {productMatrixItems.map((item, index) => (
               <Card key={index} className="bg-card border-border overflow-hidden">
                 <CardContent className="p-0">
-                  <div className="aspect-video relative">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
-                      priority={false}
-                    />
+                  {/* 长图纵向可滚动容器 */}
+                  <div 
+                    className="overflow-y-auto overflow-x-hidden relative"
+                    style={{ maxHeight: '600px' }}
+                  >
+                    <div className="relative w-full">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={800}
+                        height={2000}
+                        className="w-full h-auto object-contain"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        priority={false}
+                      />
+                    </div>
                   </div>
                   <div className="p-4 border-t border-border">
                     <h4 className="text-sm font-semibold text-foreground mb-1">

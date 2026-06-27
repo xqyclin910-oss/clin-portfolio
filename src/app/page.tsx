@@ -5,6 +5,7 @@ import {
   ProjectGallery,
   BlogSection,
   Contact,
+  FunSection,
 } from '@/components/portfolio';
 
 export const metadata: Metadata = {
@@ -27,6 +28,9 @@ export default function Home() {
       
       {/* 博客文章区 */}
       <BlogSection />
+      
+      {/* 有趣的入口 */}
+      <FunSection />
       
       {/* 联系方式 */}
       <Contact />
