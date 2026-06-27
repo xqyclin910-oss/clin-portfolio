@@ -14,7 +14,7 @@ const productMatrix = {
 
 // 4.2 AI+短视频获客快训营（长图）
 const aiTraining = {
-  image: '/assets/products/1【0829】AI+短视频获客快训营长图(1)_1782538608107_0_tdrx.jpg',
+  image: '/assets/products/ai_fastcamp_long.jpg',
   title: 'AI+短视频获客快训营',
   description: '面向年收入3000万以下企业主，14天学习链路，6个真实学员案例，逆转恐惧新媒体心理，让学员行为发生改变',
 };
@@ -29,7 +29,7 @@ interface DocItem {
 
 const documents: DocItem[] = [
   {
-    file: '/assets/products/3期学习须知_1782538136951_0_brck.png',
+    file: '/assets/products/study_guide_3.png',
     title: '商业模式落地特训营·学习手册',
     type: 'image',
   },
@@ -40,32 +40,32 @@ const documents: DocItem[] = [
     type: 'image',
   },
   {
-    file: '/assets/products/16786f9d-ae99-4268-b0b4-71d8b2ee3c3b_1782537978642_0_p0p8.png',
+    file: '/assets/products/16786f9d_p0p8.png',
     title: '博商线上特训营·课程录制',
     type: 'image',
   },
   {
-    file: '/assets/products/9e79c822-37e6-4d5f-857a-432ddad68351_1782538361819_0_b7z3.jpg',
+    file: '/assets/products/9e79c822_b7z3.jpg',
     title: '博商出海主题·直播分享',
     type: 'image',
   },
   {
-    file: '/assets/docs/商业模式落地全套知识图谱_1782538051757_0_epvx.pdf',
+    file: '/assets/docs/商业模式知识图谱.pdf',
     title: '商业模式落地·知识图谱',
     type: 'pdf',
   },
   {
-    file: '/assets/docs/UDS上海易拉宝_1782537588311_0_gvlw.pdf',
+    file: '/assets/docs/UDS_上海易拉宝.pdf',
     title: '小鹏汽车UDS骁将计划·上海站',
     type: 'pdf',
   },
   {
-    file: '/assets/docs/工作坊详情-奶糖派 X 火星未来_1782537714538_0_qtng.docx',
+    file: '/assets/docs/工作坊详情_奶糖派.docx',
     title: 'lululemon×奶糖派·品牌咨询工作坊',
     type: 'docx',
   },
   {
-    file: '/assets/docs/小鹏 x 完美日记初版rundown_1782537580579_0_qdwc.xlsx',
+    file: '/assets/docs/小鹏x完美日记_rundown.xlsx',
     title: '小鹏汽车×完美日记·活动Rundown',
     type: 'xlsx',
   },
@@ -80,32 +80,32 @@ interface PhotoItem {
 
 const photos: PhotoItem[] = [
   {
-    image: '/assets/photos/61228c71-be99-48e9-8174-db0223bb0d65_1782536956202_0_crhx.jpeg',
+    image: '/assets/photos/61228c71_crhx.jpeg',
     title: '2021 EIEC新零售巅峰对话',
     description: '主导策划的品牌行业峰会',
   },
   {
-    image: '/assets/photos/594a0792-3cb2-4517-9d72-a086bb922056_1782536998324_0_9k1r.jpeg',
+    image: '/assets/photos/594a0792_9k1r.jpeg',
     title: 'lululemon品牌培训现场',
     description: '主导开发的企业培训项目，室内分享会',
   },
   {
-    image: '/assets/photos/106fa26c-97fd-40f1-b20d-1e6ec3fe6b67_1782537069715_0_87xi.jpeg',
+    image: '/assets/photos/106fa26c_87xi.jpeg',
     title: 'TGO鲲鹏会·游学活动',
     description: '为头部企业开发的游学分享项目',
   },
   {
-    image: '/assets/photos/17b3d31b-8c6a-45db-a5fa-4257e9532321_1782537268835_0_vqc0.jpeg',
+    image: '/assets/photos/17b3d31b_vqc0.jpeg',
     title: '企业家圆桌沙龙',
     description: '课程交付中的圆桌讨论环节',
   },
   {
-    image: '/assets/photos/cc2682b9-b1ab-4ea7-b8b0-9f95c3740dd3_1782537346608_0_qthb.jpeg',
+    image: '/assets/photos/cc2682b9_qthb.jpeg',
     title: '腾讯展厅参观',
     description: '带队企业家学员参观腾讯总部',
   },
   {
-    image: '/assets/photos/b7331cd2-6b74-4639-9a71-5858c9bfc9e1_1782537370982_0_2yzv.jpeg',
+    image: '/assets/photos/b7331cd2_2yzv.jpeg',
     title: '腾讯远航计划·主题演讲',
     description: '远航计划课程现场，讲师分享"个体化进程"',
   },
