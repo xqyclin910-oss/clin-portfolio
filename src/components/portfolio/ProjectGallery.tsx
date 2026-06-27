@@ -210,14 +210,6 @@ export function ProjectGallery() {
                       />
                     </div>
                   </div>
-                  <div className="p-4 border-t border-border">
-                    <h4 className="text-sm font-semibold text-foreground mb-1">
-                      {work.title}
-                    </h4>
-                    <p className="text-xs text-muted-foreground">
-                      {work.description}
-                    </p>
-                  </div>
                 </CardContent>
               </Card>
             ))}
