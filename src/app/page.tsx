@@ -10,8 +10,8 @@ import {
 
 export const metadata: Metadata = {
   title: '谢秋阳 - 课程产品经理 | 个人作品集',
-  description: '谢秋阳，专注于课程内容策划与用户体验优化的课程产品经理，8年教育科技行业经验，致力于打造有温度、有深度的学习产品。',
-  keywords: ['课程产品经理', '教育科技', '课程策划', '用户体验', '谢秋阳', '腾讯青腾'],
+  description: '谢秋阳，5年企业家课程产品设计经验。服务2000+企业主，年营收800万+，2年晋升汇报CEO。专注于让学员行为改变，而非学知识。',
+  keywords: ['课程产品经理', '企业家课程', '教育科技', '课程策划', '谢秋阳', '腾讯青腾'],
 };
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
       {/* 职业经历 */}
       <Experience />
       
-      {/* 项目作品照片墙 */}
+      {/* 项目作品展示 */}
       <ProjectGallery />
       
       {/* 博客文章区 */}

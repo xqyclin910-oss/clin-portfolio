@@ -7,101 +7,113 @@ interface ProjectItem {
   title: string;
   category: string;
   description: string;
-  imagePlaceholder: string;
+  imagePlaceholder?: string;
+  type: 'image' | 'document' | 'long-image';
 }
 
-const projects: ProjectItem[] = [
+// 占位数据 - 用户后续会补充具体内容
+const projectCategories = [
   {
-    title: '企业数字化转型课程',
-    category: '商业管理',
-    description: '为500强企业高管定制的数字化转型学习方案',
-    imagePlaceholder: '课程封面',
+    categoryName: '课程产品设计',
+    projects: [
+      {
+        title: '待更新',
+        category: '课程产品',
+        description: '项目说明待补充',
+        type: 'image' as const,
+      },
+      {
+        title: '待更新',
+        category: '课程产品',
+        description: '项目说明待补充',
+        type: 'image' as const,
+      },
+    ],
   },
   {
-    title: 'AI应用实战训练营',
-    category: '技术前沿',
-    description: '面向职场人士的AI工具应用与实践课程',
-    imagePlaceholder: '课程封面',
-  },
-  {
-    title: '领导力提升工作坊',
-    category: '管理培训',
-    description: '实战型领导力提升系列课程',
-    imagePlaceholder: '课程封面',
-  },
-  {
-    title: '创新思维方法论',
-    category: '思维训练',
-    description: '培养系统性创新思维能力的课程体系',
-    imagePlaceholder: '课程封面',
-  },
-  {
-    title: '行业洞察报告系列',
-    category: '研究报告',
-    description: '教育科技行业趋势洞察与案例分析',
-    imagePlaceholder: '报告封面',
-  },
-  {
-    title: '用户增长实战课',
-    category: '运营增长',
-    description: '从0到1的用户增长策略与方法论',
-    imagePlaceholder: '课程封面',
+    categoryName: '美区业务成果',
+    projects: [
+      {
+        title: '待更新',
+        category: '美区业务',
+        description: '项目说明待补充',
+        type: 'image' as const,
+      },
+      {
+        title: '待更新',
+        category: '美区业务',
+        description: '项目说明待补充',
+        type: 'document' as const,
+      },
+      {
+        title: '待更新',
+        category: '美区业务',
+        description: '长图项目说明待补充',
+        type: 'long-image' as const,
+      },
+    ],
   },
 ];
 
 export function ProjectGallery() {
   return (
-    <section className="px-6 py-24">
+    <section className="px-6 py-16">
       <div className="max-w-6xl mx-auto">
         {/* 标题 */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-foreground">项目作品</h2>
-          <p className="text-lg text-muted-foreground">精选课程产品与研究成果</p>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-2 text-foreground">项目作品</h2>
+          <p className="text-base text-muted-foreground">精选课程产品与业务成果</p>
         </div>
         
-        {/* 项目网格 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <Card 
-              key={index}
-              className="bg-card border-border hover:border-primary hover:shadow-lg hover:shadow-primary/10 group overflow-hidden transition-all duration-300"
-            >
-              {/* 图片占位区 */}
-              <div className="aspect-video bg-gradient-to-br from-secondary to-secondary/50 flex items-center justify-center border-b border-border group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300">
-                <div className="text-muted-foreground text-sm">
-                  {project.imagePlaceholder}
-                </div>
-              </div>
-              
-              <CardContent className="p-6">
-                {/* 分类标签 */}
-                <Badge 
-                  variant="outline" 
-                  className="mb-3 px-2 py-1 text-xs border-primary text-primary bg-primary/10"
+        {/* 分类展示 */}
+        {projectCategories.map((category, catIndex) => (
+          <div key={catIndex} className="mb-12">
+            {/* 分类标题 */}
+            <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
+              <span className="w-1 h-6 bg-primary rounded" />
+              {category.categoryName}
+            </h3>
+            
+            {/* 项目网格 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {category.projects.map((project, projIndex) => (
+                <Card 
+                  key={projIndex}
+                  className="bg-card border-border"
                 >
-                  {project.category}
-                </Badge>
-                
-                {/* 项目标题 */}
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                
-                {/* 项目描述 */}
-                <p className="text-sm text-muted-foreground">
-                  {project.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-        
-        {/* 查看更多按钮 */}
-        <div className="text-center mt-12">
-          <button className="px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300">
-            查看更多作品
-          </button>
-        </div>
+                  {/* 图片占位区 */}
+                  <div className={`aspect-video bg-secondary flex items-center justify-center border-b border-border ${
+                    project.type === 'long-image' ? 'scroll-img-container' : 'img-container'
+                  }`} style={{ maxHeight: project.type === 'long-image' ? '600px' : undefined }}>
+                    <div className="text-muted-foreground text-sm">
+                      {project.type === 'document' ? 'PDF文档' : '图片占位'}
+                    </div>
+                  </div>
+                  
+                  <CardContent className="p-5">
+                    {/* 分类标签 */}
+                    <Badge 
+                      variant="outline" 
+                      className="mb-3 px-2 py-1 text-xs border-primary text-primary bg-primary/10"
+                    >
+                      {project.category}
+                    </Badge>
+                    
+                    {/* 项目标题 */}
+                    <h4 className="text-base font-semibold text-foreground mb-2">
+                      {project.title}
+                    </h4>
+                    
+                    {/* 项目描述 */}
+                    <p className="text-sm text-muted-foreground">
+                      {project.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

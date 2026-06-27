@@ -7,98 +7,94 @@ interface ExperienceItem {
   company: string;
   position: string;
   period: string;
-  description: string;
   highlights: string[];
+  achievements?: string[];
 }
 
 const experiences: ExperienceItem[] = [
   {
-    company: '某知名教育科技公司',
-    position: '课程产品经理',
-    period: '2021 - 至今',
-    description: '负责旗舰课程产品的策划与运营，主导多门爆款课程上线',
+    company: '博商管理科学研究院',
+    position: '产品经理 → 美区线上业务负责人',
+    period: '2022.07 - 2026.05',
     highlights: [
-      '策划并上线15门精品课程',
-      '学员满意度达98.5%',
-      '单课程营收超千万',
+      '2年晋升，直接汇报院长&CEO',
+      '产品经理阶段：主导7款课程产品从定义到市场',
+      '训练营服务2000+学员，年营收800万',
+      '录播课100万+学员，年营收2亿',
+      '首款产品NPS从47%提升至100%',
+      '美区阶段：从0搭建20人中美团队',
+      '33账号285万粉丝社媒矩阵',
+      '独立站月销30万',
     ],
   },
   {
-    company: '某在线学习平台',
-    position: '内容运营主管',
-    period: '2018 - 2021',
-    description: '负责平台课程内容规划与质量控制',
+    company: '火星未来',
+    position: '内容项目经理',
+    period: '2021.08 - 2022.06',
     highlights: [
-      '建立课程质量评估体系',
-      '优化课程学习路径设计',
-      '推动课程迭代更新机制',
+      '开发腾讯/字节/小鹏/lululemon等头部企业项目',
+      '主导lululemon品牌企业培训',
+      '主导奶糖派品牌咨询工作坊',
     ],
   },
   {
-    company: '某培训教育机构',
-    position: '课程策划专员',
-    period: '2016 - 2018',
-    description: '参与线下课程设计与教学支持工作',
+    company: '好未来/学而思',
+    position: '学科运营',
+    period: '2020.09 - 2021.08',
     highlights: [
-      '协助开发10+门线下课程',
-      '优化教学材料与课件',
-      '学员反馈收集与分析',
+      '全国高端英语产品线运营',
     ],
   },
 ];
 
 export function Experience() {
   return (
-    <section className="px-6 py-24 bg-secondary/10">
-      <div className="max-w-6xl mx-auto">
+    <section className="px-6 py-16">
+      <div className="max-w-4xl mx-auto">
         {/* 标题 */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-foreground">职业经历</h2>
-          <p className="text-lg text-muted-foreground">持续成长，深耕教育领域</p>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-2 text-foreground">职业经历</h2>
+          <p className="text-base text-muted-foreground">持续成长，深耕企业家课程领域</p>
         </div>
         
-        {/* 时间线 */}
-        <div className="space-y-8">
+        {/* 经历列表 */}
+        <div className="space-y-6">
           {experiences.map((exp, index) => (
             <Card 
               key={index}
-              className="bg-card border-border hover:border-primary hover:shadow-lg transition-all duration-300"
+              className="bg-card border-border"
             >
-              <CardContent className="p-8">
+              <CardContent className="p-6">
                 {/* 公司与职位 */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-foreground mb-1">
+                    <h3 className="text-lg font-bold text-foreground mb-1">
                       {exp.company}
                     </h3>
-                    <div className="text-lg text-primary">
+                    <p className="text-base text-primary">
                       {exp.position}
-                    </div>
+                    </p>
                   </div>
                   <Badge 
                     variant="outline" 
-                    className="mt-2 md:mt-0 px-4 py-1 text-sm border-muted-foreground text-muted-foreground"
+                    className="mt-2 md:mt-0 px-3 py-1 text-sm border-border text-muted-foreground bg-transparent"
                   >
                     {exp.period}
                   </Badge>
                 </div>
                 
-                {/* 描述 */}
-                <p className="text-muted-foreground mb-6">
-                  {exp.description}
-                </p>
-                
                 {/* 成果亮点 */}
-                <div className="flex flex-wrap gap-2">
+                <ul className="space-y-2">
                   {exp.highlights.map((highlight, hIndex) => (
-                    <span 
+                    <li 
                       key={hIndex}
-                      className="px-3 py-1.5 rounded-md bg-secondary/50 text-secondary-foreground text-sm"
+                      className="text-sm text-muted-foreground flex items-start gap-2"
                     >
-                      {highlight}
-                    </span>
+                      <span className="text-primary mt-1">•</span>
+                      <span>{highlight}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </CardContent>
             </Card>
           ))}
