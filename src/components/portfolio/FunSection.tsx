@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 export function FunSection() {
   return (
     <section className="py-16 px-4 bg-gradient-to-b from-background to-card">
@@ -9,8 +7,10 @@ export function FunSection() {
         <p className="text-lg text-muted-foreground mb-6">
           如果你想认识做海外内容增长的我，点这里
         </p>
-        <Link
-          href="#"
+        <a
+          href="https://yr79864vmn.coze.site/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-foreground font-medium hover:bg-primary/90 transition-colors group"
         >
           <span className="text-lg">看看另一个我</span>
@@ -22,7 +22,7 @@ export function FunSection() {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
-        </Link>
+        </a>
       </div>
     </section>
   );

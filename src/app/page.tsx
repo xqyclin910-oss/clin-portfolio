@@ -29,11 +29,11 @@ export default function Home() {
       {/* 博客文章区 */}
       <BlogSection />
       
-      {/* 有趣的入口 */}
-      <FunSection />
-      
       {/* 联系方式 */}
       <Contact />
+      
+      {/* 有趣的入口 */}
+      <FunSection />
       
       {/* 页脚 */}
       <footer className="px-6 py-8 border-t border-border">
