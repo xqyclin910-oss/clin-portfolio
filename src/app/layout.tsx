@@ -34,7 +34,7 @@ export default function RootLayout({
 
   return (
     <html lang="zh-CN">
-      <body className={`antialiased`}>
+      <body className="bg-background text-foreground antialiased">
         {isDev && <Inspector />}
         {children}
       </body>
