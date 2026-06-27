@@ -103,26 +103,26 @@ const photos: PhotoItem[] = [
   {
     image: '/assets/photos/61228c71_crhx.jpeg',
     title: '2021 EIEC新零售巅峰对话',
-    description: '主导策划的品牌行业峰会',
+    description: '我主导的lululemon中国1号员工Flora对话星巴克总裁霍华德',
   },
   {
     image: '/assets/photos/594a0792_9k1r.jpeg',
-    title: 'lululemon品牌培训现场',
+    title: 'lululemon x 传音内部培训',
     description: '主导开发的企业培训项目，室内分享会',
   },
   {
     image: '/assets/photos/106fa26c_87xi.jpeg',
     title: 'TGO鲲鹏会·游学活动',
-    description: '为头部企业开发的游学分享项目',
+    description: '为头部企业开发的游学分享项目，讲师度阴山·王阳明知行合一碰撞科技高管',
   },
   {
     image: '/assets/photos/17b3d31b_vqc0.jpeg',
-    title: '企业家圆桌沙龙',
-    description: '课程交付中的圆桌讨论环节',
+    title: '逸仙电商x小鹏实地学习活动分享环节',
+    description: '课程交付中的实地学习活动分享环节',
   },
   {
     image: '/assets/photos/cc2682b9_qthb.jpeg',
-    title: '腾讯展厅参观',
+    title: '企业家参访腾讯',
     description: '带队企业家学员参观腾讯总部',
   },
   {
