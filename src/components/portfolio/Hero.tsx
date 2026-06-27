@@ -11,12 +11,12 @@ export function Hero() {
         
         {/* 定位 */}
         <p className="text-xl md:text-2xl text-primary font-semibold mb-3">
-          5年企业家课程产品设计 | 让学员行为改变，而非学知识
+          5年企业家课程产品设计 | 好的学习促人改变
         </p>
         
         {/* 副标题 */}
         <p className="text-base md:text-lg text-muted-foreground">
-          服务2000+企业主 · 年营收800万+ · 2年晋升汇报CEO
+          服务2000+企业主 · 产品年营收破亿
         </p>
         
         {/* 分隔线 */}

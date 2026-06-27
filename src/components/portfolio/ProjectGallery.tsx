@@ -5,19 +5,40 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { DocumentPreview } from './DocumentPreview';
 
-// 4.1 课程产品矩阵
-const productMatrix = {
-  image: '/assets/products/image_1782538522652_0_zjey.png',
-  title: '博商课程产品矩阵',
-  description: '主导开发的10款企业家课程产品，覆盖创业增长、AI营销、直播电商、私域运营等方向',
-};
+// 4.1 课程产品矩阵（3张图并列展示）
+const productMatrixItems = [
+  {
+    image: '/assets/products/image_1782538522652_0_zjey.png',
+    title: '博商课程产品矩阵',
+    description: '主导开发的10款企业家课程产品，覆盖创业增长、AI营销、直播电商、私域运营等方向',
+  },
+  {
+    image: '/assets/products/liuliang_shicao_4980.jpg',
+    title: '流量实操课程产品',
+    description: '针对中小企业主的流量获取实操课程',
+  },
+  {
+    image: '/assets/products/gujunhui_4980.jpg',
+    title: '顾均辉课程产品',
+    description: '与知名讲师合作的高端课程产品',
+  },
+];
 
-// 4.2 AI+短视频获客快训营（长图）
-const aiTraining = {
-  image: '/assets/products/ai_fastcamp_long.jpg',
-  title: 'AI+短视频获客快训营',
-  description: '面向年收入3000万以下企业主，14天学习链路，6个真实学员案例，逆转恐惧新媒体心理，让学员行为发生改变',
-};
+// 4.2 代表作（2张图并列展示）
+const featuredWorks = [
+  {
+    image: '/assets/products/ai_fastcamp_long.jpg',
+    title: 'AI+短视频获客快训营',
+    description: '面向年收入3000万以下企业主，14天学习链路，6个真实学员案例，逆转恐惧新媒体心理，让学员行为发生改变',
+    isLongImage: true,
+  },
+  {
+    image: '/assets/products/chuangye_growth_new_landing.png',
+    title: '创业增长实战营·新版落地页',
+    description: '新版课程落地页设计，优化转化路径',
+    isLongImage: true,
+  },
+];
 
 // 4.3 项目文档展示
 interface DocItem {
@@ -121,71 +142,79 @@ export function ProjectGallery() {
           <p className="text-base text-muted-foreground">精选课程产品与业务成果</p>
         </div>
 
-        {/* 4.1 课程产品矩阵 */}
+        {/* 4.1 课程产品矩阵（3张并列展示） */}
         <div className="mb-12">
           <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <span className="w-1 h-6 bg-primary rounded" />
             课程产品矩阵
           </h3>
-          <Card className="bg-card border-border overflow-hidden">
-            <CardContent className="p-0">
-              <div className="aspect-video relative">
-                <Image
-                  src={productMatrix.image}
-                  alt={productMatrix.title}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                  priority={false}
-                />
-              </div>
-              <div className="p-5 border-t border-border">
-                <h4 className="text-base font-semibold text-foreground mb-2">
-                  {productMatrix.title}
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  {productMatrix.description}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {productMatrixItems.map((item, index) => (
+              <Card key={index} className="bg-card border-border overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="aspect-video relative">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+                      priority={false}
+                    />
+                  </div>
+                  <div className="p-4 border-t border-border">
+                    <h4 className="text-sm font-semibold text-foreground mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
-        {/* 4.2 AI+短视频获客快训营（长图） */}
+        {/* 4.2 代表作（2张并列展示） */}
         <div className="mb-12">
           <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <span className="w-1 h-6 bg-primary rounded" />
-            代表作：AI+短视频获客快训营
+            代表作展示
           </h3>
-          <Card className="bg-card border-border overflow-hidden">
-            <CardContent className="p-0">
-              {/* 长图纵向可滚动容器 */}
-              <div 
-                className="overflow-y-auto overflow-x-hidden max-h-[600px] relative"
-                style={{ maxHeight: '600px' }}
-              >
-                <div className="relative w-full">
-                  <Image
-                    src={aiTraining.image}
-                    alt={aiTraining.title}
-                    width={800}
-                    height={2000}
-                    className="w-full h-auto object-contain"
-                    sizes="(max-width: 768px) 100vw, 800px"
-                    priority={false}
-                  />
-                </div>
-              </div>
-              <div className="p-5 border-t border-border">
-                <h4 className="text-base font-semibold text-foreground mb-2">
-                  {aiTraining.title}
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  {aiTraining.description}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {featuredWorks.map((work, index) => (
+              <Card key={index} className="bg-card border-border overflow-hidden">
+                <CardContent className="p-0">
+                  {/* 长图纵向可滚动容器 */}
+                  <div 
+                    className="overflow-y-auto overflow-x-hidden relative"
+                    style={{ maxHeight: '600px' }}
+                  >
+                    <div className="relative w-full">
+                      <Image
+                        src={work.image}
+                        alt={work.title}
+                        width={800}
+                        height={2000}
+                        className="w-full h-auto object-contain"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority={false}
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4 border-t border-border">
+                    <h4 className="text-sm font-semibold text-foreground mb-1">
+                      {work.title}
+                    </h4>
+                    <p className="text-xs text-muted-foreground">
+                      {work.description}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* 4.3 项目文档展示 */}

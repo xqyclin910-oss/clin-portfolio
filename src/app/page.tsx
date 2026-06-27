@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import {
   Hero,
   StatsCard,
-  Experience,
   ProjectGallery,
   BlogSection,
   Contact,
@@ -10,7 +9,7 @@ import {
 
 export const metadata: Metadata = {
   title: '谢秋阳 - 课程产品经理 | 个人作品集',
-  description: '谢秋阳，5年企业家课程产品设计经验。服务2000+企业主，年营收800万+，2年晋升汇报CEO。专注于让学员行为改变，而非学知识。',
+  description: '谢秋阳，5年企业家课程产品设计经验。服务2000+企业主，产品年营收破亿。专注于好的学习促人改变。',
   keywords: ['课程产品经理', '企业家课程', '教育科技', '课程策划', '谢秋阳', '腾讯青腾'],
 };
 
@@ -22,9 +21,6 @@ export default function Home() {
       
       {/* 核心数据卡片 */}
       <StatsCard />
-      
-      {/* 职业经历 */}
-      <Experience />
       
       {/* 项目作品展示 */}
       <ProjectGallery />
