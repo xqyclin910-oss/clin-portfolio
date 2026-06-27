@@ -4,3 +4,4 @@ export { Experience } from './Experience';
 export { ProjectGallery } from './ProjectGallery';
 export { BlogSection } from './BlogSection';
 export { Contact } from './Contact';
+export { DocumentPreview } from './DocumentPreview';
