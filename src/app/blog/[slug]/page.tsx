@@ -322,73 +322,78 @@ const articles: Record<string, {
     tags: ['内容设计', '方法论'],
     content: (
       <>
-        <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+        {/* 开篇引言 */}
+        <p className="text-lg text-muted-foreground leading-relaxed mb-8">
           不少课程产品经理，尤其是对财务结果负责的，从项目筛选开始直至产品上架之后，每天都会被几个问题笼罩：
         </p>
-        <ul className="space-y-2 ml-6 list-disc text-muted-foreground mb-6">
-          <li>经典就是经典，人人需要，可是......</li>
-          <li>潮流千变万化，万一还没等我做完这就不火了咋办</li>
-          <li>现在大家都关注这个，我还来得及吗</li>
-          <li>这玩意儿太新了没资料参考啊</li>
-        </ul>
 
-        <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+        {/* 4个问句卡片 */}
+        <div className="space-y-4 mb-8">
+          {[
+            { num: 1, text: '经典就是经典，人人需要，可是......' },
+            { num: 2, text: '潮流千变万化，万一还没等我做完这就不火了咋办' },
+            { num: 3, text: '现在大家都关注这个，我还来得及吗' },
+            { num: 4, text: '这玩意儿太新了没资料参考啊' },
+          ].map((item) => (
+            <div key={item.num} className="flex gap-4 items-start p-4 rounded-lg bg-card/50 border border-border">
+              <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center text-lg">
+                {item.num}
+              </span>
+              <p className="text-lg text-foreground font-medium leading-relaxed flex-1">
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* 大势所趋的反思 */}
+        <p className="text-lg text-muted-foreground leading-relaxed mb-10">
           我们总觉得有个"大势所趋"，什么"历史的洪流滚滚向前"，总觉得历史有一个方向，有一个终点，历史上发生的事情总有其最终的意义，这个看上去很像经验论，但实际上是我们拿着结果去解释过程。经济发展并非线性连续和自然发生的，它没有"大势所趋"。
         </p>
 
-        {/* 配图 */}
-        <div className="mb-8 flex justify-center">
-          <Image 
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop"
-            alt="趋势与创新"
-            width={800}
-            height={400}
-            className="rounded-lg shadow-lg"
-          />
-        </div>
-
         {/* 创新五种范式 */}
-        <section className="mb-8">
+        <section className="mb-10">
           <h2 className="text-2xl font-bold text-foreground mb-6">创新的五种范式</h2>
-          <p className="text-muted-foreground mb-4">
+          <p className="text-muted-foreground mb-6">
             实际上真正能够带来经济发展的创新一共有五种范式：
           </p>
-          <ul className="space-y-3 ml-6 list-disc text-muted-foreground">
-            <li><strong className="text-foreground">新产品</strong> — 一种新产品，或一种已有产品的新品质</li>
-            <li><strong className="text-foreground">新的生产方式或商业模式</strong></li>
-            <li><strong className="text-foreground">新市场的开拓</strong> — 这里的新市场指的是尚未打入的市场，是否已经存在这个市场并不重要</li>
-            <li><strong className="text-foreground">新的供应来源</strong> — 占领一种新的原材料/半成品或新的供应来源</li>
-            <li><strong className="text-foreground">新的组织形式</strong> — 行业内一种新的组织形式，比如托拉斯</li>
-          </ul>
-          <p className="text-muted-foreground mt-4">
+          <div className="space-y-4">
+            {[
+              { num: 1, title: '新产品', desc: '一种新产品，或一种已有产品的新品质' },
+              { num: 2, title: '新的生产方式或商业模式', desc: '' },
+              { num: 3, title: '新市场的开拓', desc: '这里的新市场指的是尚未打入的市场，是否已经存在这个市场并不重要' },
+              { num: 4, title: '新的供应来源', desc: '占领一种新的原材料/半成品或新的供应来源' },
+              { num: 5, title: '新的组织形式', desc: '行业内一种新的组织形式，比如托拉斯' },
+            ].map((item) => (
+              <div key={item.num} className="flex gap-4 items-start">
+                <span className="flex-shrink-0 w-8 h-8 rounded bg-primary/20 text-primary font-bold flex items-center justify-center text-sm">
+                  {item.num}
+                </span>
+                <div className="flex-1">
+                  <p className="font-bold text-foreground text-lg">{item.title}</p>
+                  {item.desc && <p className="text-muted-foreground text-sm mt-1">— {item.desc}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-muted-foreground mt-6">
             那么就算我们知道这个创新确实会带来发展，我们也同时会觉得这内容难设计，这是个新的领域我怎么做内容规划？
           </p>
         </section>
 
         {/* 问题树 */}
-        <section className="mb-8">
+        <section className="mb-10">
           <h2 className="text-2xl font-bold text-foreground mb-6">问题树：从客户出发的内容设计</h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            这时候客户的<strong className="text-foreground">"问题树"</strong>就非常重要，它总是起始于客户的一个核心目标或者说待解决的问题，从而延伸出一堆因果关系导致的细分问题，我们就是要找到当前解答这些问题的最好资源。
+            这时候客户的"问题树"就非常重要，它总是起始于客户的一个核心目标或者说待解决的问题，从而延伸出一堆因果关系导致的细分问题，我们就是要找到当前解答这些问题的最好资源。
           </p>
           <p className="text-muted-foreground leading-relaxed">
             不过很多时候太新的事物，亲历的人自己都没仔细想过事情的发展脉络，那我们又怎么知道要如何选取并且定制内容？
           </p>
         </section>
 
-        {/* 配图 */}
-        <div className="mb-8 flex justify-center">
-          <Image 
-            src="https://images.unsplash.com/photo-1507842219432-e47d545a9902?w=800&h=400&fit=crop"
-            alt="知识体系"
-            width={800}
-            height={400}
-            className="rounded-lg shadow-lg"
-          />
-        </div>
-
         {/* 学科体系 */}
-        <section className="mb-8">
+        <section className="mb-10">
           <h2 className="text-2xl font-bold text-foreground mb-6">学科体系兜底</h2>
           <p className="text-muted-foreground mb-4">学科会为我们兜底：</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
@@ -404,15 +409,6 @@ const articles: Record<string, {
             ))}
           </div>
         </section>
-
-        {/* 爆品公式 */}
-        <blockquote className="p-6 rounded-lg bg-primary/5 border-l-4 border-primary">
-          <p className="font-bold text-foreground mb-2">爆品公式</p>
-          <p className="text-muted-foreground mb-2">一个好的设计并不一定成就一个爆品</p>
-          <p className="text-lg font-semibold text-foreground">
-            爆品 = （热点挖掘 + 流量扶持 + 用户炫耀）×（制造峰值 + 克制设计 + 敏捷迭代）
-          </p>
-        </blockquote>
       </>
     ),
   },
