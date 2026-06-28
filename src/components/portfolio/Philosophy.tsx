@@ -61,21 +61,21 @@ export function Philosophy() {
           什么是好的产品
         </h2>
 
-        {/* 三个核心观点 */}
-        <div className="space-y-6 mb-12">
+        {/* 三个核心观点 - PC端一行排列 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12">
           {corePoints.map((point, index) => (
             <div
               key={index}
-              className="flex items-start gap-4 p-4 md:p-6 rounded-lg bg-[#1e293b]/50 border border-[#334155]/50 hover:border-[#3b82f6]/30 transition-colors duration-200"
+              className="flex flex-col items-center text-center p-4 md:p-6 rounded-lg bg-[#1e293b]/50 border border-[#334155]/50 hover:border-[#3b82f6]/30 transition-colors duration-200"
             >
               {/* 编号 */}
-              <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#3b82f6]/20 border border-[#3b82f6]/40 flex items-center justify-center">
+              <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#3b82f6]/20 border border-[#3b82f6]/40 flex items-center justify-center mb-4">
                 <span className="text-[#3b82f6] font-bold text-lg md:text-xl">
                   {point.number}
                 </span>
               </div>
               {/* 观点文字 */}
-              <p className="text-[#e2e8f0] text-lg md:text-xl leading-relaxed pt-2 md:pt-3">
+              <p className="text-[#e2e8f0] text-base md:text-lg leading-relaxed">
                 {point.text}
               </p>
             </div>

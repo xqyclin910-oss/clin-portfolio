@@ -134,8 +134,8 @@ const photos: PhotoItem[] = [
 
 export function ProjectGallery() {
   return (
-    <section className="px-6 py-16">
-      <div className="max-w-6xl mx-auto">
+    <section className="px-6 py-16 md:py-20">
+      <div className="max-w-5xl mx-auto">
         {/* 标题 */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-2 text-foreground">项目作品</h2>

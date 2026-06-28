@@ -139,8 +139,8 @@ const categoryStyles = [
 
 export function Experts() {
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-16">
-      <div className="max-w-[1280px] mx-auto">
+    <section className="py-16 md:py-20 px-6">
+      <div className="max-w-5xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
