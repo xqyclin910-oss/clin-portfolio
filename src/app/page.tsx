@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import {
+  Navigation,
   Hero,
   StatsCard,
+  Experience,
   Philosophy,
   ProjectGallery,
   Experts,
@@ -20,29 +22,45 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      {/* 顶部导航栏 */}
+      <Navigation />
+      
       {/* Hero 区域 */}
       <Hero />
       
       {/* 核心数据卡片 */}
       <StatsCard />
       
+      {/* 职业经历 */}
+      <Experience />
+      
       {/* 散文/理念板块 */}
       <Philosophy />
       
       {/* 项目作品展示 */}
-      <ProjectGallery />
+      <section id="products">
+        <ProjectGallery />
+      </section>
       
       {/* 合作专家 */}
-      <Experts />
+      <section id="experts">
+        <Experts />
+      </section>
       
       {/* 博客文章区 */}
-      <BlogSection />
+      <section id="blog">
+        <BlogSection />
+      </section>
       
       {/* 学员案例照片墙 */}
-      <TestimonialsWall />
+      <section id="testimonials">
+        <TestimonialsWall />
+      </section>
       
       {/* 联系方式 */}
-      <Contact />
+      <section id="contact">
+        <Contact />
+      </section>
       
       {/* 有趣的入口 */}
       <FunSection />

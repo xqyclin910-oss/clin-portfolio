@@ -54,7 +54,7 @@ const entrepreneurNeeds = [
 
 export function Philosophy() {
   return (
-    <section className="py-8 md:py-10 bg-[#0a0f1a]">
+    <section id="philosophy" className="py-8 md:py-10 bg-[#0a0f1a]">
       <div className="max-w-5xl mx-auto px-4 md:px-8">
         {/* 大标题 */}
         <h2 className="text-3xl md:text-4xl font-bold text-[#e2e8f0] mb-6 text-center">
