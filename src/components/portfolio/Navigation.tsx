@@ -5,12 +5,12 @@ import { cn } from '@/lib/utils';
 
 const navItems = [
   { id: 'philosophy', label: '产品理念' },
-  { id: 'experience', label: '职业经历' },
   { id: 'products', label: '课程作品' },
   { id: 'experts', label: '合作专家' },
   { id: 'blog', label: '博客' },
   { id: 'testimonials', label: '学员声音' },
   { id: 'contact', label: '联系我' },
+  { id: 'experience', label: '职业经历' },
 ];
 
 export function Navigation() {

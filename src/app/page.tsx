@@ -3,13 +3,13 @@ import {
   Navigation,
   Hero,
   StatsCard,
-  Experience,
   Philosophy,
   ProjectGallery,
   Experts,
   BlogSection,
   TestimonialsWall,
   Contact,
+  Experience,
   FunSection,
 } from '@/components/portfolio';
 
@@ -31,11 +31,10 @@ export default function Home() {
       {/* 核心数据卡片 */}
       <StatsCard />
       
-      {/* 职业经历 */}
-      <Experience />
-      
       {/* 散文/理念板块 */}
-      <Philosophy />
+      <section id="philosophy">
+        <Philosophy />
+      </section>
       
       {/* 项目作品展示 */}
       <section id="products">
@@ -60,6 +59,11 @@ export default function Home() {
       {/* 联系方式 */}
       <section id="contact">
         <Contact />
+      </section>
+      
+      {/* 职业经历 */}
+      <section id="experience">
+        <Experience />
       </section>
       
       {/* 有趣的入口 */}
