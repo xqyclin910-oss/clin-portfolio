@@ -1,98 +1,157 @@
 'use client';
 
-import { Card, CardContent } from '@/components/ui/card';
+import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
+import { GraduationCap, Award } from 'lucide-react';
 
-interface ContactItem {
-  label: string;
-  value: string;
-}
-
-const contacts: ContactItem[] = [
+// 联系方式数据
+const contacts = [
   {
-    label: '电话',
-    value: '(+86) 15293817969',
-  },
-  {
+    icon: Mail,
     label: '邮箱',
     value: 'xqyclin910@gmail.com',
+    href: 'mailto:xqyclin910@gmail.com',
   },
   {
+    icon: Phone,
+    label: '电话',
+    value: '+86 15293817969',
+    href: 'tel:+8615293817969',
+  },
+  {
+    icon: MapPin,
     label: '地点',
-    value: '深圳',
+    value: '深圳 / 可 relocate 上海',
+    href: null,
+  },
+  {
+    icon: Linkedin,
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/xieqiuyang',
+    href: 'https://linkedin.com/in/xieqiuyang',
   },
 ];
 
-const education: ContactItem[] = [
+// 教育背景数据
+const education = [
   {
-    label: '硕士',
-    value: '香港理工大学（QS54）',
+    school: '香港理工大学',
+    degree: '中国商务研究硕士',
+    time: '',
+    badge: 'QS 54',
   },
   {
-    label: '本科',
-    value: '北京第二外国语学院（双一流）',
+    school: '北京第二外国语学院',
+    degree: '酒店管理本科',
+    time: '',
+    badge: '双一流',
   },
+];
+
+// 证书数据
+const certificates = [
+  '英语专八',
+  '雅思 7.5',
+  'GMAT 660',
+  'PMP (2A)',
 ];
 
 export function Contact() {
   return (
-    <section className="px-6 py-8 md:py-10">
+    <section id="contact" className="px-6 py-8 md:py-10">
       <div className="max-w-4xl mx-auto">
-        {/* 标题 */}
-        <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold mb-2 text-foreground">联系方式</h2>
-          <p className="text-base text-muted-foreground">期待与您深入交流</p>
+        {/* 主标题 */}
+        <h2 className="text-2xl font-bold text-foreground mb-6 text-center">
+          找到我
+        </h2>
+
+        {/* 联系方式卡片网格 */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+          {contacts.map((contact, index) => {
+            const Icon = contact.icon;
+            const content = (
+              <div 
+                key={index}
+                className={`group p-4 rounded-lg border border-border bg-card/50 
+                  hover:border-primary/30 hover:bg-card transition-all duration-200
+                  ${contact.href ? 'cursor-pointer' : ''}`}
+              >
+                {/* 图标 */}
+                <Icon className="w-5 h-5 text-primary mb-2" />
+                {/* 标签 */}
+                <p className="text-xs text-muted-foreground mb-1">
+                  {contact.label}
+                </p>
+                {/* 值 */}
+                <p className="text-sm font-medium text-foreground truncate">
+                  {contact.value}
+                </p>
+              </div>
+            );
+
+            if (contact.href) {
+              return (
+                <a 
+                  key={index}
+                  href={contact.href}
+                  target={contact.href.startsWith('http') ? '_blank' : undefined}
+                  rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="block"
+                >
+                  {content}
+                </a>
+              );
+            }
+            return content;
+          })}
         </div>
-        
-        {/* 联系信息 */}
-        <Card className="bg-card border-border mb-6">
-          <CardContent className="p-6">
-            <h3 className="text-lg font-semibold text-foreground mb-4">基本信息</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {contacts.map((contact, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center gap-3"
-                >
-                  <span className="text-sm text-muted-foreground">
-                    {contact.label}：
-                  </span>
-                  <span className="text-base text-foreground font-medium">
-                    {contact.value}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-        
+
         {/* 教育背景 */}
-        <Card className="bg-card border-border">
-          <CardContent className="p-6">
-            <h3 className="text-lg font-semibold text-foreground mb-4">教育背景</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {education.map((edu, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center gap-3"
-                >
-                  <span className="text-sm text-muted-foreground">
-                    {edu.label}：
-                  </span>
-                  <span className="text-base text-foreground font-medium">
-                    {edu.value}
-                  </span>
+        <div className="mb-4">
+          <h3 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
+            <GraduationCap className="w-4 h-4 text-primary" />
+            教育背景
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {education.map((item, index) => (
+              <div 
+                key={index}
+                className="p-4 rounded-lg border border-border bg-card/50"
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="text-base font-semibold text-foreground mb-1">
+                      {item.school}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {item.degree}
+                    </p>
+                  </div>
+                  {item.badge && (
+                    <span className="text-xs px-2 py-1 rounded bg-primary/10 text-primary font-medium">
+                      {item.badge}
+                    </span>
+                  )}
                 </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-        
-        {/* 结尾 */}
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center gap-3">
-            <div className="w-16 h-0.5 bg-border" />
-            <div className="w-2 h-2 rounded-full bg-primary" />
-            <div className="w-16 h-0.5 bg-border" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 证书 */}
+        <div>
+          <h3 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
+            <Award className="w-4 h-4 text-primary" />
+            专业证书
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {certificates.map((cert, index) => (
+              <span 
+                key={index}
+                className="text-sm px-3 py-1.5 rounded-full border border-border bg-card/50 text-foreground"
+              >
+                {cert}
+              </span>
+            ))}
           </div>
         </div>
       </div>
