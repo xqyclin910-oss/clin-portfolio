@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import {
   Hero,
   StatsCard,
+  Philosophy,
   ProjectGallery,
   Experts,
   BlogSection,
@@ -23,6 +24,9 @@ export default function Home() {
       
       {/* 核心数据卡片 */}
       <StatsCard />
+      
+      {/* 散文/理念板块 */}
+      <Philosophy />
       
       {/* 项目作品展示 */}
       <ProjectGallery />
