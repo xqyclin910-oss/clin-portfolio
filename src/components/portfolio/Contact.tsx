@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { GraduationCap, Award } from 'lucide-react';
 
 // 联系方式数据
@@ -22,12 +22,6 @@ const contacts = [
     label: '地点',
     value: '深圳 / 可 relocate 上海',
     href: null,
-  },
-  {
-    icon: Linkedin,
-    label: 'LinkedIn',
-    value: 'linkedin.com/in/xieqiuyang',
-    href: 'https://linkedin.com/in/xieqiuyang',
   },
 ];
 
