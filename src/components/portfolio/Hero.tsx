@@ -9,12 +9,12 @@ export function Hero() {
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
         
         {/* 左侧：方形圆角照片 */}
-        <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-lg shadow-primary/5 flex-shrink-0">
+        <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-lg shadow-primary/5 flex-shrink-0 bg-card">
           <Image
             src="/assets/profile_photo.jpg"
             alt="谢秋阳"
             fill
-            className="object-cover"
+            className="object-contain"
             priority
             sizes="(max-width: 768px) 192px, 256px"
           />
