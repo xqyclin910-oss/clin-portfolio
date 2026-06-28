@@ -14,6 +14,10 @@ const testimonials = [
   { id: 8, url: '/assets/testimonials/testimonial_8.png' },
   { id: 9, url: '/assets/testimonials/testimonial_9.png' },
   { id: 10, url: '/assets/testimonials/testimonial_10.png' },
+  { id: 11, url: '/assets/testimonials/ai_fastcamp_testimonial3.png' },
+  { id: 12, url: '/assets/testimonials/business_model_homework.png' },
+  { id: 13, url: '/assets/testimonials/ai_fastcamp_testimonial1.png' },
+  { id: 14, url: '/assets/testimonials/ai_fastcamp_testimonial2.png' },
 ];
 
 export function TestimonialsWall() {
