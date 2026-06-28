@@ -16,6 +16,40 @@ const articles: Record<string, {
     tags: ['逐字稿', '方法论'],
     content: (
       <>
+        {/* 重要引言高亮块 */}
+        <div className="mb-10 p-6 rounded-lg bg-amber-100 border-2 border-amber-300">
+          <p className="text-lg font-bold text-amber-900 mb-4">
+            写出一篇好的稿子，撰稿人需要具备的基础素质是什么？
+          </p>
+          <div className="space-y-4">
+            <div className="flex gap-3 items-start">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-amber-600 text-white font-bold flex items-center justify-center text-sm">1</span>
+              <div>
+                <p className="font-semibold text-amber-900 mb-1">对象感</p>
+                <p className="text-amber-800">假设你是一个小白，你能被自己写的内容吸引吗？你在写稿的时候，有冲出屏幕和学员互动的冲动吗？</p>
+              </div>
+            </div>
+            <div className="flex gap-3 items-start">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-amber-600 text-white font-bold flex items-center justify-center text-sm">2</span>
+              <div>
+                <p className="font-semibold text-amber-900 mb-1">对学员的深刻理解</p>
+                <p className="text-amber-800">从交付过程中、从招生过程中不断理解学员潜意识说出的话、背后的深层需求和生存现状</p>
+              </div>
+            </div>
+            <div className="flex gap-3 items-start">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-amber-600 text-white font-bold flex items-center justify-center text-sm">3</span>
+              <div>
+                <p className="font-semibold text-amber-900 mb-1">说人话的能力</p>
+                <p className="text-amber-800 mb-2">书面语说的条条在理是不太起作用的，要让小学生都能听得懂、用词有记忆点</p>
+                <ul className="space-y-2 ml-4 text-amber-700">
+                  <li>举个例子：打通全域营销转化链路这句话就不是人话，可以改成从大家熟悉平台，抖音、快手、视频号、小红书之类的，引导客户留下电话或者拍下引流产品，再做升单和转推荐</li>
+                  <li>再举个例子：海量分发素材这句话不太好理解，可以改成多平台、多发短视频和图文，就像在线上见人就发传单</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* 撰写顺序参考 */}
         <section className="mb-10">
           <h2 className="text-2xl font-bold text-foreground mb-6">撰写顺序参考</h2>
@@ -96,22 +130,28 @@ const articles: Record<string, {
             </div>
 
             {/* 说人话示例卡片 */}
-            <div className="mt-6 p-4 rounded-lg bg-amber-50/10 border border-amber-200/20">
-              <p className="font-semibold text-foreground mb-4">【说人话示例】</p>
+            <div className="mt-6 p-5 rounded-lg bg-amber-50 border border-amber-200">
+              <p className="font-bold text-amber-900 mb-4">【说人话示例】</p>
               <div className="space-y-3">
                 {[
                   { bad: '打通全域营销转化链路', good: '从大家熟悉平台，抖音、快手、视频号、小红书之类的，引导客户留下电话或者拍下引流产品，再做升单和转推荐' },
                   { bad: '海量分发素材', good: '多平台、多发短视频和图文，就像在线上见人就发传单' },
                   { bad: '销售目标拆解清晰', good: '你的销售明天上班，打开手机就知道去哪里找客户' },
                 ].map((item, idx) => (
-                  <div key={idx} className="flex gap-3 items-start">
-                    <div className="flex-1 p-3 rounded bg-red-50/20 border border-red-200/30">
-                      <XCircle className="w-4 h-4 text-red-500 mb-1" />
-                      <p className="text-sm text-red-700/80">{item.bad}</p>
+                  <div key={idx} className="flex gap-3 items-stretch">
+                    <div className="flex-1 p-4 rounded-lg bg-rose-50 border-2 border-rose-300">
+                      <div className="flex items-center gap-2 mb-2">
+                        <XCircle className="w-5 h-5 text-rose-600" />
+                        <span className="font-bold text-rose-700">原文</span>
+                      </div>
+                      <p className="text-base text-rose-800 leading-relaxed">{item.bad}</p>
                     </div>
-                    <div className="flex-1 p-3 rounded bg-green-50/20 border border-green-200/30">
-                      <CheckCircle className="w-4 h-4 text-green-500 mb-1" />
-                      <p className="text-sm text-green-700/80">{item.good}</p>
+                    <div className="flex-1 p-4 rounded-lg bg-emerald-50 border-2 border-emerald-300">
+                      <div className="flex items-center gap-2 mb-2">
+                        <CheckCircle className="w-5 h-5 text-emerald-600" />
+                        <span className="font-bold text-emerald-700">改写</span>
+                      </div>
+                      <p className="text-base text-emerald-800 leading-relaxed">{item.good}</p>
                     </div>
                   </div>
                 ))}
