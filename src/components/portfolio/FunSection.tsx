@@ -2,7 +2,7 @@
 
 export function FunSection() {
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-background to-card">
+    <section className="py-8 md:py-10 px-4 bg-gradient-to-b from-background to-card">
       <div className="max-w-4xl mx-auto text-center">
         <p className="text-lg text-muted-foreground mb-6">
           如果你想认识做海外内容增长的我，点这里

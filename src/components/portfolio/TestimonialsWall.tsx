@@ -32,10 +32,10 @@ export function TestimonialsWall() {
   };
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-8 md:py-10 bg-background">
       <div className="max-w-5xl mx-auto px-4">
         {/* 标题 */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             这份工作的意义
           </h2>

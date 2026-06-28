@@ -54,15 +54,15 @@ const entrepreneurNeeds = [
 
 export function Philosophy() {
   return (
-    <section className="py-16 md:py-24 bg-[#0a0f1a]">
+    <section className="py-8 md:py-10 bg-[#0a0f1a]">
       <div className="max-w-5xl mx-auto px-4 md:px-8">
         {/* 大标题 */}
-        <h2 className="text-3xl md:text-4xl font-bold text-[#e2e8f0] mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#e2e8f0] mb-6 text-center">
           什么是好的产品
         </h2>
 
         {/* 三个核心观点 - PC端一行排列 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
           {corePoints.map((point, index) => (
             <div
               key={index}
@@ -83,14 +83,14 @@ export function Philosophy() {
         </div>
 
         {/* 过渡段 */}
-        <div className="mb-12 p-6 md:p-8 rounded-lg bg-[#1e293b]/30 border border-[#334155]/30">
+        <div className="mb-6 p-6 md:p-8 rounded-lg bg-[#1e293b]/30 border border-[#334155]/30">
           <p className="text-[#94a3b8] text-base md:text-lg leading-relaxed">
             那么如何理解企业家的需求？很多课程产品经理容易将企业家看成一个好学生，实际上我们要像理解一个立体的人来理解企业家，企业家的需求划分大致是：
           </p>
         </div>
 
         {/* 企业家需求框架 */}
-        <div className="mb-16">
+        <div className="mb-8">
           <h3 className="text-xl md:text-2xl font-semibold text-[#e2e8f0] mb-8 text-center">
             企业家需求框架
           </h3>

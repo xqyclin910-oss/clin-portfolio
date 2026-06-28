@@ -35,10 +35,10 @@ const education: ContactItem[] = [
 
 export function Contact() {
   return (
-    <section className="px-6 py-16">
+    <section className="px-6 py-8 md:py-10">
       <div className="max-w-4xl mx-auto">
         {/* 标题 */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h2 className="text-3xl font-bold mb-2 text-foreground">联系方式</h2>
           <p className="text-base text-muted-foreground">期待与您深入交流</p>
         </div>

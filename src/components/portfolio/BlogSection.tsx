@@ -31,10 +31,10 @@ const blogs: BlogItem[] = [
 
 export function BlogSection() {
   return (
-    <section className="px-6 py-16 md:py-20 bg-secondary/30">
+    <section className="px-6 py-8 md:py-10 bg-secondary/30">
       <div className="max-w-5xl mx-auto">
         {/* 标题 */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h2 className="text-3xl font-bold mb-2 text-foreground">博客文章</h2>
           <p className="text-base text-muted-foreground">思考沉淀与经验分享</p>
         </div>

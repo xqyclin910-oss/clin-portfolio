@@ -48,7 +48,7 @@ export default function Home() {
       <FunSection />
       
       {/* 页脚 */}
-      <footer className="px-6 py-8 border-t border-border">
+      <footer className="px-6 py-6 border-t border-border">
         <div className="max-w-6xl mx-auto text-center text-sm text-muted-foreground">
           <p>© 2024 谢秋阳 · 课程产品经理作品集</p>
         </div>

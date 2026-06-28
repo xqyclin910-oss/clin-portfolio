@@ -2,7 +2,7 @@
 
 export function Hero() {
   return (
-    <section className="min-h-[70vh] flex items-center justify-center px-6 py-20">
+    <section className="min-h-[50vh] flex items-center justify-center px-6 py-12 md:py-16">
       <div className="max-w-3xl mx-auto text-center">
         {/* 姓名 */}
         <h1 className="text-5xl md:text-6xl font-bold mb-4 text-foreground tracking-tight">

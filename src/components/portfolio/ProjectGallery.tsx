@@ -134,16 +134,16 @@ const photos: PhotoItem[] = [
 
 export function ProjectGallery() {
   return (
-    <section className="px-6 py-16 md:py-20">
+    <section className="px-6 py-8 md:py-10">
       <div className="max-w-5xl mx-auto">
         {/* 标题 */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h2 className="text-3xl font-bold mb-2 text-foreground">项目作品</h2>
           <p className="text-base text-muted-foreground">精选课程产品与业务成果</p>
         </div>
 
         {/* 4.1 课程产品矩阵（3张并列展示） */}
-        <div className="mb-12">
+        <div className="mb-6">
           <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <span className="w-1 h-6 bg-primary rounded" />
             课程产品矩阵
@@ -184,7 +184,7 @@ export function ProjectGallery() {
         </div>
 
         {/* 4.2 代表作（2张并列展示） */}
-        <div className="mb-12">
+        <div className="mb-6">
           <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <span className="w-1 h-6 bg-primary rounded" />
             代表作展示
@@ -217,7 +217,7 @@ export function ProjectGallery() {
         </div>
 
         {/* 4.3 项目文档展示 */}
-        <div className="mb-12">
+        <div className="mb-6">
           <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <span className="w-1 h-6 bg-primary rounded" />
             项目文档展示
@@ -281,7 +281,7 @@ export function ProjectGallery() {
         </div>
 
         {/* 4.4 工作现场照片 */}
-        <div className="mb-12">
+        <div className="mb-6">
           <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <span className="w-1 h-6 bg-primary rounded" />
             工作现场照片
