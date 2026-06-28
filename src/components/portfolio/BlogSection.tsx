@@ -60,16 +60,9 @@ export function BlogSection() {
                     </h3>
                     
                     {/* 摘要 */}
-                    <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
+                    <p className="text-sm text-muted-foreground line-clamp-3">
                       {blog.excerpt}
                     </p>
-                    
-                    {/* 日期 */}
-                    {blog.date && (
-                      <p className="text-xs text-muted-foreground">
-                        {blog.date}
-                      </p>
-                    )}
                   </CardContent>
                 </Card>
               </Link>

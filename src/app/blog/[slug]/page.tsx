@@ -527,8 +527,6 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
             {article.title}
           </h1>
-          {/* 日期 */}
-          <p className="text-sm text-muted-foreground">{article.date}</p>
         </div>
 
         {/* 文章内容 */}
