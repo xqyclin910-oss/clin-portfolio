@@ -6,3 +6,4 @@ export { BlogSection } from './BlogSection';
 export { Contact } from './Contact';
 export { DocumentPreview } from './DocumentPreview';
 export { FunSection } from './FunSection';
+export { Experts } from './Experts';

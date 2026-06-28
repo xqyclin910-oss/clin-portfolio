@@ -3,6 +3,7 @@ import {
   Hero,
   StatsCard,
   ProjectGallery,
+  Experts,
   BlogSection,
   Contact,
   FunSection,
@@ -25,6 +26,9 @@ export default function Home() {
       
       {/* 项目作品展示 */}
       <ProjectGallery />
+      
+      {/* 合作专家 */}
+      <Experts />
       
       {/* 博客文章区 */}
       <BlogSection />
