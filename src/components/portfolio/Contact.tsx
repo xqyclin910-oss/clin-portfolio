@@ -35,14 +35,14 @@ const contacts = [
 const education = [
   {
     school: '香港理工大学',
-    degree: '中国商务研究硕士',
-    time: '',
+    degree: 'China Business Studies / 硕士',
+    time: '2019.09 - 2020.09',
     badge: 'QS 54',
   },
   {
     school: '北京第二外国语学院',
-    degree: '酒店管理本科',
-    time: '',
+    degree: 'Hospitality Management / 本科',
+    time: '2015.09 - 2019.06',
     badge: '双一流',
   },
 ];
@@ -122,9 +122,14 @@ export function Contact() {
                     <p className="text-base font-semibold text-foreground mb-1">
                       {item.school}
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground mb-1">
                       {item.degree}
                     </p>
+                    {item.time && (
+                      <p className="text-xs text-muted-foreground/70">
+                        {item.time}
+                      </p>
+                    )}
                   </div>
                   {item.badge && (
                     <span className="text-xs px-2 py-1 rounded bg-primary/10 text-primary font-medium">
