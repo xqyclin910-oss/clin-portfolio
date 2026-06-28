@@ -121,9 +121,9 @@ const photos: PhotoItem[] = [
     description: '课程交付中的实地学习活动分享环节',
   },
   {
-    image: '/assets/photos/cc2682b9_qthb.jpeg',
-    title: '企业家参访腾讯',
-    description: '带队企业家学员参观腾讯总部',
+    image: '/assets/photos/paul_milgrom_eiec.jpg',
+    title: '天安2021 EIEC',
+    description: '演讲嘉宾 Paul R. Milgrom（2020年诺贝尔经济学奖得主）',
   },
   {
     image: '/assets/photos/b7331cd2_2yzv.jpeg',
