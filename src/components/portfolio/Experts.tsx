@@ -27,7 +27,7 @@ const expertCategories: ExpertCategory[] = [
         title: '挑战者资本首席战略官'
       },
       {
-        name: '管任伟',
+        name: '曾伟',
         title: '博商管理科学研究院院长、联合创始人'
       },
       {
@@ -57,7 +57,7 @@ const expertCategories: ExpertCategory[] = [
     description: '参与特定项目合作的专家',
     experts: [
       {
-        name: '霍义伍',
+        name: '章义伍',
         title: '中国实战派企业管理专家，参与麦当劳中国公司创业'
       },
       {
@@ -103,11 +103,11 @@ const expertCategories: ExpertCategory[] = [
         title: '逸仙电商新零售事业部总裁'
       },
       {
-        name: '赵园园',
+        name: '赵圆圆',
         title: '资深电商直播专家、前阿里巴巴淘宝资深运营专家'
       },
       {
-        name: '谭睿晖',
+        name: '谭蓉晖',
         title: '上海申迪集团副总经理，长三角旅游企业联盟副秘书长'
       },
       {
@@ -183,10 +183,10 @@ export function Experts() {
                         style.card
                       )}
                     >
-                      <div className="font-semibold text-foreground mb-1">
+                      <div className="font-bold text-foreground mb-1">
                         {expert.name}
                       </div>
-                      <div className="text-secondary text-sm leading-relaxed">
+                      <div className="text-muted-foreground text-sm font-medium leading-relaxed">
                         {expert.title}
                       </div>
                     </div>
