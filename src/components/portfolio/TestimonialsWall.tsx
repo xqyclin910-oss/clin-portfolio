@@ -37,27 +37,29 @@ export function TestimonialsWall() {
         {/* 标题 */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            学员的声音
+            这份工作的意义
           </h2>
           <p className="text-lg text-muted-foreground">
-            来自课堂的真实反馈
+            累了就来看看吧
           </p>
         </div>
 
-        {/* 照片墙网格 */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {/* 照片墙 - 瀑布流布局 */}
+        <div className="columns-2 md:columns-3 gap-4 space-y-4">
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-md cursor-pointer hover:scale-[1.02] transition-transform duration-200"
+              className="break-inside-avoid rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-lg transition-shadow duration-200 bg-card mb-4"
               onClick={() => openLightbox(item.url)}
             >
               <Image
                 src={item.url}
                 alt={`学员证言 ${item.id}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                width={400}
+                height={0}
+                className="w-full h-auto object-contain"
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw"
+                style={{ height: 'auto' }}
               />
             </div>
           ))}

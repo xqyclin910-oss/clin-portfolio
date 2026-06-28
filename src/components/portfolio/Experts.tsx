@@ -27,7 +27,7 @@ const expertCategories: ExpertCategory[] = [
         title: '挑战者资本首席战略官'
       },
       {
-        name: '曾伟',
+        name: '曾任伟',
         title: '博商管理科学研究院院长、联合创始人'
       },
       {

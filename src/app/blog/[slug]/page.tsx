@@ -198,8 +198,9 @@ export async function generateStaticParams() {
 }
 
 // 生成元数据
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const article = articles[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articles[slug];
   if (!article) {
     return {
       title: '文章不存在',
@@ -212,8 +213,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 // 博客详情页组件
-export default function BlogPage({ params }: { params: { slug: string } }) {
-  const article = articles[params.slug];
+export default async function BlogPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = articles[slug];
 
   if (!article) {
     return (
