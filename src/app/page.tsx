@@ -6,6 +6,7 @@ import {
   ProjectGallery,
   Experts,
   BlogSection,
+  TestimonialsWall,
   Contact,
   FunSection,
 } from '@/components/portfolio';
@@ -36,6 +37,9 @@ export default function Home() {
       
       {/* 博客文章区 */}
       <BlogSection />
+      
+      {/* 学员案例照片墙 */}
+      <TestimonialsWall />
       
       {/* 联系方式 */}
       <Contact />

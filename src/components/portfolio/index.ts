@@ -8,3 +8,4 @@ export { DocumentPreview } from './DocumentPreview';
 export { FunSection } from './FunSection';
 export { Experts } from './Experts';
 export { Philosophy } from './Philosophy';
+export { TestimonialsWall } from './TestimonialsWall';

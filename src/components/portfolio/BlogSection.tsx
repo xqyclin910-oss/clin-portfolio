@@ -15,25 +15,17 @@ interface BlogItem {
 const blogs: BlogItem[] = [
   {
     slug: 'how-to-write-script',
-    title: '内容的第一步是学会说人话——如何写好课程逐字稿',
+    title: '内容的第一步是学会说人话',
     category: '课程设计',
-    excerpt: '撰写课程逐字稿的核心方法论，从确认起点终点到口语化表达技巧，帮助你写出真正能打动学员的内容。',
+    excerpt: '如何写好课程逐字稿的完整方法论，从撰写顺序到口语化表达，帮助你写出真正能打动学员的内容。',
     date: '2024-01',
   },
   {
-    title: '待更新',
-    category: '文章',
-    excerpt: '文章即将发布',
-  },
-  {
-    title: '待更新',
-    category: '文章',
-    excerpt: '文章即将发布',
-  },
-  {
-    title: '待更新',
-    category: '文章',
-    excerpt: '文章即将发布',
+    slug: 'staying-steady-amid-trends',
+    title: '在潮流中稳住脚跟',
+    category: '内容设计',
+    excerpt: '课程产品经理如何在潮流与经典之间找到平衡？从熊彼特创新五范式到问题树方法论，再到学科体系兜底，帮你建立内容设计的底层框架。',
+    date: '2026-06-28',
   },
 ];
 
