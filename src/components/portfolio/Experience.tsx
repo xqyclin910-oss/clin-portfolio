@@ -12,7 +12,7 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     company: '博商管理科学研究院股份有限公司',
-    role: '美区线上业务负责人',
+    role: '海外线上业务负责人',
     period: '2024.12 - 2026.05（1.5年）',
     achievements: [
       '将产品卖点逐层拆解为可测试的内容方向，按流量型/专业型/营销型三类分层，配合FB付费投放验证CTR、CPC、转化率，筛选高转化卖点反哺自然流选题，单月单IP获取新线索1000+',

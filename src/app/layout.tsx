@@ -2,26 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: {
-    default: '谢秋阳 | 课程产品经理',
-    template: '%s | 谢秋阳作品集',
-  },
-  description:
-    '谢秋阳，专注于课程内容策划与用户体验优化的课程产品经理。8年教育科技行业经验，致力于打造有温度、有深度的学习产品。',
-  keywords: [
-    '课程产品经理',
-    '教育科技',
-    '课程策划',
-    '用户体验',
-    '谢秋阳',
-    '腾讯青腾',
-    '作品集',
-  ],
-  authors: [{ name: '谢秋阳' }],
-  robots: {
-    index: true,
-    follow: true,
-  },
+  title: '谢秋阳 - 海外内容营销与社媒增长 | 个人作品集',
+  description: '谢秋阳，5年内容与增长经验。Win with Great Content。33账号285万海外粉丝，9个月从0自然流起号。',
+  keywords: ['海外内容营销', '社媒增长', 'TikTok运营', 'Instagram运营', '内容策略', '谢秋阳'],
 };
 
 export default function RootLayout({

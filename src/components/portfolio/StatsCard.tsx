@@ -5,8 +5,8 @@ const stats = [
   { value: '2.85M', label: '矩阵总粉丝' },
   { value: '33', label: '跨平台账号' },
   { value: '150-200', label: '月均视频产出' },
-  { value: '50+', label: '爆款数量' },
-  { value: '1000+', label: '单月新线索' },
+  { value: '75+', label: '自然流爆款' },
+  { value: '8万+', label: '独立站点击' },
   { value: '>3', label: 'LTV/CAC' },
 ];
 

@@ -29,7 +29,7 @@ export function Hero() {
 
           {/* 职位信息 */}
           <p className="text-sm md:text-base text-muted-foreground mb-6">
-            海外内容策略 · 全球社媒运营 · 4年内容与增长经验
+            海外内容营销与社媒增长 · 5年内容与增长经验
           </p>
 
           {/* Slogan - 视觉重心，最大字体 */}
