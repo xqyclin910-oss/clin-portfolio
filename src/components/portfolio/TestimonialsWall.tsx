@@ -37,10 +37,10 @@ export function TestimonialsWall() {
         {/* 标题 */}
         <div className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            这份工作的意义
+            增长数据验证
           </h2>
           <p className="text-lg text-muted-foreground">
-            累了就来看看吧
+            用数据说话
           </p>
         </div>
 

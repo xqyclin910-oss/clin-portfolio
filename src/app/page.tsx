@@ -14,9 +14,9 @@ import {
 } from '@/components/portfolio';
 
 export const metadata: Metadata = {
-  title: '谢秋阳 - 课程产品经理 | 个人作品集',
-  description: '谢秋阳，5年企业家课程产品设计经验。服务2000+企业主，产品年营收破亿。专注于好的学习促人改变。',
-  keywords: ['课程产品经理', '企业家课程', '教育科技', '课程策划', '谢秋阳', '腾讯青腾'],
+  title: '谢秋阳 - 海外内容策略 & 全球社媒运营 | 个人作品集',
+  description: '谢秋阳，4年内容产品与海外社媒增长经验。管理20人中美团队，搭建33账号285万粉丝海外社媒矩阵。Win with Great Content。',
+  keywords: ['海外社媒', '内容策略', '出海增长', '社媒运营', '海外用户增长', '谢秋阳'],
 };
 
 export default function Home() {

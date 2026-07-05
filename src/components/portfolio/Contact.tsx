@@ -55,7 +55,7 @@ export function Contact() {
       <div className="max-w-4xl mx-auto">
         {/* 主标题 */}
         <h2 className="text-2xl font-bold text-foreground mb-6 text-center">
-          找到我
+          Win with Great Content — 与好内容互相成就
         </h2>
 
         {/* 联系方式卡片网格 */}

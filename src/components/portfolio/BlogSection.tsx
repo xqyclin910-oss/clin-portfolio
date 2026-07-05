@@ -14,18 +14,16 @@ interface BlogItem {
 
 const blogs: BlogItem[] = [
   {
-    slug: 'how-to-write-script',
-    title: '内容的第一步是学会说人话',
-    category: '课程设计',
-    excerpt: '如何写好课程逐字稿的完整方法论，从撰写顺序到口语化表达，帮助你写出真正能打动学员的内容。',
-    date: '2024-01',
+    slug: 'social-media-sop',
+    title: '海外社媒起号SOP：9个月从0到285万粉丝',
+    category: '社媒运营',
+    excerpt: '从0搭建33个跨平台账号的完整方法论，包括内容分层策略、数据验证流程和4大平台起号SOP。',
   },
   {
-    slug: 'staying-steady-amid-trends',
-    title: '在潮流中稳住脚跟',
-    category: '内容设计',
-    excerpt: '课程产品经理如何在潮流与经典之间找到平衡？从熊彼特创新五范式到问题树方法论，再到学科体系兜底，帮你建立内容设计的底层框架。',
-    date: '2026-06-28',
+    slug: 'content-strategy',
+    title: '内容分层策略：流量型/专业型/营销型内容如何配合',
+    category: '内容策略',
+    excerpt: '如何将产品卖点拆解为可测试的内容方向，配合FB投放验证CTR/CPC/转化率，筛选高转化卖点反哺自然流选题。',
   },
 ];
 

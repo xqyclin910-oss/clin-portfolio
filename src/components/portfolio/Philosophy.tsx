@@ -6,49 +6,55 @@ import { cn } from '@/lib/utils';
 const corePoints = [
   {
     number: '01',
-    text: '从更本质、更贴近人性的角度理解用户需求',
+    text: '将产品卖点逐层拆解为可测试的内容方向，按流量型/专业型/营销型三类分层',
   },
   {
     number: '02',
-    text: '对满足同一个需求提出了更本质、更贴近人性的解决方案',
+    text: '配合FB付费投放验证CTR、CPC、转化率，筛选高转化卖点反哺自然流选题',
   },
   {
     number: '03',
-    text: '想到办法，把这个方案落到对用户的产品和服务中',
+    text: '以"月度跑一次完整测试、三个月完成链路搭建"为节奏，逐环节优化转化',
   },
 ];
 
-// 企业家需求框架
-const entrepreneurNeeds = [
+// 内容分层策略
+const contentStrategy = [
   {
-    category: '健康',
+    category: '流量型内容',
     color: 'bg-emerald-500/20 border-emerald-500/40 text-emerald-400',
-    items: ['健康管理', '精力管理', '心力提升'],
+    items: ['痛点直戳', '数字承诺', '错误示范对比'],
+    goal: '目标：曝光与涨粉',
   },
   {
-    category: '资源',
+    category: '专业型内容',
     color: 'bg-blue-500/20 border-blue-500/40 text-blue-400',
-    items: ['上下游合作', '同行互补', '跨界启发'],
+    items: ['深度知识输出', '行业洞察', '方法论拆解'],
+    goal: '目标：建立权威',
   },
   {
-    category: '情报',
+    category: '营销型内容',
     color: 'bg-purple-500/20 border-purple-500/40 text-purple-400',
-    items: ['前沿趋势判断', '商业模式迭代', '思维框架更新'],
+    items: ['价值前置', '痛点升级', '故事成交'],
+    goal: '目标：转化与留资',
   },
   {
-    category: '人力资源',
+    category: '数据验证',
     color: 'bg-orange-500/20 border-orange-500/40 text-orange-400',
-    items: ['管理培训的大多数都是为了解决这个问题，实际上并不是老板要知道怎么做'],
+    items: ['FB投放测试CTR/CPC', 'A/B测试选题', '转化漏斗优化'],
+    goal: '目标：精准决策',
   },
   {
-    category: '影响力',
+    category: '平台SOP',
     color: 'bg-pink-500/20 border-pink-500/40 text-pink-400',
-    items: ['IP', '圈层', '社会价值'],
+    items: ['TikTok', 'YouTube', 'Instagram', 'Facebook'],
+    goal: '目标：可复制增长',
   },
   {
-    category: '情感',
+    category: '转化闭环',
     color: 'bg-cyan-500/20 border-cyan-500/40 text-cyan-400',
-    items: ['孤独被理解', '成就被看见', '找到同类'],
+    items: ['内容引流→私域转化→复购', 'Shopify独立站D2C链路'],
+    goal: '目标：商业变现',
   },
 ];
 
@@ -58,7 +64,7 @@ export function Philosophy() {
       <div className="max-w-5xl mx-auto px-4 md:px-8">
         {/* 大标题 */}
         <h2 className="text-3xl md:text-4xl font-bold text-[#e2e8f0] mb-6 text-center">
-          什么是好的产品
+          内容策略如何驱动增长
         </h2>
 
         {/* 三个核心观点 - PC端一行排列 */}
@@ -85,19 +91,19 @@ export function Philosophy() {
         {/* 过渡段 */}
         <div className="mb-6 p-6 md:p-8 rounded-lg bg-[#1e293b]/30 border border-[#334155]/30">
           <p className="text-[#94a3b8] text-base md:text-lg leading-relaxed">
-            那么如何理解企业家的需求？很多课程产品经理容易将企业家看成一个好学生，实际上我们要像理解一个立体的人来理解企业家，企业家的需求划分大致是：
+            海外社媒运营的核心不是发内容，而是用数据驱动内容决策。以下是我们的内容分层策略：
           </p>
         </div>
 
-        {/* 企业家需求框架 */}
+        {/* 内容分层策略 */}
         <div className="mb-8">
           <h3 className="text-xl md:text-2xl font-semibold text-[#e2e8f0] mb-8 text-center">
-            企业家需求框架
+            内容分层策略
           </h3>
           
           {/* 6大类需求 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {entrepreneurNeeds.map((need, index) => (
+            {contentStrategy.map((need, index) => (
               <div
                 key={index}
                 className={cn(
@@ -126,6 +132,11 @@ export function Philosophy() {
                     </li>
                   ))}
                 </ul>
+                
+                {/* 目标 */}
+                <p className="mt-3 text-xs font-medium text-current opacity-80">
+                  {need.goal}
+                </p>
               </div>
             ))}
           </div>
@@ -134,7 +145,7 @@ export function Philosophy() {
         {/* 底部金句 */}
         <div className="mb-8 text-center">
           <p className="text-xl md:text-2xl font-medium text-[#94a3b8] italic">
-            一个好的设计并不一定成就一个爆品
+            内容不是目的，增长才是
           </p>
         </div>
 
@@ -147,7 +158,7 @@ export function Philosophy() {
           {/* 公式标题 */}
           <div className="text-center mb-4 md:mb-6">
             <span className="inline-block px-4 py-2 rounded-full bg-[#3b82f6]/20 border border-[#3b82f6]/40 text-[#3b82f6] font-semibold text-sm md:text-base">
-              爆品公式
+              增长引擎
             </span>
           </div>
           
@@ -155,17 +166,17 @@ export function Philosophy() {
           <div className="text-center relative z-10">
             <div className="inline-flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-lg md:text-2xl lg:text-3xl font-bold">
               {/* 左侧 */}
-              <span className="text-[#e2e8f0]">爆品</span>
+              <span className="text-[#e2e8f0]">增长引擎</span>
               <span className="text-[#3b82f6]">=</span>
               
               {/* 第一组括号 */}
               <div className="flex items-center gap-1 md:gap-2">
                 <span className="text-[#3b82f6] text-2xl md:text-3xl">(</span>
-                <span className="text-[#e2e8f0]">热点挖掘</span>
+                <span className="text-[#e2e8f0]">卖点拆解</span>
                 <span className="text-[#94a3b8]">+</span>
-                <span className="text-[#e2e8f0]">流量扶持</span>
+                <span className="text-[#e2e8f0]">内容分层</span>
                 <span className="text-[#94a3b8]">+</span>
-                <span className="text-[#e2e8f0]">用户炫耀</span>
+                <span className="text-[#e2e8f0]">数据验证</span>
                 <span className="text-[#3b82f6] text-2xl md:text-3xl">)</span>
               </div>
               
@@ -175,11 +186,11 @@ export function Philosophy() {
               {/* 第二组括号 */}
               <div className="flex items-center gap-1 md:gap-2">
                 <span className="text-[#3b82f6] text-2xl md:text-3xl">(</span>
-                <span className="text-[#e2e8f0]">制造峰值</span>
+                <span className="text-[#e2e8f0]">平台SOP</span>
                 <span className="text-[#94a3b8]">+</span>
-                <span className="text-[#e2e8f0]">克制设计</span>
+                <span className="text-[#e2e8f0]">转化闭环</span>
                 <span className="text-[#94a3b8]">+</span>
-                <span className="text-[#e2e8f0]">敏捷迭代</span>
+                <span className="text-[#e2e8f0]">持续迭代</span>
                 <span className="text-[#3b82f6] text-2xl md:text-3xl">)</span>
               </div>
             </div>

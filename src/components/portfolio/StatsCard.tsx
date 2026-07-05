@@ -1,13 +1,13 @@
 'use client';
 
-// 课程产品经理核心数据
+// 海外社媒核心数据
 const stats = [
-  { value: '100万+', label: '学员服务' },
-  { value: '2亿', label: '年销售额' },
-  { value: '80%+', label: 'NPS' },
-  { value: '22位', label: '合作专家' },
-  { value: '2.05', label: 'PMF' },
-  { value: '47%→100%', label: '首产品NPS' },
+  { value: '2.85M', label: '矩阵总粉丝' },
+  { value: '33', label: '跨平台账号' },
+  { value: '150-200', label: '月均视频产出' },
+  { value: '50+', label: '爆款数量' },
+  { value: '1000+', label: '单月新线索' },
+  { value: '>3', label: 'LTV/CAC' },
 ];
 
 export function StatsCard() {

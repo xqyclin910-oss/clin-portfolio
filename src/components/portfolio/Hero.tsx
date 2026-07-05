@@ -29,17 +29,17 @@ export function Hero() {
 
           {/* 职位信息 */}
           <p className="text-sm md:text-base text-muted-foreground mb-6">
-            课程产品经理 · 5年企业家课程产品设计
+            海外内容策略 · 全球社媒运营 · 4年内容与增长经验
           </p>
 
           {/* Slogan - 视觉重心，最大字体 */}
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-foreground tracking-tight leading-tight">
-            好的学习促人改变
+            Win with Great Content
           </h2>
 
           {/* 副标题 */}
           <p className="text-base md:text-lg text-primary font-medium">
-            服务2000+企业主 · 产品年营收破亿
+            33账号 · 285万海外粉丝 · 9个月从0自然流起号
           </p>
         </div>
       </div>

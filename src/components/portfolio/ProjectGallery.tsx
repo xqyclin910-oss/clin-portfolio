@@ -3,315 +3,179 @@
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { DocumentPreview } from './DocumentPreview';
 
-// 4.1 课程产品矩阵（3张图并列展示）
-const productMatrixItems = [
+// 海外社媒矩阵
+const socialMediaMatrix = [
+  { platform: 'TikTok', accounts: '12个', followers: '120万+', color: 'bg-pink-500/20 text-pink-300' },
+  { platform: 'Instagram', accounts: '8个', followers: '85万+', color: 'bg-purple-500/20 text-purple-300' },
+  { platform: 'YouTube', accounts: '7个', followers: '55万+', color: 'bg-red-500/20 text-red-300' },
+  { platform: 'Facebook', accounts: '6个', followers: '25万+', color: 'bg-blue-500/20 text-blue-300' },
+];
+
+// 成功案例
+const successCases = [
   {
-    image: '/assets/products/image_1782538522652_0_zjey.png',
-    title: '博商课程产品矩阵',
-    description: '主导开发的10款企业家课程产品，覆盖创业增长、AI营销、直播电商、私域运营等方向',
+    name: '小龙女',
+    followers: '1.1M',
+    period: '9个月',
+    platforms: '跨4平台',
+    highlight: '单账号最高33.7万粉丝',
   },
   {
-    image: '/assets/products/liuliang_shicao_4980.jpg',
-    title: '流量实操课程产品',
-    description: '针对中小企业主的流量获取实操课程',
+    name: '青云',
+    followers: '1M',
+    period: '8个月',
+    platforms: '跨4平台',
+    highlight: '首6周突破10万粉丝',
   },
   {
-    image: '/assets/products/gujunhui_4980.jpg',
-    title: '顾均辉课程产品',
-    description: '与知名讲师合作的高端课程产品',
+    name: 'Kyran',
+    followers: '800K',
+    period: '4个月',
+    platforms: '跨4平台',
+    highlight: '单条视频200万播放',
   },
 ];
 
-// 4.2 代表作（2张图并列展示）
-const featuredWorks = [
-  {
-    image: '/assets/products/ai_fastcamp_long.jpg',
-    title: 'AI+短视频获客快训营',
-    description: '面向年收入3000万以下企业主，14天学习链路，6个真实学员案例，逆转恐惧新媒体心理，让学员行为发生改变',
-    isLongImage: true,
-  },
-  {
-    image: '/assets/products/chuangye_growth_new_landing.png',
-    title: '创业增长实战营·新版落地页',
-    description: '新版课程落地页设计，优化转化路径',
-    isLongImage: true,
-  },
+// 爆款视频结构
+const videoStructures = [
+  { type: '痛点直戳型', desc: '开门见山点出用户痛点' },
+  { type: '数字承诺型', desc: '用具体数字建立可信度' },
+  { type: '错误示范对比型', desc: '对比前后效果' },
+  { type: '故事代入型', desc: '真实案例引发共鸣' },
+  { type: '节奏跟练型', desc: '沉浸式跟练体验' },
 ];
 
-// 4.3 项目文档展示
-interface DocItem {
-  file: string;
-  title: string;
-  description?: string;
-  type: 'image' | 'pdf' | 'docx' | 'xlsx';
-}
-
-const documents: DocItem[] = [
-  {
-    file: '/assets/products/study_guide_3.png',
-    title: '商业模式落地特训营·学习手册',
-    type: 'image',
-  },
-  {
-    file: '/assets/products/image_1782538934772_0_uxgq.png',
-    title: '短视频获客项目·全流程文档体系',
-    description: '从立项→研发→录制→上架→售卖→交付的完整产品全链路',
-    type: 'image',
-  },
-  {
-    file: '/assets/products/16786f9d_p0p8.png',
-    title: '博商线上特训营·课程录制',
-    type: 'image',
-  },
-  {
-    file: '/assets/products/9e79c822_b7z3.jpg',
-    title: '博商出海主题·直播分享',
-    type: 'image',
-  },
-  {
-    file: '/assets/docs/商业模式知识图谱.pdf',
-    title: '商业模式落地·知识图谱',
-    type: 'pdf',
-  },
-  {
-    file: '/assets/docs/UDS_上海易拉宝.pdf',
-    title: '小鹏汽车UDS骁将计划·上海站',
-    type: 'pdf',
-  },
-  {
-    file: '/assets/docs/工作坊详情_奶糖派.docx',
-    title: 'lululemon×奶糖派·品牌咨询工作坊',
-    type: 'docx',
-  },
-  {
-    file: '/assets/docs/小鹏x完美日记_rundown.xlsx',
-    title: '小鹏汽车×完美日记·活动Rundown',
-    type: 'xlsx',
-  },
-];
-
-// 4.4 工作现场照片
-interface PhotoItem {
-  image: string;
-  title: string;
-  description: string;
-}
-
-const photos: PhotoItem[] = [
-  {
-    image: '/assets/photos/61228c71_crhx.jpeg',
-    title: '2021 EIEC新零售巅峰对话',
-    description: '主导的lululemon中国1号员工Flora对话星巴克总裁霍华德',
-  },
-  {
-    image: '/assets/photos/594a0792_9k1r.jpeg',
-    title: 'lululemon x 传音内部培训',
-    description: '主导开发的企业培训项目，室内分享会',
-  },
-  {
-    image: '/assets/photos/106fa26c_87xi.jpeg',
-    title: 'TGO鲲鹏会·游学活动',
-    description: '为头部企业开发的游学分享项目，讲师度阴山·王阳明知行合一碰撞科技高管',
-  },
-  {
-    image: '/assets/photos/17b3d31b_vqc0.jpeg',
-    title: '逸仙电商x小鹏实地学习活动分享环节',
-    description: '课程交付中的实地学习活动分享环节',
-  },
-  {
-    image: '/assets/photos/paul_milgrom_eiec.jpg',
-    title: '天安2021 EIEC',
-    description: '演讲嘉宾 Paul R. Milgrom（2020年诺贝尔经济学奖得主）',
-  },
-  {
-    image: '/assets/photos/b7331cd2_2yzv.jpeg',
-    title: '腾讯远航计划·主题演讲',
-    description: '远航计划课程现场，讲师分享"个体化进程"',
-  },
+// 带货视频结构
+const salesVideoStructures = [
+  { type: '价值前置型', desc: '先给价值再谈产品' },
+  { type: '痛点升级型', desc: '痛点放大后再给方案' },
+  { type: '故事成交型', desc: '真实用户故事' },
+  { type: '对比纠错型', desc: '错误vs正确做法' },
+  { type: '沉浸跟练型', desc: '课程内容预览' },
 ];
 
 export function ProjectGallery() {
   return (
-    <section className="px-6 py-8 md:py-10">
+    <section id="projects" className="px-6 py-8 md:py-10">
       <div className="max-w-5xl mx-auto">
         {/* 标题 */}
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold mb-2 text-foreground">项目作品</h2>
-          <p className="text-base text-muted-foreground">精选课程产品与业务成果</p>
+          <h2 className="text-3xl font-bold mb-2 text-foreground">项目成果</h2>
+          <p className="text-base text-muted-foreground">海外社媒矩阵与增长案例</p>
         </div>
 
-        {/* 4.1 课程产品矩阵（3张并列展示） */}
+        {/* 海外社媒矩阵 */}
         <div className="mb-6">
-          <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
+          <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
             <span className="w-1 h-6 bg-primary rounded" />
-            课程产品矩阵
+            海外社媒矩阵 0→285万粉丝
+          </h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            9个月从0搭建33个跨平台账号，月均产出150-200条短视频，爆款50+条
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {socialMediaMatrix.map((item, index) => (
+              <Card key={index} className="bg-card border-border">
+                <CardContent className="p-4 text-center">
+                  <Badge className={`${item.color} mb-2`}>{item.platform}</Badge>
+                  <div className="text-2xl font-bold text-foreground">{item.followers}</div>
+                  <div className="text-xs text-muted-foreground">{item.accounts}</div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* 成功案例 */}
+        <div className="mb-6">
+          <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+            <span className="w-1 h-6 bg-primary rounded" />
+            成功案例
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {productMatrixItems.map((item, index) => (
-              <Card key={index} className="bg-card border-border overflow-hidden">
-                <CardContent className="p-0">
-                  {/* 长图纵向可滚动容器 */}
-                  <div 
-                    className="overflow-y-auto overflow-x-hidden relative"
-                    style={{ maxHeight: '600px' }}
-                  >
-                    <div className="relative w-full">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        width={800}
-                        height={2000}
-                        className="w-full h-auto object-contain"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        priority={false}
-                      />
-                    </div>
+            {successCases.map((item, index) => (
+              <Card key={index} className="bg-card border-border">
+                <CardContent className="p-5">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="text-lg font-bold text-foreground">{item.name}</h4>
+                    <Badge className="bg-primary/20 text-primary">{item.period}</Badge>
                   </div>
-                  <div className="p-4 border-t border-border">
-                    <h4 className="text-sm font-semibold text-foreground mb-1">
-                      {item.title}
-                    </h4>
-                    <p className="text-xs text-muted-foreground">
-                      {item.description}
-                    </p>
-                  </div>
+                  <div className="text-3xl font-bold text-primary mb-1">{item.followers}</div>
+                  <div className="text-sm text-muted-foreground mb-2">{item.platforms}</div>
+                  <div className="text-xs text-primary font-medium">{item.highlight}</div>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
 
-        {/* 4.2 代表作（2张并列展示） */}
+        {/* 爆款视频结构 */}
         <div className="mb-6">
-          <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
+          <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
             <span className="w-1 h-6 bg-primary rounded" />
-            代表作展示
+            爆款视频5种结构
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {featuredWorks.map((work, index) => (
-              <Card key={index} className="bg-card border-border overflow-hidden">
-                <CardContent className="p-0">
-                  {/* 长图纵向可滚动容器 */}
-                  <div 
-                    className="overflow-y-auto overflow-x-hidden relative"
-                    style={{ maxHeight: '600px' }}
-                  >
-                    <div className="relative w-full">
-                      <Image
-                        src={work.image}
-                        alt={work.title}
-                        width={800}
-                        height={2000}
-                        className="w-full h-auto object-contain"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        priority={false}
-                      />
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+            {videoStructures.map((item, index) => (
+              <Card key={index} className="bg-card border-border">
+                <CardContent className="p-3 text-center">
+                  <div className="text-2xl mb-2">🎬</div>
+                  <div className="text-sm font-semibold text-foreground mb-1">{item.type}</div>
+                  <div className="text-xs text-muted-foreground">{item.desc}</div>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
 
-        {/* 4.3 项目文档展示 */}
+        {/* 带货视频结构 */}
         <div className="mb-6">
-          <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
+          <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
             <span className="w-1 h-6 bg-primary rounded" />
-            项目文档展示
+            带货视频5种结构
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {documents.map((doc, index) => (
-              <DocumentPreview
-                key={index}
-                file={doc.file}
-                title={doc.title}
-                type={doc.type}
-                trigger={
-                  <Card className="bg-card border-border hover:border-primary transition-colors h-full">
-                    <CardContent className="p-4">
-                      {/* 文档缩略图 */}
-                      <div className="aspect-[4/3] bg-secondary rounded flex items-center justify-center mb-3 overflow-hidden">
-                        {doc.type === 'image' ? (
-                          <div className="w-full h-full relative">
-                            <Image
-                              src={doc.file}
-                              alt={doc.title}
-                              fill
-                              className="object-contain"
-                              sizes="(max-width: 768px) 50vw, 25vw"
-                            />
-                          </div>
-                        ) : (
-                          <div className="text-muted-foreground text-sm flex flex-col items-center gap-2">
-                            <span className="text-2xl">
-                              {doc.type === 'pdf' ? '📄' : doc.type === 'docx' ? '📝' : '📊'}
-                            </span>
-                            <span>
-                              {doc.type === 'pdf' ? 'PDF' : doc.type === 'docx' ? 'Word' : 'Excel'}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                      
-                      {/* 文档标题 */}
-                      <h4 className="text-sm font-semibold text-foreground line-clamp-2">
-                        {doc.title}
-                      </h4>
-                      
-                      {/* 文档描述（如果有） */}
-                      {doc.description && (
-                        <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
-                          {doc.description}
-                        </p>
-                      )}
-                      
-                      {/* 点击提示 */}
-                      <div className="mt-2 text-xs text-primary">
-                        点击查看详情
-                      </div>
-                    </CardContent>
-                  </Card>
-                }
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* 4.4 工作现场照片 */}
-        <div className="mb-6">
-          <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
-            <span className="w-1 h-6 bg-primary rounded" />
-            工作现场照片
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {photos.map((photo, index) => (
-              <Card key={index} className="bg-card border-border overflow-hidden">
-                <CardContent className="p-0">
-                  {/* 照片容器 - object-contain 不裁剪 */}
-                  <div className="aspect-[4/3] relative bg-secondary">
-                    <Image
-                      src={photo.image}
-                      alt={photo.title}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 50vw, 33vw"
-                    />
-                  </div>
-                  <div className="p-4 border-t border-border">
-                    <h4 className="text-sm font-semibold text-foreground mb-1">
-                      {photo.title}
-                    </h4>
-                    <p className="text-xs text-muted-foreground">
-                      {photo.description}
-                    </p>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+            {salesVideoStructures.map((item, index) => (
+              <Card key={index} className="bg-card border-border">
+                <CardContent className="p-3 text-center">
+                  <div className="text-2xl mb-2">💰</div>
+                  <div className="text-sm font-semibold text-foreground mb-1">{item.type}</div>
+                  <div className="text-xs text-muted-foreground">{item.desc}</div>
                 </CardContent>
               </Card>
             ))}
           </div>
+        </div>
+
+        {/* TAICHI YOUNG独立站 */}
+        <div className="mb-6">
+          <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+            <span className="w-1 h-6 bg-primary rounded" />
+            TAICHI YOUNG独立站
+          </h3>
+          <Card className="bg-card border-border">
+            <CardContent className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="text-center">
+                  <div className="text-sm text-muted-foreground mb-1">Shopify品牌站</div>
+                  <div className="text-lg font-semibold text-foreground">从0-1搭建</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-sm text-muted-foreground mb-1">客单价</div>
+                  <div className="text-lg font-semibold text-foreground">$6 - $499</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-sm text-muted-foreground mb-1">月均销售额</div>
+                  <div className="text-lg font-semibold text-primary">$30万+</div>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-border text-center">
+                <span className="text-sm text-muted-foreground">LTV/CAC &gt; </span>
+                <span className="text-lg font-bold text-primary">3</span>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
