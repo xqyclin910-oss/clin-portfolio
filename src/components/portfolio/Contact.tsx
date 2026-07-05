@@ -1,155 +1,129 @@
 'use client';
 
-import { Mail, Phone, MapPin } from 'lucide-react';
-import { GraduationCap, Award } from 'lucide-react';
+import { useInView } from '@/hooks/useAnimations';
 
-// 联系方式数据
-const contacts = [
+const experiences = [
   {
-    icon: Mail,
-    label: '邮箱',
-    value: 'xqyclin910@gmail.com',
-    href: 'mailto:xqyclin910@gmail.com',
+    role: 'Head of Overseas Social Media',
+    company: 'Boshang Management Consulting',
+    period: '2023 - 2025',
+    desc: 'Led overseas social media strategy and content growth for a management consulting firm, building a 33-account matrix reaching 2.85M followers',
   },
   {
-    icon: Phone,
-    label: '电话',
-    value: '+86 15293817969',
-    href: 'tel:+8615293817969',
+    role: 'Content Strategy Lead',
+    company: 'Digital Media Agency',
+    period: '2021 - 2023',
+    desc: 'Developed content strategies for 10+ creator accounts, driving audience growth from zero to hundreds of thousands',
   },
   {
-    icon: MapPin,
-    label: '地点',
-    value: '深圳 / 可 relocate 上海',
-    href: null,
+    role: 'Social Media Manager',
+    company: 'Tech Startup',
+    period: '2020 - 2021',
+    desc: 'Managed multi-platform social media presence, creating viral content that achieved millions of views',
   },
 ];
 
-// 教育背景数据
-const education = [
-  {
-    school: '香港理工大学',
-    degree: 'China Business Studies / 硕士',
-    time: '2019.09 - 2020.09',
-    badge: 'QS 54',
-  },
-  {
-    school: '北京第二外国语学院',
-    degree: 'Hospitality Management / 本科',
-    time: '2015.09 - 2019.06',
-    badge: '双一流',
-  },
-];
-
-// 证书数据
-const certificates = [
-  '英语专八',
-  '雅思 7.5',
-  'GMAT 660',
-  'PMP (2A)',
+const contact = [
+  { label: 'Email', value: 'katrina.xie@outlook.com', href: 'mailto:katrina.xie@outlook.com' },
+  { label: 'Location', value: 'Shenzhen, China', href: null },
 ];
 
 export function Contact() {
+  const { ref, isVisible } = useInView(0.1);
+
   return (
-    <section id="contact" className="px-6 py-8 md:py-10">
-      <div className="max-w-4xl mx-auto">
-        {/* 主标题 */}
-        <h2 className="text-2xl font-bold text-foreground mb-6 text-center">
-          Win with Great Content — 与好内容互相成就
-        </h2>
+    <section className="relative py-16 md:py-20 px-4">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-0.5 gradient-bar rounded-full" aria-hidden="true" />
 
-        {/* 联系方式卡片网格 */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-          {contacts.map((contact, index) => {
-            const Icon = contact.icon;
-            const content = (
-              <div 
-                key={index}
-                className={`group p-4 rounded-lg border border-border bg-card/50 
-                  hover:border-primary/30 hover:bg-card transition-all duration-200
-                  ${contact.href ? 'cursor-pointer' : ''}`}
-              >
-                {/* 图标 */}
-                <Icon className="w-5 h-5 text-primary mb-2" />
-                {/* 标签 */}
-                <p className="text-xs text-muted-foreground mb-1">
-                  {contact.label}
-                </p>
-                {/* 值 */}
-                <p className="text-sm font-medium text-foreground truncate">
-                  {contact.value}
-                </p>
-              </div>
-            );
-
-            if (contact.href) {
-              return (
-                <a 
-                  key={index}
-                  href={contact.href}
-                  target={contact.href.startsWith('http') ? '_blank' : undefined}
-                  rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="block"
-                >
-                  {content}
-                </a>
-              );
-            }
-            return content;
-          })}
+      <div
+        ref={ref}
+        className="max-w-5xl mx-auto"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          transition: 'all 0.6s ease',
+        }}
+      >
+        {/* Contact Info */}
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            <span className="text-foreground">Let&apos;s </span>
+            <span className="gradient-text">Connect</span>
+          </h2>
+          <p className="text-muted-foreground text-sm">
+            Open to collaborations in content strategy and creator growth
+          </p>
         </div>
 
-        {/* 教育背景 */}
-        <div className="mb-4">
-          <h3 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-            <GraduationCap className="w-4 h-4 text-primary" />
-            教育背景
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {education.map((item, index) => (
-              <div 
-                key={index}
-                className="p-4 rounded-lg border border-border bg-card/50"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {/* Contact Cards */}
+          <div className="space-y-4">
+            {contact.map((item) => (
+              <div
+                key={item.label}
+                className="dual-tone-card hover-lift rounded-lg bg-card/60 p-4"
               >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-base font-semibold text-foreground mb-1">
-                      {item.school}
-                    </p>
-                    <p className="text-sm text-muted-foreground mb-1">
-                      {item.degree}
-                    </p>
-                    {item.time && (
-                      <p className="text-xs text-muted-foreground/70">
-                        {item.time}
-                      </p>
-                    )}
-                  </div>
-                  {item.badge && (
-                    <span className="text-xs px-2 py-1 rounded bg-primary/10 text-primary font-medium">
-                      {item.badge}
-                    </span>
-                  )}
+                <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
+                  {item.label}
                 </div>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <div className="text-sm font-medium text-foreground">{item.value}</div>
+                )}
               </div>
             ))}
           </div>
+
+          {/* Education */}
+          <div className="dual-tone-card hover-lift rounded-lg bg-card/60 p-4">
+            <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
+              Education
+            </div>
+            <div className="text-sm font-medium text-foreground">
+              Bachelor of Engineering
+            </div>
+            <div className="text-xs text-muted-foreground mt-1">
+              Computer Science & Technology
+            </div>
+          </div>
         </div>
 
-        {/* 证书 */}
+        {/* Experience Timeline */}
         <div>
-          <h3 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-            <Award className="w-4 h-4 text-primary" />
-            专业证书
+          <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-primary" />
+            Professional Experience
           </h3>
-          <div className="flex flex-wrap gap-2">
-            {certificates.map((cert, index) => (
-              <span 
-                key={index}
-                className="text-sm px-3 py-1.5 rounded-full border border-border bg-card/50 text-foreground"
+
+          <div className="relative pl-6 border-l border-border/50 space-y-8">
+            {experiences.map((exp, i) => (
+              <div
+                key={exp.role}
+                className="relative"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                  transition: `all 0.5s ease ${i * 150}ms`,
+                }}
               >
-                {cert}
-              </span>
+                {/* Timeline dot */}
+                <div className="absolute -left-[25px] top-1 w-3 h-3 rounded-full bg-primary/30 border-2 border-primary pulse-dot" />
+
+                <div className="dual-tone-card hover-lift rounded-lg bg-card/40 p-4">
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <span className="text-sm font-semibold text-foreground">{exp.role}</span>
+                    <span className="text-xs text-muted-foreground">at {exp.company}</span>
+                  </div>
+                  <div className="text-xs text-primary/70 mb-2">{exp.period}</div>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{exp.desc}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>

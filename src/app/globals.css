@@ -3,62 +3,62 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* 深蓝主题配色 - 必须在 @theme inline 之前定义 */
+/* 深蓝黑科技感主题 */
 :root {
-  --radius: 0.5rem;
-  
-  /* 主背景色 - 深蓝 */
-  --background: #0f172a;
+  --radius: 0.75rem;
+
+  /* 主背景色 - 深蓝黑 */
+  --background: #050a14;
   --foreground: #e2e8f0;
-  
+
   /* 卡片背景 */
-  --card: #1e293b;
+  --card: #0a1120;
   --card-foreground: #e2e8f0;
-  
+
   /* 弹出层 */
-  --popover: #1e293b;
+  --popover: #0a1120;
   --popover-foreground: #e2e8f0;
-  
-  /* 主色调 - 蓝色点缀 */
-  --primary: #3b82f6;
-  --primary-foreground: #0f172a;
-  
+
+  /* 主色调 - 蓝绿渐变 */
+  --primary: #00d4ff;
+  --primary-foreground: #050a14;
+
   /* 次要色 */
-  --secondary: #334155;
+  --secondary: #131d30;
   --secondary-foreground: #e2e8f0;
-  
+
   /* 柔和色 */
-  --muted: #334155;
+  --muted: #131d30;
   --muted-foreground: #94a3b8;
-  
+
   /* 强调色 */
-  --accent: #3b82f6;
-  --accent-foreground: #0f172a;
-  
+  --accent: #00ff88;
+  --accent-foreground: #050a14;
+
   /* 警告色 */
   --destructive: #ef4444;
-  
+
   /* 边框和输入框 */
-  --border: #334155;
-  --input: #334155;
-  --ring: #3b82f6;
-  
+  --border: rgba(0, 212, 255, 0.15);
+  --input: #131d30;
+  --ring: #00d4ff;
+
   /* 图表色 */
-  --chart-1: #3b82f6;
-  --chart-2: #60a5fa;
-  --chart-3: #2563eb;
-  --chart-4: #1d4ed8;
-  --chart-5: #1e40af;
-  
+  --chart-1: #00d4ff;
+  --chart-2: #00ff88;
+  --chart-3: #0ea5e9;
+  --chart-4: #06b6d4;
+  --chart-5: #10b981;
+
   /* 侧边栏 */
-  --sidebar: #1e293b;
+  --sidebar: #0a1120;
   --sidebar-foreground: #e2e8f0;
-  --sidebar-primary: #3b82f6;
-  --sidebar-primary-foreground: #0f172a;
-  --sidebar-accent: #334155;
+  --sidebar-primary: #00d4ff;
+  --sidebar-primary-foreground: #050a14;
+  --sidebar-accent: #131d30;
   --sidebar-accent-foreground: #e2e8f0;
-  --sidebar-border: #334155;
-  --sidebar-ring: #3b82f6;
+  --sidebar-border: rgba(0, 212, 255, 0.15);
+  --sidebar-ring: #00d4ff;
 }
 
 @theme inline {
@@ -100,15 +100,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  
-  /* Custom colors for portfolio - 腾讯青腾面试 */
-  --color-accent-blue: #3b82f6;
-  --color-bg-dark: #0f172a;
-  --color-bg-card: #1e293b;
-  --color-text-light: #e2e8f0;
-  --color-text-muted: #94a3b8;
-  --color-border-custom: #334155;
-  
+
   --font-sans:
     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB',
@@ -133,29 +125,21 @@ body {
 
 /* 自定义滚动条 */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #050a14;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 4px;
+  background: rgba(0, 212, 255, 0.2);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
-}
-
-/* 图片容器 - 禁止裁剪，保持原始比例 */
-.img-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  background: rgba(0, 212, 255, 0.4);
 }
 
 /* ========== 动态视觉效果 ========== */
@@ -165,11 +149,11 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(59, 130, 246, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
   animation: gridMove 20s linear infinite;
 }
 
@@ -178,21 +162,20 @@ body {
   100% { background-position: 60px 60px; }
 }
 
-/* 网格背景上的光晕效果 */
 .grid-bg::after {
   content: '';
   position: absolute;
   inset: 0;
   background: radial-gradient(
     600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(59, 130, 246, 0.08),
+    rgba(0, 212, 255, 0.06),
     transparent 40%
   );
 }
 
-/* 蓝绿拼色渐变条 */
+/* 蓝绿渐变条 */
 .gradient-bar {
-  background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #10b981 100%);
+  background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
   background-size: 200% 200%;
   animation: gradientShift 6s ease infinite;
 }
@@ -201,6 +184,14 @@ body {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* 蓝绿渐变文字 */
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* 下滑箭头动画 */
@@ -213,7 +204,7 @@ body {
   50% { transform: translateY(8px); opacity: 1; }
 }
 
-/* 数字滚动 - 翻转效果 */
+/* 数字滚动 */
 .number-flip {
   display: inline-block;
   animation: numberFlip 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
@@ -230,7 +221,6 @@ body {
   }
 }
 
-/* 数字逐个出现的延迟效果 */
 .number-stagger > span {
   opacity: 0;
   animation: numberAppear 0.4s ease forwards;
@@ -247,7 +237,7 @@ body {
   }
 }
 
-/* 蓝绿拼色卡片背景 */
+/* 蓝绿渐变边框卡片 */
 .dual-tone-card {
   position: relative;
   overflow: hidden;
@@ -259,8 +249,8 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #3b82f6, #06b6d4, #10b981);
+  height: 2px;
+  background: linear-gradient(90deg, #00d4ff, #00ff88);
   background-size: 200% 100%;
   animation: gradientShift 4s ease infinite;
 }
@@ -292,7 +282,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: rgba(59, 130, 246, 0.3);
+  background: rgba(0, 212, 255, 0.3);
   animation: float 8s ease-in-out infinite;
 }
 
@@ -301,4 +291,89 @@ body {
   25% { transform: translate(30px, -40px) scale(1.2); opacity: 0.6; }
   50% { transform: translate(-20px, -80px) scale(0.8); opacity: 0.4; }
   75% { transform: translate(40px, -40px) scale(1.1); opacity: 0.5; }
+}
+
+/* 滚动入场动画 */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 图片容器 - contain模式 */
+.img-contain {
+  background: #0a0a0a;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.img-contain img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+/* 视频容器 */
+.video-container {
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 卡片悬浮效果 */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.1);
+}
+
+/* 渐变边框 */
+.gradient-border {
+  position: relative;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.05));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1px;
+  pointer-events: none;
+}
+
+/* 背景视频覆盖 */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 10, 20, 0.7) 0%,
+    rgba(5, 10, 20, 0.5) 50%,
+    rgba(5, 10, 20, 0.8) 100%
+  );
 }
