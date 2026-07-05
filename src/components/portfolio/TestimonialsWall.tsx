@@ -4,20 +4,20 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const testimonials = [
-  { id: 1, url: '/assets/testimonials/testimonial_1.png' },
-  { id: 2, url: '/assets/testimonials/testimonial_2.png' },
-  { id: 3, url: '/assets/testimonials/testimonial_3.png' },
-  { id: 4, url: '/assets/testimonials/testimonial_4.png' },
-  { id: 5, url: '/assets/testimonials/testimonial_5.png' },
-  { id: 6, url: '/assets/testimonials/testimonial_6.png' },
-  { id: 7, url: '/assets/testimonials/testimonial_7.png' },
-  { id: 8, url: '/assets/testimonials/testimonial_8.png' },
-  { id: 9, url: '/assets/testimonials/testimonial_9.png' },
-  { id: 10, url: '/assets/testimonials/testimonial_10.png' },
-  { id: 11, url: '/assets/testimonials/ai_fastcamp_testimonial3.png' },
-  { id: 12, url: '/assets/testimonials/business_model_homework.png' },
-  { id: 13, url: '/assets/testimonials/ai_fastcamp_testimonial1.png' },
-  { id: 14, url: '/assets/testimonials/ai_fastcamp_testimonial2.png' },
+  { id: 1, url: '/assets/testimonials/testimonial_1.png', alt: 'TikTok 120万+粉丝数据截图' },
+  { id: 2, url: '/assets/testimonials/testimonial_2.png', alt: 'Instagram 85万+粉丝数据截图' },
+  { id: 3, url: '/assets/testimonials/testimonial_3.png', alt: 'YouTube 55万+粉丝数据截图' },
+  { id: 4, url: '/assets/testimonials/testimonial_4.png', alt: 'Facebook 25万+粉丝数据截图' },
+  { id: 5, url: '/assets/testimonials/testimonial_5.png', alt: '独立站8万+点击数据截图' },
+  { id: 6, url: '/assets/testimonials/testimonial_6.png', alt: 'LTV/CAC>3业务数据截图' },
+  { id: 7, url: '/assets/testimonials/testimonial_7.png', alt: '月均1600+条发布量数据截图' },
+  { id: 8, url: '/assets/testimonials/testimonial_8.png', alt: '单月15万自然涨粉数据截图' },
+  { id: 9, url: '/assets/testimonials/testimonial_9.png', alt: '75条10万+爆款数据截图' },
+  { id: 10, url: '/assets/testimonials/testimonial_10.png', alt: '33账号矩阵总览截图' },
+  { id: 11, url: '/assets/testimonials/ai_fastcamp_testimonial3.png', alt: '内容分层策略执行数据' },
+  { id: 12, url: '/assets/testimonials/business_model_homework.png', alt: '转化漏斗优化数据' },
+  { id: 13, url: '/assets/testimonials/ai_fastcamp_testimonial1.png', alt: '自然流起号效果数据' },
+  { id: 14, url: '/assets/testimonials/ai_fastcamp_testimonial2.png', alt: '社媒矩阵增长曲线' },
 ];
 
 export function TestimonialsWall() {
@@ -54,7 +54,7 @@ export function TestimonialsWall() {
             >
               <Image
                 src={item.url}
-                alt={`学员证言 ${item.id}`}
+                alt={item.alt}
                 width={400}
                 height={0}
                 className="w-full h-auto object-contain"
@@ -80,7 +80,7 @@ export function TestimonialsWall() {
               </button>
               <Image
                 src={selectedImage}
-                alt="学员证言大图"
+                alt="增长数据大图"
                 width={800}
                 height={1000}
                 className="w-full h-auto max-h-[90vh] object-contain rounded-lg"
