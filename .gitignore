@@ -163,3 +163,8 @@ Desktop.ini
 # Misc
 .coze-logs
 .codegraph/
+
+# Media files - hosted via R2 CDN, not tracked by git
+public/videos/
+public/assets/photos/-1282016008_1783273571277_4_3ju4.png
+public/assets/photos/1507530667_1783273571277_5_23i2.png
