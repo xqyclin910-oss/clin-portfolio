@@ -6,8 +6,6 @@ import {
   Philosophy,
   ProjectGallery,
   Experts,
-  BlogSection,
-  TestimonialsWall,
   Contact,
   Experience,
   FunSection,
@@ -44,16 +42,6 @@ export default function Home() {
       {/* 合作专家 */}
       <section id="experts">
         <Experts />
-      </section>
-      
-      {/* 博客文章区 */}
-      <section id="blog">
-        <BlogSection />
-      </section>
-      
-      {/* 学员案例照片墙 */}
-      <section id="testimonials">
-        <TestimonialsWall />
       </section>
       
       {/* 联系方式 */}

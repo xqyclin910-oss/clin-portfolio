@@ -7,8 +7,6 @@ const navItems = [
   { id: 'philosophy', label: '内容策略' },
   { id: 'products', label: '项目成果' },
   { id: 'experts', label: 'Creator合作' },
-  { id: 'blog', label: '博客' },
-  { id: 'testimonials', label: '增长数据' },
   { id: 'contact', label: '联系我' },
   { id: 'experience', label: '职业经历' },
 ];

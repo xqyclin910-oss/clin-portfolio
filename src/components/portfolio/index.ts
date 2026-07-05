@@ -5,8 +5,6 @@ export { Experience } from './Experience';
 export { Philosophy } from './Philosophy';
 export { ProjectGallery } from './ProjectGallery';
 export { Experts } from './Experts';
-export { BlogSection } from './BlogSection';
-export { TestimonialsWall } from './TestimonialsWall';
 export { Contact } from './Contact';
 export { FunSection } from './FunSection';
 export { DocumentPreview } from './DocumentPreview';
