@@ -18,7 +18,7 @@ const shortFormVideos = [
 
 // 长视频 Long-Form - 3个
 const longFormVideos = [
-  { src: '/videos/showreel-compressed.mp4', label: '作品集混剪 Showreel' },
+  { src: '/videos/showreel-compressed.mp4', label: 'QingYun IP广告片 QingYun IP Ad Film' },
   { src: '/videos/kyuan-brand-film.mp4', label: 'Kyran IP理念片 Kyran IP Concept Film' },
   { src: '/videos/independent-site-promo.mp4', label: '独立站宣传 Independent Site Promo' },
 ];
