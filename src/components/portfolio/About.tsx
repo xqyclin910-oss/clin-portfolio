@@ -32,7 +32,7 @@ export default function About() {
             <div className="relative w-[240px] h-[240px] md:w-[280px] md:h-[280px] rounded-full overflow-hidden border-2 border-[#00d4ff]/30">
               <Image
                 src="/assets/photos/portrait.jpg"
-                alt="Katrina Xie - 谢秋阳"
+                alt="XIE Qiuyang - 谢秋阳"
                 fill
                 className="object-cover"
                 sizes="280px"
@@ -44,7 +44,7 @@ export default function About() {
           <div className="flex-1 text-center md:text-left">
             {/* Name */}
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              谢秋阳 <span className="text-[#00d4ff]">Katrina Xie</span>
+              谢秋阳 <span className="text-[#00d4ff]">XIE Qiuyang</span>
             </h2>
 
             {/* Tags with gradient */}
