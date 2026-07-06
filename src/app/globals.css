@@ -307,13 +307,14 @@ body {
 
 /* 图片容器 - contain模式 */
 .img-contain {
-  background: #0a0a0a;
+  background: #050a14;
   padding: 8px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 }
 
 .img-contain img {
@@ -324,10 +325,13 @@ body {
 
 /* 视频容器 */
 .video-container {
-  background: #000;
+  background: #050a14;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .video-container video {

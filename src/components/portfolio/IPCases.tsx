@@ -94,7 +94,7 @@ function CaseCard({ caseItem, index }: { caseItem: typeof cases[0]; index: numbe
         </div>
 
         {/* 数据截图 */}
-        <div className="img-contain aspect-[4/3]">
+        <div className="img-contain" style={{ minHeight: '180px' }}>
           <Image
             src={caseItem.image}
             alt={`${caseItem.name} data`}
@@ -114,21 +114,24 @@ function ScreenshotCard({ item, index }: { item: typeof caseScreenshots[0]; inde
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="img-contain aspect-[4/3] hover-lift"
+      className="img-contain hover-lift flex flex-col"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: `all 0.5s ease ${index * 100}ms`,
+        minHeight: '160px',
       }}
     >
-      <Image
-        src={item.src}
-        alt={item.label}
-        fill
-        className="object-contain"
-        sizes="(max-width: 768px) 50vw, 20vw"
-      />
-      <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-transparent">
+      <div className="flex-1 relative w-full flex items-center justify-center">
+        <Image
+          src={item.src}
+          alt={item.label}
+          fill
+          className="object-contain"
+          sizes="(max-width: 768px) 50vw, 20vw"
+        />
+      </div>
+      <div className="p-2 bg-card/40 border-t border-white/5 w-full">
         <span className="text-xs text-white/90 font-medium">{item.label}</span>
         <span className="text-[10px] text-white/50 italic ml-1">{item.labelEn}</span>
       </div>

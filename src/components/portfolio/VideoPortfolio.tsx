@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import { useInView } from '@/hooks/useAnimations';
 
-// 短视频 Short-Form (16:9容器) - 10个
+// 短视频 Short-Form - 10个
 const shortFormVideos = [
   { src: '/videos/showreel-compressed.mp4', label: '作品集混剪 Showreel' },
   { src: '/videos/brand-feed-digital-human.mp4', label: '氛围感剪辑' },
@@ -17,7 +17,7 @@ const shortFormVideos = [
   { src: '/videos/rejection-guy.mp4', label: 'TED千万播放Rejection Guy个人故事' },
 ];
 
-// 长视频 Long-Form (4:3容器) - 2个
+// 长视频 Long-Form - 2个
 const longFormVideos = [
   { src: '/videos/kyuan-brand-film.mp4', label: 'IP广告片' },
   { src: '/videos/independent-site-promo.mp4', label: '独立站宣传 | TAICHI YOUNG' },
@@ -40,22 +40,23 @@ function ShortVideoCard({ src, label }: { src: string; label: string }) {
 
   return (
     <div
-      className="video-container hover-lift group"
-      style={{ aspectRatio: '16/9' }}
+      className="video-container hover-lift group flex flex-col"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <video
-        ref={videoRef}
-        src={src}
-        muted
-        loop
-        playsInline
-        controls
-        className="w-full h-full object-contain"
-      />
-      <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-transparent">
-        <span className="text-xs text-white/90 font-medium">{label}</span>
+      <div className="flex-1 flex items-center justify-center p-2">
+        <video
+          ref={videoRef}
+          src={src}
+          muted
+          loop
+          playsInline
+          controls
+          className="max-h-[240px] w-auto max-w-full object-contain rounded"
+        />
+      </div>
+      <div className="p-2 bg-card/40 border-t border-white/5">
+        <span className="text-xs text-white/90 font-medium line-clamp-2">{label}</span>
       </div>
     </div>
   );
@@ -78,21 +79,22 @@ function LongVideoCard({ src, label }: { src: string; label: string }) {
 
   return (
     <div
-      className="video-container hover-lift group"
-      style={{ aspectRatio: '4/3' }}
+      className="video-container hover-lift group flex flex-col"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <video
-        ref={videoRef}
-        src={src}
-        muted
-        loop
-        playsInline
-        controls
-        className="w-full h-full object-contain"
-      />
-      <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+      <div className="flex-1 flex items-center justify-center p-3">
+        <video
+          ref={videoRef}
+          src={src}
+          muted
+          loop
+          playsInline
+          controls
+          className="max-h-[320px] w-auto max-w-full object-contain rounded"
+        />
+      </div>
+      <div className="p-3 bg-card/40 border-t border-white/5">
         <span className="text-sm text-white/90 font-medium">{label}</span>
       </div>
     </div>
@@ -133,7 +135,7 @@ export function VideoPortfolio() {
             短视频
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Short-Form Content</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
             {shortFormVideos.map((v) => (
               <ShortVideoCard key={v.src} {...v} />
             ))}
@@ -147,7 +149,7 @@ export function VideoPortfolio() {
             长视频
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Long-Form Content</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {longFormVideos.map((v) => (
               <LongVideoCard key={v.src} {...v} />
             ))}

@@ -65,7 +65,7 @@ export function ContentOps() {
                 transition: `all 0.5s ease ${i * 100}ms`,
               }}
             >
-              <div className="img-contain aspect-[4/3]">
+              <div className="img-contain" style={{ minHeight: '180px' }}>
                 <Image
                   src={item.src}
                   alt={item.title}
