@@ -3,7 +3,7 @@
 import { useInView, useCountUp } from '@/hooks/useAnimations';
 
 const metrics = [
-  { value: 43285, label: 'Revenue', prefix: '$', decimals: 0 },
+  { value: 43285, label: 'Revenue', prefix: '$', suffix: '/mo', decimals: 0 },
   { value: 83172, label: 'Visitors', prefix: '', decimals: 0 },
   { value: 0.53, label: 'Conversion', prefix: '', suffix: '%', decimals: 2 },
 ];
@@ -13,7 +13,7 @@ function MetricItem({ metric, index, isVisible }: { metric: typeof metrics[0]; i
 
   const formatValue = () => {
     if (metric.decimals === 0) {
-      return metric.prefix + Math.round(count).toLocaleString();
+      return metric.prefix + Math.round(count).toLocaleString() + (metric.suffix || '');
     }
     return metric.prefix + count.toFixed(metric.decimals) + (metric.suffix || '');
   };
