@@ -114,26 +114,25 @@ function ScreenshotCard({ item, index }: { item: typeof caseScreenshots[0]; inde
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="img-contain hover-lift flex flex-col"
+      className="hover-lift flex flex-col bg-[#0a1120] rounded-lg overflow-hidden border border-border/10"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: `all 0.5s ease ${index * 100}ms`,
-        minHeight: '160px',
+        maxWidth: '160px',
       }}
     >
-      <div className="flex-1 relative w-full flex items-center justify-center">
+      <div className="relative w-full flex items-center justify-center" style={{ height: '140px', background: '#050a14' }}>
         <Image
           src={item.src}
           alt={item.label}
           fill
-          className="object-contain"
-          sizes="(max-width: 768px) 50vw, 20vw"
+          className="object-contain p-1"
+          sizes="160px"
         />
       </div>
-      <div className="p-2 bg-card/40 border-t border-white/5 w-full">
-        <span className="text-xs text-white/90 font-medium">{item.label}</span>
-        <span className="text-[10px] text-white/50 italic ml-1">{item.labelEn}</span>
+      <div className="p-1.5 bg-[#0a1120] border-t border-white/5 w-full">
+        <span className="text-[10px] text-white/90 font-medium block truncate">{item.label}</span>
       </div>
     </div>
   );
@@ -146,7 +145,7 @@ export function IPCases() {
     <section className="relative py-16 md:py-20 px-4">
       <div
         ref={ref}
-        className="max-w-6xl mx-auto"
+        className="max-w-7xl mx-auto"
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -178,7 +177,7 @@ export function IPCases() {
             更多案例数据截图
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">More Case Data Screenshots</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 justify-items-center">
             {caseScreenshots.map((item, i) => (
               <ScreenshotCard key={item.src} item={item} index={i} />
             ))}

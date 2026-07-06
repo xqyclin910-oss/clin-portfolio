@@ -40,11 +40,11 @@ function ShortVideoCard({ src, label }: { src: string; label: string }) {
 
   return (
     <div
-      className="video-container hover-lift group flex flex-col"
+      className="video-card hover-lift group flex flex-col bg-[#0a1120] rounded-lg overflow-hidden border border-border/20"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="flex-1 flex items-center justify-center p-2">
+      <div className="relative flex items-center justify-center" style={{ minHeight: '200px', maxHeight: '280px', background: '#050a14' }}>
         <video
           ref={videoRef}
           src={src}
@@ -52,10 +52,10 @@ function ShortVideoCard({ src, label }: { src: string; label: string }) {
           loop
           playsInline
           controls
-          className="max-h-[240px] w-auto max-w-full object-contain rounded"
+          className="max-h-[280px] w-auto max-w-full object-contain"
         />
       </div>
-      <div className="p-2 bg-card/40 border-t border-white/5">
+      <div className="p-3 bg-[#0a1120] border-t border-border/10">
         <span className="text-xs text-white/90 font-medium line-clamp-2">{label}</span>
       </div>
     </div>
@@ -79,11 +79,11 @@ function LongVideoCard({ src, label }: { src: string; label: string }) {
 
   return (
     <div
-      className="video-container hover-lift group flex flex-col"
+      className="video-card hover-lift group flex flex-col bg-[#0a1120] rounded-lg overflow-hidden border border-border/20"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="flex-1 flex items-center justify-center p-3">
+      <div className="relative flex items-center justify-center" style={{ minHeight: '240px', maxHeight: '360px', background: '#050a14' }}>
         <video
           ref={videoRef}
           src={src}
@@ -91,10 +91,10 @@ function LongVideoCard({ src, label }: { src: string; label: string }) {
           loop
           playsInline
           controls
-          className="max-h-[320px] w-auto max-w-full object-contain rounded"
+          className="max-h-[360px] w-auto max-w-full object-contain"
         />
       </div>
-      <div className="p-3 bg-card/40 border-t border-white/5">
+      <div className="p-3 bg-[#0a1120] border-t border-border/10">
         <span className="text-sm text-white/90 font-medium">{label}</span>
       </div>
     </div>
@@ -105,53 +105,58 @@ export function VideoPortfolio() {
   const { ref, isVisible } = useInView(0.1);
 
   return (
-    <section className="relative py-16 md:py-20 px-4">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-0.5 gradient-bar rounded-full" aria-hidden="true" />
+    <section
+      ref={ref as React.RefObject<HTMLElement>}
+      id="portfolio"
+      className="relative py-16 md:py-20 overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-4">
+        {/* 标题 */}
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2 flex items-center justify-center gap-3">
+            <span className="w-3 h-3 rounded-full bg-primary" />
+            视频作品集
+          </h2>
+          <p className="text-muted-foreground/60 italic text-sm">Content Portfolio</p>
+        </div>
 
-      <div
-        ref={ref}
-        className="max-w-6xl mx-auto"
-        style={{
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-          transition: 'all 0.6s ease',
-        }}
-      >
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-1">
-          <span className="text-foreground">内容</span>
-          <span className="gradient-text">作品集</span>
-        </h2>
-        <p className="text-muted-foreground/60 italic text-center text-sm mb-1">
-          Content Portfolio
-        </p>
-        <p className="text-muted-foreground text-center text-sm mb-10">
-          悬停预览 · Hover to preview
-        </p>
-
-        {/* 短视频 Short-Form */}
-        <div className="mb-12">
+        {/* 短视频 */}
+        <div
+          className="mb-12"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.6s ease',
+          }}
+        >
           <h3 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-primary" />
             短视频
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Short-Form Content</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
-            {shortFormVideos.map((v) => (
-              <ShortVideoCard key={v.src} {...v} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {shortFormVideos.map((video, index) => (
+              <ShortVideoCard key={video.src} {...video} />
             ))}
           </div>
         </div>
 
-        {/* 长视频 Long-Form */}
-        <div>
+        {/* 长视频 */}
+        <div
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.6s ease 0.2s',
+          }}
+        >
           <h3 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-accent" />
+            <span className="w-2 h-2 rounded-full bg-primary" />
             长视频
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Long-Form Content</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-            {longFormVideos.map((v) => (
-              <LongVideoCard key={v.src} {...v} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {longFormVideos.map((video, index) => (
+              <LongVideoCard key={video.src} {...video} />
             ))}
           </div>
         </div>

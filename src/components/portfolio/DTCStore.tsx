@@ -46,8 +46,10 @@ function ScreenshotCard({ item, index }: { item: typeof shopifyScreenshots[0]; i
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="img-contain aspect-[4/3] hover-lift"
+      className="relative overflow-hidden rounded-lg border border-border/20 hover-lift"
       style={{
+        height: '200px',
+        backgroundColor: '#050a14',
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: `all 0.5s ease ${index * 100}ms`,
@@ -57,7 +59,7 @@ function ScreenshotCard({ item, index }: { item: typeof shopifyScreenshots[0]; i
         src={item.src}
         alt={item.label}
         fill
-        className="object-contain"
+        className="object-contain p-2"
         sizes="(max-width: 768px) 50vw, 25vw"
       />
       <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-transparent">
@@ -89,7 +91,7 @@ export function DTCStore() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#050a14] via-[#050a14]/90 to-[#050a14]" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
         {/* 标题 */}
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2 flex items-center justify-center gap-3">
@@ -133,7 +135,7 @@ export function DTCStore() {
         </div>
 
         {/* Shopify截图展示 */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {shopifyScreenshots.map((item, index) => (
             <ScreenshotCard key={item.src} item={item} index={index} />
           ))}
