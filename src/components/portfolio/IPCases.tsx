@@ -114,25 +114,25 @@ function ScreenshotCard({ item, index }: { item: typeof caseScreenshots[0]; inde
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="hover-lift flex flex-col bg-[#0a1120] rounded-lg overflow-hidden border border-border/10"
+      className="flex flex-col bg-[#0a1120] rounded-xl overflow-hidden border border-[#00d4ff]/15 transition-transform duration-300 hover:scale-105 hover:border-[#00d4ff]/30"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: `all 0.5s ease ${index * 100}ms`,
-        maxWidth: '180px',
       }}
     >
-      <div className="relative w-full flex items-center justify-center" style={{ minHeight: '120px', background: '#050a14' }}>
+      <div className="relative w-full aspect-[4/3] flex items-center justify-center" style={{ background: '#050a14' }}>
         <Image
           src={item.src}
           alt={item.label}
           fill
-          className="object-contain p-1"
-          sizes="180px"
+          className="object-contain p-2"
+          sizes="(max-width: 640px) 50vw, 33vw"
         />
       </div>
-      <div className="p-1.5 bg-[#0a1120] border-t border-white/5 w-full">
-        <span className="text-[10px] text-white/90 font-medium block truncate">{item.label}</span>
+      <div className="p-2.5 bg-[#0a1120] border-t border-white/5 w-full">
+        <span className="text-xs text-white/90 font-medium block truncate">{item.label}</span>
+        <span className="text-[10px] text-white/50 block truncate">{item.labelEn}</span>
       </div>
     </div>
   );
@@ -177,7 +177,7 @@ export function IPCases() {
             更多案例数据截图
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">More Case Data Screenshots</p>
-          <div className="flex flex-wrap gap-3 justify-start">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {caseScreenshots.map((item, i) => (
               <ScreenshotCard key={item.src} item={item} index={i} />
             ))}
