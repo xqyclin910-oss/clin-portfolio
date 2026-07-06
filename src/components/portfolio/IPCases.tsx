@@ -44,7 +44,7 @@ const cases = [
       { name: 'Facebook', fans: '11.1万' },
       { name: 'TikTok', fans: '9.5万' },
     ],
-    image: '/assets/photos/qingyun-case.jpg',
+    image: '/assets/photos/case-account-3.png',
   },
 ];
 
@@ -126,7 +126,7 @@ function ScreenshotCard({ item, index }: { item: typeof caseScreenshots[0]; inde
           src={item.src}
           alt={item.label}
           fill
-          className="object-cover"
+          className="object-contain"
           sizes="(max-width: 640px) 50vw, 33vw"
         />
       </div>
