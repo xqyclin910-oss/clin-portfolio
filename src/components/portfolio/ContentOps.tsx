@@ -36,7 +36,7 @@ export function ContentOps() {
 
       <div
         ref={ref}
-        className="max-w-7xl mx-auto"
+        className="max-w-[1400px] mx-auto"
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',

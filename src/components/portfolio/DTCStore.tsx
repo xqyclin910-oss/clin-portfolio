@@ -91,7 +91,7 @@ export function DTCStore() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#050a14] via-[#050a14]/90 to-[#050a14]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4">
         {/* 标题 */}
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2 flex items-center justify-center gap-3">

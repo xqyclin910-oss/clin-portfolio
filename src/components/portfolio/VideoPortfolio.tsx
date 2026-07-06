@@ -3,7 +3,6 @@
 import { useRef, useState } from 'react';
 import { useInView } from '@/hooks/useAnimations';
 
-// 短视频 Short-Form - 9个
 const shortFormVideos = [
   { src: '/videos/brand-feed-digital-human.mp4', label: '品牌向信息流（含数字人）Brand Feed with Digital Human' },
   { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流 Social Trending Feed' },
@@ -16,7 +15,6 @@ const shortFormVideos = [
   { src: '/videos/rejection-guy.mp4', label: 'TED千万播放Rejection Guy个人故事' },
 ];
 
-// 长视频 Long-Form - 3个
 const longFormVideos = [
   { src: '/videos/showreel-compressed.mp4', label: 'QingYun IP广告片 QingYun IP Ad Film' },
   { src: '/videos/kyuan-brand-film.mp4', label: 'Kyran IP理念片 Kyran IP Concept Film' },
@@ -41,6 +39,7 @@ function ShortVideoCard({ src, label }: { src: string; label: string }) {
   return (
     <div
       className="video-card hover-lift group flex flex-col bg-[#0a1120] rounded-lg overflow-hidden border border-border/20"
+      style={{ maxWidth: '220px', width: '100%' }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -80,10 +79,11 @@ function LongVideoCard({ src, label }: { src: string; label: string }) {
   return (
     <div
       className="video-card hover-lift group flex flex-col bg-[#0a1120] rounded-lg overflow-hidden border border-border/20"
+      style={{ maxWidth: '380px', width: '100%' }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative flex items-center justify-center" style={{ minHeight: '240px', maxHeight: '360px', background: '#050a14' }}>
+      <div className="relative flex items-center justify-center" style={{ minHeight: '220px', maxHeight: '300px', background: '#050a14' }}>
         <video
           ref={videoRef}
           src={src}
@@ -91,7 +91,7 @@ function LongVideoCard({ src, label }: { src: string; label: string }) {
           loop
           playsInline
           controls
-          className="max-h-[360px] w-auto max-w-full object-contain"
+          className="max-h-[300px] w-auto max-w-full object-contain"
         />
       </div>
       <div className="p-3 bg-[#0a1120] border-t border-border/10">
@@ -110,7 +110,7 @@ export function VideoPortfolio() {
       id="portfolio"
       className="relative py-16 md:py-20 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-[1400px] mx-auto px-4">
         {/* 标题 */}
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2 flex items-center justify-center gap-3">
@@ -134,7 +134,7 @@ export function VideoPortfolio() {
             短视频
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Short-Form Content</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="flex flex-wrap gap-4 justify-center">
             {shortFormVideos.map((video, index) => (
               <ShortVideoCard key={video.src} {...video} />
             ))}
@@ -154,7 +154,7 @@ export function VideoPortfolio() {
             长视频
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Long-Form Content</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="flex flex-wrap gap-4 justify-center">
             {longFormVideos.map((video, index) => (
               <LongVideoCard key={video.src} {...video} />
             ))}
