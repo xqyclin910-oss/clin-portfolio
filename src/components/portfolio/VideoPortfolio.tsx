@@ -3,39 +3,27 @@
 import { useRef, useState } from 'react';
 import { useInView } from '@/hooks/useAnimations';
 
-// 秋阳外网口播 (2个)
-const qiuyangOral = [
-  { src: '/videos/katrina-xie-tiktok.mp4', label: '秋阳外网口播 | Katrina Xie', labelEn: 'Qiuyang Oral | Katrina Xie' },
-  { src: '/videos/qyoutlaw-tiktok.mp4', label: '秋阳外网口播 | QYoutlaw', labelEn: 'Qiuyang Oral | QYoutlaw' },
+// 短视频 Short-Form (16:9容器) - 10个
+const shortFormVideos = [
+  { src: '/videos/showreel-compressed.mp4', label: '作品集混剪 Showreel' },
+  { src: '/videos/brand-feed-digital-human.mp4', label: '氛围感剪辑' },
+  { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流' },
+  { src: '/videos/katrina-xie-tiktok.mp4', label: '秋阳外网口播' },
+  { src: '/videos/qyoutlaw-tiktok.mp4', label: '秋阳外网口播' },
+  { src: '/videos/2-books-steve-hoffman.mp4', label: '话题对标自然流百万播放爆款' },
+  { src: '/videos/3-boring-jobs-steve-hoffman.mp4', label: '精准预测自然流百万播放爆款 | 单条涨粉2万' },
+  { src: '/videos/6-things-matt.mp4', label: '争议性话题起号爆款：职场逃离6个信号' },
+  { src: '/videos/pitch-deck-steve-hoffman.mp4', label: '达人孵化内容' },
+  { src: '/videos/rejection-guy.mp4', label: 'TED千万播放Rejection Guy个人故事' },
 ];
 
-// 达人孵化内容 (5个)
-const creatorContent = [
-  { src: '/videos/2-books-steve-hoffman.mp4', label: '达人内容 | Steve Hoffman', labelEn: 'Creator Content | Steve Hoffman' },
-  { src: '/videos/3-boring-jobs-steve-hoffman.mp4', label: '达人内容 | Steve Hoffman', labelEn: 'Creator Content | Steve Hoffman' },
-  { src: '/videos/6-things-matt.mp4', label: '达人内容 | Matt', labelEn: 'Creator Content | Matt' },
-  { src: '/videos/pitch-deck-steve-hoffman.mp4', label: '达人内容 | Steve Hoffman', labelEn: 'Creator Content | Steve Hoffman' },
-  { src: '/videos/rejection-guy.mp4', label: '达人内容 | The Rejection Guy', labelEn: 'Creator Content | The Rejection Guy' },
+// 长视频 Long-Form (4:3容器) - 2个
+const longFormVideos = [
+  { src: '/videos/kyuan-brand-film.mp4', label: 'IP广告片' },
+  { src: '/videos/independent-site-promo.mp4', label: '独立站宣传 | TAICHI YOUNG' },
 ];
 
-// 品牌与独立站 (3个)
-const brandContent = [
-  { src: '/videos/brand-feed-digital-human.mp4', label: '品牌信息流 | Digital Human', labelEn: 'Brand Feed | Digital Human' },
-  { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流', labelEn: 'Social Trending Feed' },
-  { src: '/videos/independent-site-promo.mp4', label: '独立站宣传 | TAICHI YOUNG', labelEn: 'DTC Store Promo | TAICHI YOUNG' },
-];
-
-// 作品集混剪 (1个)
-const showreel = [
-  { src: '/videos/showreel-compressed.mp4', label: '作品集混剪 | Showreel', labelEn: 'Portfolio Showreel' },
-];
-
-// 长视频 - 品牌片 (1个)
-const longForm = [
-  { src: '/videos/kyuan-brand-film.mp4', label: '凯源品牌片 | Kyuan Brand Film', labelEn: 'Kyuan Brand Film' },
-];
-
-function VideoCard({ src, label, labelEn, aspect }: { src: string; label: string; labelEn: string; aspect: '16/9' | '4/3' }) {
+function ShortVideoCard({ src, label }: { src: string; label: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -53,7 +41,7 @@ function VideoCard({ src, label, labelEn, aspect }: { src: string; label: string
   return (
     <div
       className="video-container hover-lift group"
-      style={{ aspectRatio: aspect }}
+      style={{ aspectRatio: '16/9' }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -68,30 +56,44 @@ function VideoCard({ src, label, labelEn, aspect }: { src: string; label: string
       />
       <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-transparent">
         <span className="text-xs text-white/90 font-medium">{label}</span>
-        <span className="text-[10px] text-white/50 italic ml-1">{labelEn}</span>
       </div>
     </div>
   );
 }
 
-function VideoSection({ title, titleEn, videos, aspect, color }: { 
-  title: string; 
-  titleEn: string; 
-  videos: typeof qiuyangOral; 
-  aspect: '16/9' | '4/3';
-  color: string;
-}) {
+function LongVideoCard({ src, label }: { src: string; label: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    videoRef.current?.play().catch(() => {});
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    videoRef.current?.pause();
+    if (videoRef.current) videoRef.current.currentTime = 0;
+  };
+
   return (
-    <div className="mb-10">
-      <h3 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
-        <span className={`w-2 h-2 rounded-full ${color}`} />
-        {title}
-      </h3>
-      <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">{titleEn}</p>
-      <div className={`grid grid-cols-1 ${aspect === '16/9' ? 'sm:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-1'} gap-4`}>
-        {videos.map((v) => (
-          <VideoCard key={v.src} {...v} aspect={aspect} />
-        ))}
+    <div
+      className="video-container hover-lift group"
+      style={{ aspectRatio: '4/3' }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <video
+        ref={videoRef}
+        src={src}
+        muted
+        loop
+        playsInline
+        controls
+        className="w-full h-full object-contain"
+      />
+      <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+        <span className="text-sm text-white/90 font-medium">{label}</span>
       </div>
     </div>
   );
@@ -121,50 +123,36 @@ export function VideoPortfolio() {
           Content Portfolio
         </p>
         <p className="text-muted-foreground text-center text-sm mb-10">
-          悬停预览 — 从品牌营销到达人内容
+          悬停预览 · Hover to preview
         </p>
 
-        {/* 短视频内容 - 16:9容器 */}
-        <VideoSection 
-          title="秋阳外网口播" 
-          titleEn="Qiuyang Oral Content (2 videos)" 
-          videos={qiuyangOral} 
-          aspect="16/9"
-          color="bg-primary"
-        />
-        
-        <VideoSection 
-          title="达人孵化内容" 
-          titleEn="Creator Incubation Content (5 videos)" 
-          videos={creatorContent} 
-          aspect="16/9"
-          color="bg-primary"
-        />
-        
-        <VideoSection 
-          title="品牌与独立站" 
-          titleEn="Brand & DTC Store (3 videos)" 
-          videos={brandContent} 
-          aspect="16/9"
-          color="bg-primary"
-        />
-        
-        <VideoSection 
-          title="作品集混剪" 
-          titleEn="Portfolio Showreel (1 video)" 
-          videos={showreel} 
-          aspect="16/9"
-          color="bg-primary"
-        />
+        {/* 短视频 Short-Form */}
+        <div className="mb-12">
+          <h3 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-primary" />
+            短视频
+          </h3>
+          <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Short-Form Content</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {shortFormVideos.map((v) => (
+              <ShortVideoCard key={v.src} {...v} />
+            ))}
+          </div>
+        </div>
 
-        {/* 长视频 - 4:3容器 */}
-        <VideoSection 
-          title="长视频与品牌片" 
-          titleEn="Long-Form & Brand Films (1 video)" 
-          videos={longForm} 
-          aspect="4/3"
-          color="bg-accent"
-        />
+        {/* 长视频 Long-Form */}
+        <div>
+          <h3 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-accent" />
+            长视频
+          </h3>
+          <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Long-Form Content</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {longFormVideos.map((v) => (
+              <LongVideoCard key={v.src} {...v} />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
