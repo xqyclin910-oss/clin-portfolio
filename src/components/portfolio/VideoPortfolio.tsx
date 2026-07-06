@@ -3,9 +3,8 @@
 import { useRef, useState } from 'react';
 import { useInView } from '@/hooks/useAnimations';
 
-// 短视频 Short-Form - 10个
+// 短视频 Short-Form - 9个
 const shortFormVideos = [
-  { src: '/videos/showreel-compressed.mp4', label: '作品集混剪 Showreel' },
   { src: '/videos/brand-feed-digital-human.mp4', label: '氛围感剪辑' },
   { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流' },
   { src: '/videos/katrina-xie-tiktok.mp4', label: '秋阳外网口播' },
@@ -17,8 +16,9 @@ const shortFormVideos = [
   { src: '/videos/rejection-guy.mp4', label: 'TED千万播放Rejection Guy个人故事' },
 ];
 
-// 长视频 Long-Form - 2个
+// 长视频 Long-Form - 3个
 const longFormVideos = [
+  { src: '/videos/showreel-compressed.mp4', label: '作品集混剪 Showreel' },
   { src: '/videos/kyuan-brand-film.mp4', label: 'IP广告片' },
   { src: '/videos/independent-site-promo.mp4', label: '独立站宣传 Independent Site Promo' },
 ];

@@ -1,22 +1,15 @@
 'use client';
 
-import { useInView, useCountUp } from '@/hooks/useAnimations';
+import { useInView } from '@/hooks/useAnimations';
 
 const stats = [
-  { value: 374, suffix: '万+', label: '累计运营粉丝', labelEn: 'Total Followers Managed', decimals: 0 },
-  { value: 100, suffix: '+', label: '运营账号数', labelEn: 'Accounts Operated', decimals: 0 },
-  { value: 5, suffix: '亿+', label: '累计播放量', labelEn: 'Total Views', decimals: 0 },
-  { value: 285, suffix: '万+', label: '自建矩阵粉丝', labelEn: 'Self-built Matrix Followers', decimals: 0 },
+  { value: '374', suffix: '万+', label: '累计运营粉丝', labelEn: 'Total Followers Managed' },
+  { value: '100', suffix: '+', label: '运营账号数', labelEn: 'Accounts Operated' },
+  { value: '5', suffix: '亿+', label: '累计播放量', labelEn: 'Total Views' },
+  { value: '285', suffix: '万+', label: '自建矩阵粉丝', labelEn: 'Self-built Matrix Followers' },
 ];
 
 function StatItem({ stat, index, isVisible }: { stat: typeof stats[0]; index: number; isVisible: boolean }) {
-  const count = useCountUp(stat.value, 1800 + index * 200, isVisible);
-
-  const formatValue = () => {
-    if (stat.decimals === 0) return Math.round(count).toString();
-    return count.toFixed(stat.decimals);
-  };
-
   return (
     <div
       className="text-center px-4 md:px-8"
@@ -27,7 +20,7 @@ function StatItem({ stat, index, isVisible }: { stat: typeof stats[0]; index: nu
       }}
     >
       <div className="text-3xl md:text-4xl lg:text-5xl font-black gradient-text tabular-nums">
-        {formatValue()}{stat.suffix}
+        {stat.value}{stat.suffix}
       </div>
       <div className="text-xs md:text-sm text-foreground mt-2 font-medium">
         {stat.label}
