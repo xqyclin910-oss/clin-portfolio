@@ -33,7 +33,7 @@ function StatItem({ stat, index, isVisible }: { stat: typeof stats[0]; index: nu
 }
 
 export function StatsBar() {
-  const { ref, isVisible } = useInView(0.3);
+  const { ref, isVisible } = useInView(0.1);
 
   return (
     <section
