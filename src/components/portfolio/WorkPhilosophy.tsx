@@ -108,24 +108,24 @@ export default function WorkPhilosophy() {
           }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-            工作理念与方法论
+            业务反思与方法论
           </h2>
-          <p className="text-sm text-[#00d4ff] italic mb-3">
-            Work Philosophy & Methodology
-          </p>
-          <p className="text-sm text-white/60 max-w-2xl mx-auto">
-            在实战中沉淀的思考，驱动每一次关键决策
-          </p>
-          <p className="text-xs text-white/40 italic">
-            Insights forged in practice, driving every critical decision
+          <p className="text-sm text-[#00d4ff] italic max-w-3xl mx-auto">
+            Behind the Glamour Numbers: Painful Lessons from the Market. If You&apos;re Interested, Let&apos;s Talk.
           </p>
         </div>
 
-        {/* Philosophy Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {philosophies.map((item, index) => (
-            <PhilosophyCard key={index} item={item} index={index} />
-          ))}
+        {/* Philosophy Cards - Bento Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {philosophies.map((item, index) => {
+            // Cards 0 and 6 span 2 columns on desktop
+            const spanClass = (index === 0 || index === 6) ? 'md:col-span-2' : 'md:col-span-1';
+            return (
+              <div key={index} className={spanClass}>
+                <PhilosophyCard item={item} index={index} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
