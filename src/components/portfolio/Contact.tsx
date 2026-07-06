@@ -71,11 +71,11 @@ export function Contact() {
         {/* 联系方式标题 */}
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-1">
-            <span className="text-foreground">联系</span>
+            <span className="text-foreground">认识</span>
             <span className="gradient-text">我</span>
           </h2>
           <p className="text-muted-foreground/60 italic text-sm mb-1">
-            Let&apos;s Connect
+            Get to Know Me
           </p>
           <p className="text-muted-foreground text-sm">
             欢迎内容策略与达人增长方面的合作
