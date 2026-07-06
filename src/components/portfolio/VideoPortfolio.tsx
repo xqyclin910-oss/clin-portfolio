@@ -5,8 +5,8 @@ import { useInView } from '@/hooks/useAnimations';
 
 // 短视频 Short-Form - 9个
 const shortFormVideos = [
-  { src: '/videos/brand-feed-digital-human.mp4', label: '氛围感剪辑' },
-  { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流' },
+  { src: '/videos/brand-feed-digital-human.mp4', label: '品牌向信息流（含数字人）Brand Feed with Digital Human' },
+  { src: '/videos/social-trending-feed.mp4', label: '氛围感剪辑 Atmospheric Edit' },
   { src: '/videos/katrina-xie-tiktok.mp4', label: '秋阳外网口播' },
   { src: '/videos/qyoutlaw-tiktok.mp4', label: '秋阳外网口播' },
   { src: '/videos/2-books-steve-hoffman.mp4', label: '话题对标自然流百万播放爆款' },
