@@ -5,17 +5,17 @@ import { useInView } from '@/hooks/useAnimations';
 const philosophies = [
   {
     icon: '🚀',
-    titleCn: '内容即增长引擎',
-    titleEn: 'Content as the Growth Engine',
-    descCn: '不是"做内容为了涨粉"，而是"用内容构建信任链路，让增长自然发生"。9个月285万粉丝矩阵，每一条爆款都是系统验证的结果，不是运气。',
-    descEn: 'Not "making content for followers" but "building trust through content to let growth happen organically." Every viral post was a system-validated result, not luck.',
+    titleCn: '四大平台起号，不能用同一套打法',
+    titleEn: 'Four Platforms, Four Playbooks',
+    descCn: '美区起号核心：TK推荐流占80-90%，完播率>30%是命门；INS关系权重高，评论>收藏>转发>点赞决定推流；FB靠实时数据指标+账号权重双驱动，数据达标解锁流量入口，下滑直接限流；YT搜索+长尾为王，CTR→观看时长→满意度三级跳。四平台统一方法论：筹备→冷启动→放量→稳定，每阶段有明确达标线和救流方案。9个月33账号矩阵，验证出来的东西比教科书管用。',
+    descEn: 'US market launch playbook: TikTok (80-90% recommendation traffic, completion rate >30% is the lifeline); Instagram (relationship-driven, comment>save>share>like determines reach); Facebook (real-time metrics + account authority dual-engine); YouTube (search + long-tail, CTR→watch time→satisfaction). Unified framework: Prep→Cold Start→Scale→Stabilize, each phase with clear KPIs and recovery protocols. Validated across 33 accounts in 9 months.',
   },
   {
     icon: '🎯',
-    titleCn: '先找到对的事，再在对的事里找共通点',
-    titleEn: 'Find the Right Thing First, Then Extract Patterns',
-    descCn: '核心逻辑——先搞清楚该干什么、不该干什么，然后在对的事情里找共通点复制放大，在错的事情里也找共通点避免重犯。这是所有运营迭代的底层方法论。',
-    descEn: 'First clarify what to do and what not to do, then extract replicable patterns from successes and failure modes from mistakes. This is the core of all operational iteration.',
+    titleCn: '付费投放：素材与链路要双向迭代',
+    titleEn: 'Paid Ads: Creative & Funnel Must Co-Optimize',
+    descCn: '3个月投放复盘（12.16-2.25），ROI从7.61%→11.52%→20.15%，连续三月环比增长。核心发现：前端流量不是问题（CTR 5-9%正常），但用户断在后端落地页（加购率仅5%，行业均值75-90%）。100人通过广告进来，95人没加购就跑了，同时还在伤害投放计划。关键迭代：自然流帖子不带链接也能出单，赢者通吃逻辑——天然跑得好的帖子再投钱放大；加热大概率无用（2月加热占比仅2.32%，ROI反升）；素材师和产品详情页必须同频，前端100分素材进来落地页要有120分体验。',
+    descEn: '3-month paid ads retrospective (Dec-Feb): ROI climbed from 7.61%→11.52%→20.15% month-over-month. Key finding: Frontend traffic works (CTR 5-9%), but users drop at the landing page (ATC rate only 5% vs industry 75-90%). 100 users enter, 95 leave without adding to cart — and it\'s hurting the ad algorithm. Critical iterations: Organic posts without links still convert; scale what already works organically; boosting is likely wasteful (Feb boost budget only 2.32%, ROI still climbed); creative team and product page designer must be in sync — 100-point ad creative needs 120-point landing page experience.',
   },
   {
     icon: '⚡',
@@ -47,10 +47,10 @@ const philosophies = [
   },
   {
     icon: '💎',
-    titleCn: '一个贵的人抵三个便宜的人',
-    titleEn: 'One Great Hire Beats Three Mediocre Ones',
-    descCn: '在跨文化团队管理中，选能复盘、能沟通的人做lead带头创新。一个靠谱的核心成员，产出和影响力远超三个"勉强能用"的人。选人宁缺毋滥。',
-    descEn: 'In cross-cultural team management, choose people who can reflect and communicate as leads. One solid core member outperforms three "barely adequate" ones in output and influence.',
+    titleCn: '爆款人物故事的创作方法论',
+    titleEn: 'The Anatomy of Viral Personal Stories',
+    descCn: 'IP孵化不只是拍视频，是系统设计情绪曲线。一套完整的人物故事结构：①极端反差钩子留人（"一年从倒数第一逆袭全校第一"）②多层冲突递进制造张力（每个阶段一个核心冲突点，如"沉迷游戏→家长会觉醒→逆袭动作"）③情感共鸣点打穿观众（共情、感恩、希望三波情绪递进）④转折点让观众看到"凭什么"（具体方法论而非鸡汤）⑤逆袭/成长结局给观众带走的东西（可复制的启发）。每条视频配专属钩子预设+聊天引导问题清单+情绪曲线图，起号阶段故事性内容必须完整——碎片化叙事在这个阶段是致命伤。',
+    descEn: 'IP incubation isn\'t just shooting videos — it\'s engineering emotion curves. A complete personal story structure: ①Extreme contrast hook ("From last place to #1 in one year"); ②Multi-layer conflict escalation (one core conflict per life stage); ③Emotional resonance points (empathy→gratitude→hope in three waves); ④Turning point showing "how" (specific methodology, not chicken soup); ⑤Growth resolution giving audiences something actionable. Each video gets a dedicated hook preset + guided question list + emotion curve map. In the launch phase, incomplete storytelling is fatal — fragmented narratives kill credibility.',
   },
   {
     icon: '🔍',
