@@ -121,12 +121,12 @@ function ScreenshotCard({ item, index }: { item: typeof caseScreenshots[0]; inde
         transition: `all 0.5s ease ${index * 100}ms`,
       }}
     >
-      <div className="relative w-full aspect-[4/3] flex items-center justify-center" style={{ background: '#050a14' }}>
+      <div className="relative w-full aspect-[16/9]" style={{ background: '#050a14' }}>
         <Image
           src={item.src}
           alt={item.label}
           fill
-          className="object-contain p-2"
+          className="object-cover"
           sizes="(max-width: 640px) 50vw, 33vw"
         />
       </div>
