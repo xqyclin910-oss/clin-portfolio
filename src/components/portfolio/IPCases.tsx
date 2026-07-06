@@ -53,8 +53,8 @@ const caseScreenshots = [
   { src: '/assets/photos/case-account-1.png', label: '账号数据截图', labelEn: 'Account Data', aspect: '9/16' as const },
   { src: '/assets/photos/case-account-2.png', label: '账号数据截图', labelEn: 'Account Data', aspect: '9/16' as const },
   { src: '/assets/photos/case-account-3.png', label: '账号数据截图', labelEn: 'Account Data', aspect: '9/16' as const },
-  { src: '/assets/photos/case-video.png', label: '视频数据截图', labelEn: 'Video Analytics', aspect: '16/9' as const },
-  { src: '/assets/photos/viral-repost.jpg', label: '病毒式传播', labelEn: 'Viral Content', aspect: '16/9' as const },
+  { src: '/assets/photos/case-video.png', label: '视频数据截图', labelEn: 'Video Analytics', aspect: '9/16' as const },
+  { src: '/assets/photos/viral-repost.jpg', label: '病毒式传播', labelEn: 'Viral Content', aspect: '9/16' as const },
 ];
 
 function CaseCard({ caseItem, index }: { caseItem: typeof cases[0]; index: number }) {
