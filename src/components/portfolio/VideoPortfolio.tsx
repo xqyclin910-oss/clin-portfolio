@@ -6,13 +6,13 @@ import { useInView } from '@/hooks/useAnimations';
 // 短视频 Short-Form - 9个
 const shortFormVideos = [
   { src: '/videos/brand-feed-digital-human.mp4', label: '品牌向信息流（含数字人）Brand Feed with Digital Human' },
-  { src: '/videos/social-trending-feed.mp4', label: '氛围感剪辑 Atmospheric Edit' },
+  { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流 Social Trending Feed' },
   { src: '/videos/katrina-xie-tiktok.mp4', label: '秋阳外网口播' },
   { src: '/videos/qyoutlaw-tiktok.mp4', label: '秋阳外网口播' },
   { src: '/videos/2-books-steve-hoffman.mp4', label: '话题对标自然流百万播放爆款' },
   { src: '/videos/3-boring-jobs-steve-hoffman.mp4', label: '精准预测自然流百万播放爆款 | 单条涨粉2万' },
   { src: '/videos/6-things-matt.mp4', label: '争议性话题起号爆款：职场逃离6个信号' },
-  { src: '/videos/pitch-deck-steve-hoffman.mp4', label: '达人孵化内容' },
+  { src: '/videos/pitch-deck-steve-hoffman.mp4', label: '氛围感剪辑 Atmospheric Edit' },
   { src: '/videos/rejection-guy.mp4', label: 'TED千万播放Rejection Guy个人故事' },
 ];
 
