@@ -7,28 +7,21 @@ const workflows = [
   {
     src: '/assets/photos/content-topic-flow.png',
     title: '选题协作表',
-    titleEn: 'Topic Planning',
+    titleEn: 'Topic Collaboration',
     desc: '跨团队选题头脑风暴与审批流程',
     descEn: 'Cross-team topic brainstorming and approval workflow',
   },
   {
     src: '/assets/photos/content-workflow.png',
-    title: '内容生产管线',
-    titleEn: 'Content Pipeline',
-    desc: '端到端内容生产追踪系统',
-    descEn: 'End-to-end content production tracking system',
-  },
-  {
-    src: '/assets/photos/livestream-sop.png',
-    title: '直播运营SOP',
-    titleEn: 'Livestream SOP',
-    desc: '标准化直播电商运营流程',
-    descEn: 'Standardized live commerce operation procedures',
+    title: '私域话术SOP',
+    titleEn: 'Private Domain Script SOP',
+    desc: '私域运营标准化话术流程',
+    descEn: 'Standardized scripts for private domain operations',
   },
   {
     src: '/assets/photos/influencer-tracker.png',
-    title: '达人追踪表',
-    titleEn: 'Influencer Tracker',
+    title: '达人Pipeline',
+    titleEn: 'Creator Pipeline',
     desc: '达人拓展管线与表现分析',
     descEn: 'Creator outreach pipeline and performance analytics',
   },
@@ -61,7 +54,7 @@ export function ContentOps() {
           系统化工作流，驱动持续稳定的内容输出
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {workflows.map((item, i) => (
             <div
               key={item.src}
@@ -78,7 +71,7 @@ export function ContentOps() {
                   alt={item.title}
                   fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <div className="p-4 bg-card/60">
