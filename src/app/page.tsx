@@ -8,6 +8,7 @@ import {
   ContentOps,
   BehindScenes,
   DTCStore,
+  WorkPhilosophy,
   Contact,
 } from '@/components/portfolio';
 
@@ -40,6 +41,7 @@ export default function Home() {
       <ContentOps />
       <BehindScenes />
       <DTCStore />
+      <WorkPhilosophy />
       <Contact />
 
       {/* Footer */}

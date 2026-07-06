@@ -1,9 +1,10 @@
 export { Hero } from './Hero';
 export { StatsBar } from './StatsBar';
-export { About } from './About';
+export { default as About } from './About';
 export { IPCases } from './IPCases';
 export { VideoPortfolio } from './VideoPortfolio';
 export { ContentOps } from './ContentOps';
 export { BehindScenes } from './BehindScenes';
 export { DTCStore } from './DTCStore';
+export { default as WorkPhilosophy } from './WorkPhilosophy';
 export { Contact } from './Contact';

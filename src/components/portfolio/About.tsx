@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useScrollReveal } from '@/hooks/useAnimations';
+import { useInView } from '@/hooks/useAnimations';
 
 const highlights = [
   { icon: '🌐', text: '285万+粉丝矩阵操盘' },
@@ -13,7 +13,7 @@ const highlights = [
 ];
 
 export default function About() {
-  const sectionRef = useScrollReveal();
+  const { ref: sectionRef, isVisible } = useInView<HTMLDivElement>(0.1);
 
   return (
     <section className="relative py-16 overflow-hidden">
