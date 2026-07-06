@@ -5,38 +5,44 @@ import { useInView } from '@/hooks/useAnimations';
 
 const cases = [
   {
-    name: 'Long Jiaoer',
-    period: '9 months',
-    totalFans: '1.1M',
+    name: '龙娇儿 Long Jiaoer',
+    period: '9个月',
+    periodEn: '9 months',
+    totalFans: '110万',
+    totalFansEn: '1.1M',
     platforms: [
-      { name: 'YouTube', fans: '332K' },
-      { name: 'Instagram', fans: '250K' },
-      { name: 'Facebook', fans: '288K' },
-      { name: 'TikTok', fans: '101K' },
+      { name: 'YouTube', fans: '33.2万' },
+      { name: 'Instagram', fans: '25万' },
+      { name: 'Facebook', fans: '28.8万' },
+      { name: 'TikTok', fans: '10.1万' },
     ],
     image: '/assets/photos/success-stories-1.png',
   },
   {
-    name: 'Kyran',
-    period: '4 months',
-    totalFans: '800K',
+    name: '凯源 Kyran',
+    period: '4个月',
+    periodEn: '4 months',
+    totalFans: '80万',
+    totalFansEn: '800K',
     platforms: [
-      { name: 'YouTube', fans: '187K' },
-      { name: 'Instagram', fans: '136K' },
-      { name: 'Facebook', fans: '245K' },
-      { name: 'TikTok', fans: '89K' },
+      { name: 'YouTube', fans: '18.7万' },
+      { name: 'Instagram', fans: '13.6万' },
+      { name: 'Facebook', fans: '24.5万' },
+      { name: 'TikTok', fans: '8.9万' },
     ],
     image: '/assets/photos/success-stories-2.png',
   },
   {
-    name: 'Qingyun',
-    period: '8 months',
-    totalFans: '1M',
+    name: '清云 Qingyun',
+    period: '8个月',
+    periodEn: '8 months',
+    totalFans: '100万',
+    totalFansEn: '1M',
     platforms: [
-      { name: 'YouTube', fans: '254K' },
-      { name: 'Instagram', fans: '300K' },
-      { name: 'Facebook', fans: '111K' },
-      { name: 'TikTok', fans: '95K' },
+      { name: 'YouTube', fans: '25.4万' },
+      { name: 'Instagram', fans: '30万' },
+      { name: 'Facebook', fans: '11.1万' },
+      { name: 'TikTok', fans: '9.5万' },
     ],
     image: '/assets/photos/content-topic-flow.png',
   },
@@ -60,8 +66,11 @@ function CaseCard({ caseItem, index }: { caseItem: typeof cases[0]; index: numbe
         <div>
           <h3 className="text-lg font-bold text-foreground">{caseItem.name}</h3>
           <p className="text-sm text-muted-foreground mt-1">
-            <span className="text-primary">{caseItem.period}</span> to{' '}
-            <span className="gradient-text font-bold">{caseItem.totalFans} fans</span>
+            <span className="text-primary">{caseItem.period}</span>
+            <span className="text-muted-foreground/60 italic text-xs ml-1">({caseItem.periodEn})</span>
+            {' → '}
+            <span className="gradient-text font-bold">{caseItem.totalFans} 粉丝</span>
+            <span className="text-muted-foreground/60 italic text-xs ml-1">({caseItem.totalFansEn})</span>
           </p>
         </div>
 
@@ -104,12 +113,15 @@ export function IPCases() {
           transition: 'all 0.6s ease',
         }}
       >
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
-          <span className="gradient-text">Creator Incubation</span>{' '}
-          <span className="text-foreground">Success Stories</span>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-1">
+          <span className="gradient-text">达人孵化</span>
+          <span className="text-foreground">成功案例</span>
         </h2>
+        <p className="text-muted-foreground/60 italic text-center text-sm mb-1">
+          Creator Incubation Success Stories
+        </p>
         <p className="text-muted-foreground text-center text-sm mb-10">
-          Building creator brands from zero to millions of followers
+          从零到百万粉丝，打造创作者品牌矩阵
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

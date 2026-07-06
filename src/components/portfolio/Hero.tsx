@@ -1,25 +1,9 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = section.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      section.style.setProperty('--mouse-x', `${x}%`);
-      section.style.setProperty('--mouse-y', `${y}%`);
-    };
-
-    section.addEventListener('mousemove', handleMouseMove);
-    return () => section.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   return (
     <section
@@ -55,18 +39,22 @@ export function Hero() {
 
       {/* 主内容 */}
       <div className="relative z-10 text-center max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-tight">
-          <span className="gradient-text">Content That</span>
-          <br />
-          <span className="text-foreground">Moves Millions</span>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight leading-tight">
+          <span className="gradient-text">驱动百万增长的内容</span>
         </h1>
+        <p className="text-lg md:text-xl text-muted-foreground italic mb-6 tracking-wide">
+          Content That Moves Millions
+        </p>
 
-        <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          5 years crafting social media strategies that built{' '}
-          <span className="text-primary font-semibold">2.85M+ followers</span>{' '}
-          across{' '}
-          <span className="text-primary font-semibold">33 accounts</span>{' '}
-          in 9 months
+        <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-3">
+          5年社媒内容策略经验，9个月内为
+          <span className="text-primary font-semibold">33个账号</span>
+          构建
+          <span className="text-primary font-semibold">285万+粉丝</span>
+          矩阵
+        </p>
+        <p className="text-sm text-muted-foreground/60 italic max-w-2xl mx-auto">
+          5 years crafting social media strategies that built 2.85M+ followers across 33 accounts in 9 months
         </p>
       </div>
 

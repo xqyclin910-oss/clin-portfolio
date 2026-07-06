@@ -3,9 +3,9 @@
 import { useInView, useCountUp } from '@/hooks/useAnimations';
 
 const metrics = [
-  { value: 43285, label: 'Revenue', prefix: '$', suffix: '/mo', decimals: 0 },
-  { value: 83172, label: 'Visitors', prefix: '', decimals: 0 },
-  { value: 0.53, label: 'Conversion', prefix: '', suffix: '%', decimals: 2 },
+  { value: 43285, label: '月营收', labelEn: 'Revenue', prefix: '$', suffix: '/mo', decimals: 0 },
+  { value: 83172, label: '访客数', labelEn: 'Visitors', prefix: '', decimals: 0 },
+  { value: 0.53, label: '转化率', labelEn: 'Conversion', prefix: '', suffix: '%', decimals: 2 },
 ];
 
 function MetricItem({ metric, index, isVisible }: { metric: typeof metrics[0]; index: number; isVisible: boolean }) {
@@ -30,8 +30,11 @@ function MetricItem({ metric, index, isVisible }: { metric: typeof metrics[0]; i
       <div className="text-2xl md:text-3xl font-black gradient-text tabular-nums">
         {formatValue()}
       </div>
-      <div className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">
+      <div className="text-xs text-foreground mt-1 font-medium">
         {metric.label}
+      </div>
+      <div className="text-[10px] text-muted-foreground/60 italic">
+        {metric.labelEn}
       </div>
     </div>
   );
@@ -65,11 +68,17 @@ export function DTCStore() {
           transition: 'all 0.6s ease',
         }}
       >
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
-          <span className="text-foreground">DTC E-commerce: </span>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-1">
+          <span className="text-foreground">DTC电商：</span>
           <span className="gradient-text">TAICHI YOUNG</span>
         </h2>
-        <p className="text-muted-foreground text-center text-sm mb-10 max-w-xl mx-auto">
+        <p className="text-muted-foreground/60 italic text-center text-sm mb-1">
+          DTC E-commerce: TAICHI YOUNG
+        </p>
+        <p className="text-muted-foreground text-center text-sm mb-3 max-w-xl mx-auto">
+          主导面向美国市场的健康养生DTC品牌全栈运营
+        </p>
+        <p className="text-muted-foreground/60 italic text-center text-xs mb-10 max-w-xl mx-auto">
           Led the full-stack operation of a health & wellness DTC brand targeting US market
         </p>
 

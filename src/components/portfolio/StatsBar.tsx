@@ -3,10 +3,10 @@
 import { useInView, useCountUp } from '@/hooks/useAnimations';
 
 const stats = [
-  { value: 2.85, suffix: 'M+', label: 'Total Followers', decimals: 2 },
-  { value: 33, suffix: '', label: 'Accounts Managed', decimals: 0 },
-  { value: 3.1, suffix: 'M+', label: 'Video Views', decimals: 1 },
-  { value: 9, suffix: ' Mo', label: 'to Scale', decimals: 0 },
+  { value: 2.85, suffix: 'M+', label: '全网粉丝', labelEn: 'Total Followers', decimals: 2 },
+  { value: 33, suffix: '', label: '运营账号', labelEn: 'Accounts Managed', decimals: 0 },
+  { value: 3.1, suffix: 'M+', label: '视频播放量', labelEn: 'Video Views', decimals: 1 },
+  { value: 9, suffix: ' 个月', label: '增长周期', labelEn: 'Months to Scale', decimals: 0 },
 ];
 
 function StatItem({ stat, index, isVisible }: { stat: typeof stats[0]; index: number; isVisible: boolean }) {
@@ -29,8 +29,11 @@ function StatItem({ stat, index, isVisible }: { stat: typeof stats[0]; index: nu
       <div className="text-3xl md:text-4xl lg:text-5xl font-black gradient-text tabular-nums">
         {formatValue()}{stat.suffix}
       </div>
-      <div className="text-xs md:text-sm text-muted-foreground mt-2 uppercase tracking-wider">
+      <div className="text-xs md:text-sm text-foreground mt-2 font-medium">
         {stat.label}
+      </div>
+      <div className="text-[10px] md:text-xs text-muted-foreground/60 italic mt-0.5">
+        {stat.labelEn}
       </div>
     </div>
   );

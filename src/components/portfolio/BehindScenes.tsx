@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { useInView } from '@/hooks/useAnimations';
 
 const photos = [
-  { src: '/assets/photos/behind-scenes.png', label: 'On Set' },
-  { src: '/assets/photos/team-photo.jpeg', label: 'Team' },
-  { src: '/assets/photos/team-activity.png', label: 'Team Activity' },
+  { src: '/assets/photos/behind-scenes.png', label: '拍摄现场', labelEn: 'On Set' },
+  { src: '/assets/photos/team-photo.jpeg', label: '团队合影', labelEn: 'Team' },
+  { src: '/assets/photos/team-activity.png', label: '团队活动', labelEn: 'Team Activity' },
 ];
 
 export function BehindScenes() {
@@ -23,12 +23,15 @@ export function BehindScenes() {
           transition: 'all 0.6s ease',
         }}
       >
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
-          <span className="text-foreground">Behind the </span>
-          <span className="gradient-text">Scenes</span>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-1">
+          <span className="text-foreground">幕后</span>
+          <span className="gradient-text">花絮</span>
         </h2>
+        <p className="text-muted-foreground/60 italic text-center text-sm mb-1">
+          Behind the Scenes
+        </p>
         <p className="text-muted-foreground text-center text-sm mb-10">
-          The team and moments that make it all happen
+          记录团队与创作背后的精彩瞬间
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -52,7 +55,8 @@ export function BehindScenes() {
                 />
               </div>
               <div className="p-3 text-center">
-                <span className="text-xs text-muted-foreground">{photo.label}</span>
+                <span className="text-xs text-foreground font-medium">{photo.label}</span>
+                <span className="text-[10px] text-muted-foreground/60 italic ml-1">{photo.labelEn}</span>
               </div>
             </div>
           ))}

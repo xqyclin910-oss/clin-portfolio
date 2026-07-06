@@ -6,23 +6,31 @@ import { useInView } from '@/hooks/useAnimations';
 const workflows = [
   {
     src: '/assets/photos/content-topic-flow.png',
-    title: 'Topic Planning',
-    desc: 'Cross-team topic brainstorming and approval workflow',
+    title: '选题协作表',
+    titleEn: 'Topic Planning',
+    desc: '跨团队选题头脑风暴与审批流程',
+    descEn: 'Cross-team topic brainstorming and approval workflow',
   },
   {
     src: '/assets/photos/content-workflow.png',
-    title: 'Content Pipeline',
-    desc: 'End-to-end content production tracking system',
+    title: '内容生产管线',
+    titleEn: 'Content Pipeline',
+    desc: '端到端内容生产追踪系统',
+    descEn: 'End-to-end content production tracking system',
   },
   {
     src: '/assets/photos/livestream-sop.png',
-    title: 'Livestream SOP',
-    desc: 'Standardized live commerce operation procedures',
+    title: '直播运营SOP',
+    titleEn: 'Livestream SOP',
+    desc: '标准化直播电商运营流程',
+    descEn: 'Standardized live commerce operation procedures',
   },
   {
     src: '/assets/photos/influencer-tracker.png',
-    title: 'Influencer Tracker',
-    desc: 'Creator outreach pipeline and performance analytics',
+    title: '达人追踪表',
+    titleEn: 'Influencer Tracker',
+    desc: '达人拓展管线与表现分析',
+    descEn: 'Creator outreach pipeline and performance analytics',
   },
 ];
 
@@ -42,12 +50,15 @@ export function ContentOps() {
           transition: 'all 0.6s ease',
         }}
       >
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
-          <span className="gradient-text">Content Operations</span>{' '}
-          <span className="text-foreground">& Strategy</span>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-1">
+          <span className="gradient-text">内容运营</span>
+          <span className="text-foreground">体系</span>
         </h2>
+        <p className="text-muted-foreground/60 italic text-center text-sm mb-1">
+          Content Operations & Strategy
+        </p>
         <p className="text-muted-foreground text-center text-sm mb-10">
-          Systematic workflows that power consistent content output
+          系统化工作流，驱动持续稳定的内容输出
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -72,7 +83,9 @@ export function ContentOps() {
               </div>
               <div className="p-4 bg-card/60">
                 <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+                <p className="text-[10px] text-muted-foreground/60 italic">{item.titleEn}</p>
                 <p className="text-xs text-muted-foreground mt-1">{item.desc}</p>
+                <p className="text-[10px] text-muted-foreground/50 italic">{item.descEn}</p>
               </div>
             </div>
           ))}
