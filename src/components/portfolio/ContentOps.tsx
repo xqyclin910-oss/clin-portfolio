@@ -65,7 +65,7 @@ export function ContentOps() {
                 transition: `all 0.5s ease ${i * 100}ms`,
               }}
             >
-              <div className="img-contain" style={{ minHeight: '180px' }}>
+              <div className="relative w-full" style={{ aspectRatio: '16/9', background: '#0a1929' }}>
                 <Image
                   src={item.src}
                   alt={item.title}

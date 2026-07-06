@@ -43,15 +43,16 @@ function ShortVideoCard({ src, label }: { src: string; label: string }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative flex items-center justify-center" style={{ minHeight: '200px', maxHeight: '280px', background: '#050a14' }}>
+      <div className="relative w-full" style={{ aspectRatio: '9/16', background: '#050a14' }}>
         <video
           ref={videoRef}
           src={src}
+          poster="/assets/photos/video-poster-default.svg"
           muted
           loop
           playsInline
           controls
-          className="max-h-[280px] w-auto max-w-full object-contain"
+          className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
       <div className="p-3 bg-[#0a1120] border-t border-border/10">
@@ -83,15 +84,16 @@ function LongVideoCard({ src, label }: { src: string; label: string }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative flex items-center justify-center" style={{ minHeight: '220px', maxHeight: '300px', background: '#050a14' }}>
+      <div className="relative w-full" style={{ aspectRatio: '16/9', background: '#050a14' }}>
         <video
           ref={videoRef}
           src={src}
+          poster="/assets/photos/video-poster-default.svg"
           muted
           loop
           playsInline
           controls
-          className="max-h-[300px] w-auto max-w-full object-contain"
+          className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
       <div className="p-3 bg-[#0a1120] border-t border-border/10">

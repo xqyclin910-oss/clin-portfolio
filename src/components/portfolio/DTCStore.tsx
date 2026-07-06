@@ -48,8 +48,8 @@ function ScreenshotCard({ item, index }: { item: typeof shopifyScreenshots[0]; i
       ref={ref as React.RefObject<HTMLDivElement>}
       className="relative overflow-hidden rounded-lg border border-border/20 hover-lift"
       style={{
-        height: '200px',
-        backgroundColor: '#050a14',
+        aspectRatio: '16/9',
+        backgroundColor: '#0a1929',
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: `all 0.5s ease ${index * 100}ms`,

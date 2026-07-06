@@ -94,7 +94,7 @@ function CaseCard({ caseItem, index }: { caseItem: typeof cases[0]; index: numbe
         </div>
 
         {/* 数据截图 */}
-        <div className="img-contain" style={{ minHeight: '180px' }}>
+        <div className="relative w-full" style={{ aspectRatio: '16/9', background: '#0a1929' }}>
           <Image
             src={caseItem.image}
             alt={`${caseItem.name} data`}
