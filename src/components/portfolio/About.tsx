@@ -27,14 +27,15 @@ export default function About() {
         <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
           {/* Left: Portrait Photo */}
           <div className="relative flex-shrink-0">
-            {/* Gradient glow border */}
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#00d4ff] via-[#00ff88] to-[#00d4ff] opacity-60 blur-sm animate-pulse" />
-            <div className="relative w-[240px] h-[240px] md:w-[280px] md:h-[280px] rounded-full overflow-hidden border-2 border-[#00d4ff]/30">
+            {/* Subtle gradient border */}
+            <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-[#00d4ff]/40 via-[#00ff88]/30 to-[#00d4ff]/40 opacity-60" />
+            <div className="relative w-[240px] md:w-[280px] rounded-2xl overflow-hidden border border-[#00d4ff]/20 bg-[#050a14]">
               <Image
                 src="/assets/photos/portrait.jpg"
                 alt="XIE Qiuyang - 谢秋阳"
-                fill
-                className="object-cover"
+                width={280}
+                height={350}
+                className="w-full h-auto object-contain"
                 sizes="280px"
               />
             </div>
