@@ -39,9 +39,9 @@ export default function Home() {
       <IPCases />
       <VideoPortfolio />
       <ContentOps />
+      <WorkPhilosophy />
       <BehindScenes />
       <DTCStore />
-      <WorkPhilosophy />
       <Contact />
 
       {/* Footer */}
