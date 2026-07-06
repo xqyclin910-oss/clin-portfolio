@@ -3,7 +3,7 @@
 import { useInView, useCountUp } from '@/hooks/useAnimations';
 
 const metrics = [
-  { value: 4328, label: 'Revenue', prefix: '$', decimals: 0 },
+  { value: 43285, label: 'Revenue', prefix: '$', decimals: 0 },
   { value: 83172, label: 'Visitors', prefix: '', decimals: 0 },
   { value: 0.53, label: 'Conversion', prefix: '', suffix: '%', decimals: 2 },
 ];
