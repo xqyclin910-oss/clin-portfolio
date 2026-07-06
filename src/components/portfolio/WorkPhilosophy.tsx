@@ -61,25 +61,40 @@ const philosophies = [
   },
 ];
 
+// Grid span configuration for each card (desktop only)
+const gridSpans = [
+  { col: 2, row: 1 }, // Card 0: 四大平台起号
+  { col: 1, row: 1 }, // Card 1: 付费投放
+  { col: 1, row: 2 }, // Card 2: 赢者通吃 (spans 2 rows)
+  { col: 1, row: 1 }, // Card 3: 用户链路
+  { col: 1, row: 1 }, // Card 4: 0到1团队
+  { col: 2, row: 1 }, // Card 5: 业务模型迭代
+  { col: 2, row: 1 }, // Card 6: 爆款人物故事
+  { col: 1, row: 1 }, // Card 7: 坦诚复盘
+];
+
 function PhilosophyCard({ item, index }: { item: typeof philosophies[0]; index: number }) {
   const { ref, isVisible } = useInView(0.1);
+  const span = gridSpans[index];
 
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="group relative bg-[#0a1120] rounded-xl p-6 border border-border/10 hover:border-[#00d4ff]/30 transition-all duration-300 hover-lift"
+      className="group relative bg-[#0a1120] border border-white/[0.08] hover:border-[#00d4ff]/30 transition-all duration-300 p-4 md:p-5"
       style={{
+        gridColumn: `span ${span.col}`,
+        gridRow: `span ${span.row}`,
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: `all 0.5s ease ${index * 80}ms`,
       }}
     >
       {/* Icon */}
-      <div className="text-3xl mb-4">{item.icon}</div>
+      <div className="text-2xl md:text-3xl mb-3">{item.icon}</div>
 
       {/* Title */}
-      <h3 className="text-lg font-bold text-white mb-1">{item.titleCn}</h3>
-      <p className="text-xs text-[#00d4ff] mb-4 italic">{item.titleEn}</p>
+      <h3 className="text-base md:text-lg font-bold text-white mb-1">{item.titleCn}</h3>
+      <p className="text-xs text-[#00d4ff] mb-3 italic">{item.titleEn}</p>
 
       {/* Description */}
       <p className="text-sm text-white/80 leading-relaxed mb-2">{item.descCn}</p>
@@ -115,17 +130,14 @@ export default function WorkPhilosophy() {
           </p>
         </div>
 
-        {/* Philosophy Cards - Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {philosophies.map((item, index) => {
-            // Cards 0 and 6 span 2 columns on desktop
-            const spanClass = (index === 0 || index === 6) ? 'md:col-span-2' : 'md:col-span-1';
-            return (
-              <div key={index} className={spanClass}>
-                <PhilosophyCard item={item} index={index} />
-              </div>
-            );
-          })}
+        {/* Philosophy Cards - Bento Grid Layout (no gaps, border-separated) */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-3"
+          style={{ gap: 0 }}
+        >
+          {philosophies.map((item, index) => (
+            <PhilosophyCard key={index} item={item} index={index} />
+          ))}
         </div>
       </div>
     </section>
