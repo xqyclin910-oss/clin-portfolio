@@ -175,9 +175,9 @@ export function IPCases() {
         <div className="mt-12">
           <h3 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-primary" />
-            案例数据截图
+            更多案例数据截图
           </h3>
-          <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Case Data Screenshots</p>
+          <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">More Case Data Screenshots</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {caseScreenshots.map((item, i) => (
               <ScreenshotCard key={item.src} item={item} index={i} />
