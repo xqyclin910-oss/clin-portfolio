@@ -20,17 +20,17 @@ const shopifyScreenshots = [
 function MetricItem({ metric, index, isVisible }: { metric: typeof metrics[0]; index: number; isVisible: boolean }) {
   return (
     <div
-      className="text-center px-4"
+      className="text-center px-2 md:px-4"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: `all 0.5s ease ${index * 150}ms`,
       }}
     >
-      <div className="text-2xl md:text-3xl font-black gradient-text tabular-nums">
+      <div className="text-lg md:text-3xl font-black gradient-text tabular-nums whitespace-nowrap">
         {metric.value}{metric.suffix || ''}
       </div>
-      <div className="text-xs text-foreground mt-1 font-medium">
+      <div className="text-[10px] md:text-xs text-foreground mt-1 font-medium">
         {metric.label}
       </div>
       <div className="text-[10px] text-muted-foreground/60 italic">
@@ -105,7 +105,7 @@ export function DTCStore() {
 
         {/* 数据指标 */}
         <div
-          className="grid grid-cols-3 gap-4 md:gap-8 mb-10 p-6 rounded-xl border border-border/30 bg-card/20 backdrop-blur-sm"
+          className="grid grid-cols-3 gap-2 md:gap-8 mb-10 p-3 md:p-6 rounded-xl border border-border/30 bg-card/20 backdrop-blur-sm"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',

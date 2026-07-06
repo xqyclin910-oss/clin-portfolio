@@ -177,7 +177,7 @@ export function IPCases() {
             更多案例数据截图
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">More Case Data Screenshots</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5 items-start">
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-3 items-start">
             {caseScreenshots.map((item, i) => (
               <ScreenshotCard key={item.src} item={item} index={i} />
             ))}

@@ -61,29 +61,27 @@ const philosophies = [
   },
 ];
 
-// Grid span configuration for each card (desktop only)
-const gridSpans = [
-  { col: 2, row: 1 }, // Card 0: 四大平台起号
-  { col: 1, row: 1 }, // Card 1: 付费投放
-  { col: 1, row: 2 }, // Card 2: 赢者通吃 (spans 2 rows)
-  { col: 1, row: 1 }, // Card 3: 用户链路
-  { col: 1, row: 1 }, // Card 4: 0到1团队
-  { col: 2, row: 1 }, // Card 5: 业务模型迭代
-  { col: 2, row: 1 }, // Card 6: 爆款人物故事
-  { col: 1, row: 1 }, // Card 7: 坦诚复盘
+// Grid span configuration for each card (desktop only, mobile is always 1x1)
+const gridSpanClasses = [
+  'md:col-span-2 md:row-span-1', // Card 0: 四大平台起号
+  'md:col-span-1 md:row-span-1', // Card 1: 付费投放
+  'md:col-span-1 md:row-span-2', // Card 2: 赢者通吃 (spans 2 rows on desktop)
+  'md:col-span-1 md:row-span-1', // Card 3: 用户链路
+  'md:col-span-1 md:row-span-1', // Card 4: 0到1团队
+  'md:col-span-2 md:row-span-1', // Card 5: 业务模型迭代
+  'md:col-span-2 md:row-span-1', // Card 6: 爆款人物故事
+  'md:col-span-1 md:row-span-1', // Card 7: 坦诚复盘
 ];
 
 function PhilosophyCard({ item, index }: { item: typeof philosophies[0]; index: number }) {
   const { ref, isVisible } = useInView(0.1);
-  const span = gridSpans[index];
+  const spanClass = gridSpanClasses[index];
 
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="group relative bg-[#0a1120] border border-white/[0.08] hover:border-[#00d4ff]/30 transition-all duration-300 p-4 md:p-5"
+      className={`group relative bg-[#0a1120] border border-white/[0.08] hover:border-[#00d4ff]/30 transition-all duration-300 p-4 md:p-5 col-span-1 row-span-1 ${spanClass}`}
       style={{
-        gridColumn: `span ${span.col}`,
-        gridRow: `span ${span.row}`,
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: `all 0.5s ease ${index * 80}ms`,
