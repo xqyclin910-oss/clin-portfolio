@@ -44,7 +44,7 @@ const cases = [
       { name: 'Facebook', fans: '11.1万' },
       { name: 'TikTok', fans: '9.5万' },
     ],
-    image: '/assets/photos/content-topic-flow.png',
+    image: '/assets/photos/case-account-3.png',
   },
 ];
 

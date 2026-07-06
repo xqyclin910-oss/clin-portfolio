@@ -20,7 +20,7 @@ const shortFormVideos = [
 // 长视频 Long-Form - 2个
 const longFormVideos = [
   { src: '/videos/kyuan-brand-film.mp4', label: 'IP广告片' },
-  { src: '/videos/independent-site-promo.mp4', label: '独立站宣传 | TAICHI YOUNG' },
+  { src: '/videos/independent-site-promo.mp4', label: '独立站宣传 Independent Site Promo' },
 ];
 
 function ShortVideoCard({ src, label }: { src: string; label: string }) {

@@ -5,25 +5,25 @@ import { useInView } from '@/hooks/useAnimations';
 
 const workflows = [
   {
-    src: '/assets/photos/content-topic-flow.png',
-    title: '选题协作表',
-    titleEn: 'Topic Collaboration',
-    desc: '跨团队选题头脑风暴与审批流程',
-    descEn: 'Cross-team topic brainstorming and approval workflow',
-  },
-  {
-    src: '/assets/photos/content-workflow.png',
+    src: '/assets/photos/private-domain-sop.png',
     title: '私域话术SOP',
-    titleEn: 'Private Domain Script SOP',
+    titleEn: 'Private Domain SOP',
     desc: '私域运营标准化话术流程',
     descEn: 'Standardized scripts for private domain operations',
   },
   {
-    src: '/assets/photos/influencer-tracker.png',
-    title: '达人Pipeline',
-    titleEn: 'Creator Pipeline',
+    src: '/assets/photos/kol-pipeline.png',
+    title: 'KOL Pipeline',
+    titleEn: 'KOL Pipeline',
     desc: '达人拓展管线与表现分析',
     descEn: 'Creator outreach pipeline and performance analytics',
+  },
+  {
+    src: '/assets/photos/topic-collaboration.png',
+    title: '选题协作表',
+    titleEn: 'Topic Collaboration',
+    desc: '跨团队选题头脑风暴与审批流程',
+    descEn: 'Cross-team topic brainstorming and approval workflow',
   },
 ];
 
