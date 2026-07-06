@@ -127,10 +127,10 @@ export function DTCStore() {
           }}
         >
           <p className="text-sm md:text-base text-foreground/80 leading-relaxed">
-            主导欧美健康类独立站全栈运营，从Shopify建站、SEO优化到内容营销，实现从0到1的突破。
+            主导欧美独立站全栈运营，从Shopify建站、SEO优化到内容营销，实现从0到1的突破。
           </p>
           <p className="text-xs md:text-sm text-muted-foreground/60 italic mt-2">
-            Led full-stack operation of a health & wellness DTC brand targeting US market, from Shopify setup to SEO and content marketing.
+            Led full-stack operation of a DTC brand targeting US market, from Shopify setup to SEO and content marketing.
           </p>
         </div>
 

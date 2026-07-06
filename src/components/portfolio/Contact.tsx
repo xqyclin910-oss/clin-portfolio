@@ -9,7 +9,7 @@ const experiences = [
     company: '博商管理科学研究院',
     companyEn: 'Boshang Management Institute',
     period: '2022.07 - 2026.05',
-    desc: '搭建33账号285万粉社媒矩阵，主导TAICHI YOUNG欧美健康类独立站',
+    desc: '搭建33账号285万粉社媒矩阵，主导TAICHI YOUNG欧美独立站',
     descEn: 'Built a 33-account 2.85M follower social media matrix, led TAICHI YOUNG DTC store for US/EU market',
   },
   {
