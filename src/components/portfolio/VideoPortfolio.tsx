@@ -6,19 +6,18 @@ import { useInView } from '@/hooks/useAnimations';
 const shortFormVideos = [
   { src: '/videos/brand-feed-digital-human.mp4', label: '品牌向信息流（含数字人）Brand Feed with Digital Human' },
   { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流 Social Trending Feed' },
+  { src: '/videos/rejection-guy.mp4', label: 'TED千万播放Rejection Guy个人故事' },
+  { src: '/videos/pitch-deck-steve-hoffman.mp4', label: '氛围感剪辑 Atmospheric Edit' },
   { src: '/videos/katrina-xie-tiktok.mp4', label: '秋阳外网口播' },
   { src: '/videos/qyoutlaw-tiktok.mp4', label: '秋阳外网口播' },
   { src: '/videos/2-books-steve-hoffman.mp4', label: '话题对标自然流百万播放爆款' },
   { src: '/videos/3-boring-jobs-steve-hoffman.mp4', label: '精准预测自然流百万播放爆款 | 单条涨粉2万' },
   { src: '/videos/6-things-matt.mp4', label: '争议性话题起号爆款：职场逃离6个信号' },
-  { src: '/videos/pitch-deck-steve-hoffman.mp4', label: '氛围感剪辑 Atmospheric Edit' },
-  { src: '/videos/rejection-guy.mp4', label: 'TED千万播放Rejection Guy个人故事' },
 ];
 
 const longFormVideos = [
-  { src: '/videos/showreel-compressed.mp4', label: 'QingYun IP广告片 QingYun IP Ad Film' },
-  { src: '/videos/kyuan-brand-film.mp4', label: 'Kyran IP理念片 Kyran IP Concept Film' },
   { src: '/videos/independent-site-promo.mp4', label: '独立站宣传 Independent Site Promo' },
+  { src: '/videos/kyuan-brand-film.mp4', label: 'Kyran IP理念片 Kyran IP Concept Film' },
 ];
 
 function ShortVideoCard({ src, label }: { src: string; label: string }) {
