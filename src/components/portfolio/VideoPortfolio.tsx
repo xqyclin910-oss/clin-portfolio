@@ -43,7 +43,7 @@ function ShortVideoCard({ src, label }: { src: string; label: string }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative w-full" style={{ aspectRatio: '9/16', background: '#050a14' }}>
+      <div className="relative w-full" style={{ aspectRatio: '9/16', background: '#0a1929' }}>
         <video
           ref={videoRef}
           src={src}
@@ -84,7 +84,7 @@ function LongVideoCard({ src, label }: { src: string; label: string }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative w-full" style={{ aspectRatio: '16/9', background: '#050a14' }}>
+      <div className="relative w-full" style={{ aspectRatio: '16/9', background: '#0a1929' }}>
         <video
           ref={videoRef}
           src={src}

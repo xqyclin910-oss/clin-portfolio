@@ -44,7 +44,7 @@ export function BehindScenes() {
                 transition: `all 0.5s ease ${i * 100}ms`,
               }}
             >
-              <div className="img-contain aspect-[4/3]">
+              <div className="relative w-full" style={{ aspectRatio: '16/9', background: '#0a1929' }}>
                 <Image
                   src={photo.src}
                   alt={photo.label}

@@ -50,11 +50,11 @@ const cases = [
 
 // 案例截图展示
 const caseScreenshots = [
-  { src: '/assets/photos/case-account-1.png', label: '账号数据截图', labelEn: 'Account Data' },
-  { src: '/assets/photos/case-account-2.png', label: '账号数据截图', labelEn: 'Account Data' },
-  { src: '/assets/photos/case-account-3.png', label: '账号数据截图', labelEn: 'Account Data' },
-  { src: '/assets/photos/case-video.png', label: '视频数据截图', labelEn: 'Video Analytics' },
-  { src: '/assets/photos/viral-repost.jpg', label: '病毒式传播', labelEn: 'Viral Content' },
+  { src: '/assets/photos/case-account-1.png', label: '账号数据截图', labelEn: 'Account Data', aspect: '9/16' as const },
+  { src: '/assets/photos/case-account-2.png', label: '账号数据截图', labelEn: 'Account Data', aspect: '9/16' as const },
+  { src: '/assets/photos/case-account-3.png', label: '账号数据截图', labelEn: 'Account Data', aspect: '9/16' as const },
+  { src: '/assets/photos/case-video.png', label: '视频数据截图', labelEn: 'Video Analytics', aspect: '16/9' as const },
+  { src: '/assets/photos/viral-repost.jpg', label: '病毒式传播', labelEn: 'Viral Content', aspect: '16/9' as const },
 ];
 
 function CaseCard({ caseItem, index }: { caseItem: typeof cases[0]; index: number }) {
@@ -121,7 +121,7 @@ function ScreenshotCard({ item, index }: { item: typeof caseScreenshots[0]; inde
         transition: `all 0.5s ease ${index * 100}ms`,
       }}
     >
-      <div className="relative w-full aspect-[16/9]" style={{ background: '#050a14' }}>
+      <div className="relative w-full" style={{ aspectRatio: item.aspect, background: '#0a1929' }}>
         <Image
           src={item.src}
           alt={item.label}
