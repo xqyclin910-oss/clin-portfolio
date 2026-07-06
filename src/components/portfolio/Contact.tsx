@@ -34,27 +34,21 @@ const experiences = [
 
 const education = [
   {
-    school: '香港理工大学',
-    schoolEn: 'The Hong Kong Polytechnic University',
-    degree: '硕士',
-    degreeEn: 'Master',
-    major: '中国商务研究',
-    majorEn: 'China Business Studies',
+    school: 'The Hong Kong Polytechnic University',
+    degree: 'Master',
+    major: 'China Business Studies',
     rank: 'QS54',
   },
   {
-    school: '北京第二外国语学院',
-    schoolEn: 'Beijing International Studies University',
-    degree: '本科',
-    degreeEn: 'Bachelor',
-    major: '酒店管理',
-    majorEn: 'Hospitality Management',
+    school: 'Beijing International Studies University',
+    degree: 'Bachelor',
+    major: 'Hospitality Management',
     rank: '',
   },
 ];
 
 const contact = [
-  { label: '邮箱', labelEn: 'Email', value: 'katrina.xie@outlook.com', href: 'mailto:katrina.xie@outlook.com' },
+  { label: '邮箱', labelEn: 'Email', value: 'xqyclin910@gmail.com', href: 'mailto:xqyclin910@gmail.com' },
   { label: '所在地', labelEn: 'Location', value: '中国·深圳 / Shenzhen, China', href: null },
 ];
 
@@ -122,20 +116,16 @@ export function Contact() {
             {education.map((edu) => (
               <div key={edu.school} className="dual-tone-card hover-lift rounded-lg bg-card/60 p-4">
                 <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
-                  教育背景
-                  <span className="text-muted-foreground/50 italic ml-1 normal-case">Education</span>
+                  Education
                 </div>
                 <div className="flex flex-wrap items-center gap-2 mb-1">
                   <span className="text-sm font-medium text-foreground">{edu.school}</span>
-                  <span className="text-[10px] text-muted-foreground/50 italic">{edu.schoolEn}</span>
                   {edu.rank && <span className="text-[10px] text-primary/70 font-medium">{edu.rank}</span>}
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-xs text-foreground font-medium">{edu.degree}</span>
-                  <span className="text-[10px] text-muted-foreground/50 italic">{edu.degreeEn}</span>
                   <span className="text-xs text-muted-foreground">|</span>
                   <span className="text-xs text-muted-foreground">{edu.major}</span>
-                  <span className="text-[10px] text-muted-foreground/50 italic">{edu.majorEn}</span>
                 </div>
               </div>
             ))}
