@@ -1,5 +1,6 @@
 export { Hero } from './Hero';
 export { StatsBar } from './StatsBar';
+export { About } from './About';
 export { IPCases } from './IPCases';
 export { VideoPortfolio } from './VideoPortfolio';
 export { ContentOps } from './ContentOps';

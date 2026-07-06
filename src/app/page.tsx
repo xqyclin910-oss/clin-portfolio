@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import {
   Hero,
   StatsBar,
+  About,
   IPCases,
   VideoPortfolio,
   ContentOps,
@@ -33,6 +34,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <StatsBar />
+      <About />
       <IPCases />
       <VideoPortfolio />
       <ContentOps />
