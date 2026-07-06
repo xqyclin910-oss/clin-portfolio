@@ -5,7 +5,6 @@ import { useInView } from '@/hooks/useAnimations';
 
 const photos = [
   { src: '/assets/photos/behind-scenes.png', label: '拍摄现场', labelEn: 'On Set' },
-  { src: '/assets/photos/team-photo.jpeg', label: '团队合影', labelEn: 'Team' },
   { src: '/assets/photos/team-activity.png', label: '团队活动', labelEn: 'Team Activity' },
 ];
 
@@ -16,7 +15,7 @@ export function BehindScenes() {
     <section className="relative py-16 md:py-20 px-4">
       <div
         ref={ref}
-        className="max-w-6xl mx-auto"
+        className="max-w-4xl mx-auto"
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -34,7 +33,7 @@ export function BehindScenes() {
           记录团队与创作背后的精彩瞬间
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {photos.map((photo, i) => (
             <div
               key={photo.src}
@@ -51,7 +50,7 @@ export function BehindScenes() {
                   alt={photo.label}
                   fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="p-3 text-center">
