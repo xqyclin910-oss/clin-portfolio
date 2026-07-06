@@ -119,16 +119,16 @@ function ScreenshotCard({ item, index }: { item: typeof caseScreenshots[0]; inde
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: `all 0.5s ease ${index * 100}ms`,
-        maxWidth: '150px',
+        maxWidth: '180px',
       }}
     >
-      <div className="relative w-full flex items-center justify-center" style={{ height: '140px', background: '#050a14' }}>
+      <div className="relative w-full flex items-center justify-center" style={{ minHeight: '120px', background: '#050a14' }}>
         <Image
           src={item.src}
           alt={item.label}
           fill
           className="object-contain p-1"
-          sizes="160px"
+          sizes="180px"
         />
       </div>
       <div className="p-1.5 bg-[#0a1120] border-t border-white/5 w-full">
@@ -177,7 +177,7 @@ export function IPCases() {
             更多案例数据截图
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">More Case Data Screenshots</p>
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex flex-wrap gap-4 justify-start">
             {caseScreenshots.map((item, i) => (
               <ScreenshotCard key={item.src} item={item} index={i} />
             ))}
