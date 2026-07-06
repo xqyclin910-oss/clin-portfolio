@@ -3,10 +3,10 @@
 import { useInView, useCountUp } from '@/hooks/useAnimations';
 
 const stats = [
-  { value: 2.85, suffix: 'M+', label: '全网粉丝', labelEn: 'Total Followers', decimals: 2 },
-  { value: 33, suffix: '', label: '运营账号', labelEn: 'Accounts Managed', decimals: 0 },
-  { value: 3.1, suffix: 'M+', label: '视频播放量', labelEn: 'Video Views', decimals: 1 },
-  { value: 9, suffix: ' 个月', label: '增长周期', labelEn: 'Months to Scale', decimals: 0 },
+  { value: 374, suffix: '万+', label: '累计运营粉丝', labelEn: 'Total Followers Managed', decimals: 0 },
+  { value: 100, suffix: '+', label: '运营账号数', labelEn: 'Accounts Operated', decimals: 0 },
+  { value: 5, suffix: '亿+', label: '累计播放量', labelEn: 'Total Views', decimals: 0 },
+  { value: 285, suffix: '万+', label: '自建矩阵粉丝', labelEn: 'Self-built Matrix Followers', decimals: 0 },
 ];
 
 function StatItem({ stat, index, isVisible }: { stat: typeof stats[0]; index: number; isVisible: boolean }) {

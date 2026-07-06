@@ -1,11 +1,20 @@
 'use client';
 
+import Image from 'next/image';
 import { useInView, useCountUp } from '@/hooks/useAnimations';
 
 const metrics = [
   { value: 43285, label: '月营收', labelEn: 'Revenue', prefix: '$', suffix: '/mo', decimals: 0 },
   { value: 83172, label: '访客数', labelEn: 'Visitors', prefix: '', decimals: 0 },
   { value: 0.53, label: '转化率', labelEn: 'Conversion', prefix: '', suffix: '%', decimals: 2 },
+];
+
+// Shopify截图
+const shopifyScreenshots = [
+  { src: '/assets/photos/shopify-home.png', label: '首页截图', labelEn: 'Homepage' },
+  { src: '/assets/photos/shopify-blog.png', label: '博客页截图', labelEn: 'Blog Page' },
+  { src: '/assets/photos/shopify-modules.png', label: '主页模块截图', labelEn: 'Homepage Modules' },
+  { src: '/assets/photos/shopify-products.png', label: '产品页截图', labelEn: 'Products Page' },
 ];
 
 function MetricItem({ metric, index, isVisible }: { metric: typeof metrics[0]; index: number; isVisible: boolean }) {
@@ -40,6 +49,34 @@ function MetricItem({ metric, index, isVisible }: { metric: typeof metrics[0]; i
   );
 }
 
+function ScreenshotCard({ item, index }: { item: typeof shopifyScreenshots[0]; index: number }) {
+  const { ref, isVisible } = useInView(0.2);
+
+  return (
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className="img-contain aspect-[4/3] hover-lift"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+        transition: `all 0.5s ease ${index * 100}ms`,
+      }}
+    >
+      <Image
+        src={item.src}
+        alt={item.label}
+        fill
+        className="object-contain"
+        sizes="(max-width: 768px) 50vw, 25vw"
+      />
+      <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-transparent">
+        <span className="text-xs text-white/90 font-medium">{item.label}</span>
+        <span className="text-[10px] text-white/50 italic ml-1">{item.labelEn}</span>
+      </div>
+    </div>
+  );
+}
+
 export function DTCStore() {
   const { ref, isVisible } = useInView(0.2);
 
@@ -61,7 +98,7 @@ export function DTCStore() {
 
       <div
         ref={ref}
-        className="relative z-10 max-w-4xl mx-auto"
+        className="relative z-10 max-w-5xl mx-auto"
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -82,10 +119,25 @@ export function DTCStore() {
           Led the full-stack operation of a health & wellness DTC brand targeting US market
         </p>
 
-        <div className="dual-tone-card rounded-xl bg-card/60 backdrop-blur-sm p-8">
+        {/* 数据卡片 */}
+        <div className="dual-tone-card rounded-xl bg-card/60 backdrop-blur-sm p-8 mb-10">
           <div className="grid grid-cols-3 gap-4">
             {metrics.map((m, i) => (
               <MetricItem key={m.label} metric={m} index={i} isVisible={isVisible} />
+            ))}
+          </div>
+        </div>
+
+        {/* Shopify截图展示 */}
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-primary" />
+            独立站截图
+          </h3>
+          <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Shopify Store Screenshots</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {shopifyScreenshots.map((item, i) => (
+              <ScreenshotCard key={item.src} item={item} index={i} />
             ))}
           </div>
         </div>

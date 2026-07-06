@@ -5,7 +5,7 @@ import { useInView } from '@/hooks/useAnimations';
 
 const cases = [
   {
-    name: '龙娇儿 Long Jiaoer',
+    name: '龙骄尔 Long Jiaoer',
     period: '9个月',
     periodEn: '9 months',
     totalFans: '110万',
@@ -33,7 +33,7 @@ const cases = [
     image: '/assets/photos/success-stories-2.png',
   },
   {
-    name: '清云 Qingyun',
+    name: '青云 Qingyun',
     period: '8个月',
     periodEn: '8 months',
     totalFans: '100万',
@@ -46,6 +46,15 @@ const cases = [
     ],
     image: '/assets/photos/content-topic-flow.png',
   },
+];
+
+// 案例截图展示
+const caseScreenshots = [
+  { src: '/assets/photos/case-account-1.png', label: '账号数据截图', labelEn: 'Account Data' },
+  { src: '/assets/photos/case-account-2.png', label: '账号数据截图', labelEn: 'Account Data' },
+  { src: '/assets/photos/case-account-3.png', label: '账号数据截图', labelEn: 'Account Data' },
+  { src: '/assets/photos/case-video.png', label: '视频数据截图', labelEn: 'Video Analytics' },
+  { src: '/assets/photos/viral-repost.jpg', label: '病毒式传播', labelEn: 'Viral Content' },
 ];
 
 function CaseCard({ caseItem, index }: { caseItem: typeof cases[0]; index: number }) {
@@ -99,6 +108,34 @@ function CaseCard({ caseItem, index }: { caseItem: typeof cases[0]; index: numbe
   );
 }
 
+function ScreenshotCard({ item, index }: { item: typeof caseScreenshots[0]; index: number }) {
+  const { ref, isVisible } = useInView(0.2);
+
+  return (
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className="img-contain aspect-[4/3] hover-lift"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+        transition: `all 0.5s ease ${index * 100}ms`,
+      }}
+    >
+      <Image
+        src={item.src}
+        alt={item.label}
+        fill
+        className="object-contain"
+        sizes="(max-width: 768px) 50vw, 20vw"
+      />
+      <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-transparent">
+        <span className="text-xs text-white/90 font-medium">{item.label}</span>
+        <span className="text-[10px] text-white/50 italic ml-1">{item.labelEn}</span>
+      </div>
+    </div>
+  );
+}
+
 export function IPCases() {
   const { ref, isVisible } = useInView(0.1);
 
@@ -124,10 +161,25 @@ export function IPCases() {
           从零到百万粉丝，打造创作者品牌矩阵
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* 案例卡片 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {cases.map((c, i) => (
             <CaseCard key={c.name} caseItem={c} index={i} />
           ))}
+        </div>
+
+        {/* 案例截图展示 */}
+        <div className="mt-12">
+          <h3 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-primary" />
+            案例数据截图
+          </h3>
+          <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Case Data Screenshots</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {caseScreenshots.map((item, i) => (
+              <ScreenshotCard key={item.src} item={item} index={i} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

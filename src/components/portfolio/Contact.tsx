@@ -4,31 +4,52 @@ import { useInView } from '@/hooks/useAnimations';
 
 const experiences = [
   {
-    role: '海外社媒负责人',
-    roleEn: 'Head of Overseas Social Media',
-    company: '博商管理咨询',
-    companyEn: 'Boshang Management Consulting',
-    period: '2023 - 2025',
-    desc: '主导管理咨询公司的海外社媒战略与内容增长，搭建33个账号矩阵，覆盖285万+粉丝',
-    descEn: 'Led overseas social media strategy and content growth, building a 33-account matrix reaching 2.85M followers',
+    role: '产品经理 → 海外社媒与增长负责人',
+    roleEn: 'Product Manager → Head of Overseas Social Media & Growth',
+    company: '博商管理科学研究院',
+    companyEn: 'Boshang Management Institute',
+    period: '2022.07 - 2026.05',
+    desc: '搭建33账号285万粉社媒矩阵，主导TAICHI YOUNG欧美健康类独立站',
+    descEn: 'Built a 33-account 2.85M follower social media matrix, led TAICHI YOUNG DTC store for US/EU market',
   },
   {
-    role: '内容策略主管',
-    roleEn: 'Content Strategy Lead',
-    company: '数字媒体机构',
-    companyEn: 'Digital Media Agency',
-    period: '2021 - 2023',
-    desc: '为10+达人账号制定内容策略，驱动受众从零增长到数十万',
-    descEn: 'Developed content strategies for 10+ creator accounts, driving audience growth from zero to hundreds of thousands',
+    role: '内容项目经理',
+    roleEn: 'Content Project Manager',
+    company: '火星未来',
+    companyEn: 'Mars Future',
+    period: '2021.08 - 2022.06',
+    desc: '负责内容项目管理与交付',
+    descEn: 'Managed content project management and delivery',
   },
   {
-    role: '社媒运营经理',
-    roleEn: 'Social Media Manager',
-    company: '科技初创公司',
-    companyEn: 'Tech Startup',
-    period: '2020 - 2021',
-    desc: '管理多平台社媒运营，创作病毒式传播内容，实现百万级播放量',
-    descEn: 'Managed multi-platform social media presence, creating viral content that achieved millions of views',
+    role: '英语学科运营',
+    roleEn: 'English Subject Operations',
+    company: '好未来/学而思',
+    companyEn: 'TAL Education',
+    period: '2020.09 - 2021.08',
+    desc: '负责英语学科运营工作',
+    descEn: 'Managed English subject operations',
+  },
+];
+
+const education = [
+  {
+    school: '香港理工大学',
+    schoolEn: 'The Hong Kong Polytechnic University',
+    degree: '硕士',
+    degreeEn: 'Master',
+    major: '中国商务研究',
+    majorEn: 'China Business Studies',
+    rank: 'QS54',
+  },
+  {
+    school: '北京第二外国语学院',
+    schoolEn: 'Beijing International Studies University',
+    degree: '本科',
+    degreeEn: 'Bachelor',
+    major: '酒店管理',
+    majorEn: 'Hospitality Management',
+    rank: '',
   },
 ];
 
@@ -70,7 +91,7 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* 联系方式卡片 */}
           <div className="space-y-4">
             {contact.map((item) => (
@@ -97,19 +118,27 @@ export function Contact() {
           </div>
 
           {/* 教育背景 */}
-          <div className="dual-tone-card hover-lift rounded-lg bg-card/60 p-4">
-            <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
-              教育背景
-              <span className="text-muted-foreground/50 italic ml-1 normal-case">Education</span>
-            </div>
-            <div className="text-sm font-medium text-foreground">
-              工学学士
-              <span className="text-muted-foreground/60 italic text-xs ml-2">Bachelor of Engineering</span>
-            </div>
-            <div className="text-xs text-muted-foreground mt-1">
-              计算机科学与技术
-              <span className="text-muted-foreground/50 italic ml-1">Computer Science & Technology</span>
-            </div>
+          <div className="space-y-4">
+            {education.map((edu) => (
+              <div key={edu.school} className="dual-tone-card hover-lift rounded-lg bg-card/60 p-4">
+                <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
+                  教育背景
+                  <span className="text-muted-foreground/50 italic ml-1 normal-case">Education</span>
+                </div>
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <span className="text-sm font-medium text-foreground">{edu.school}</span>
+                  <span className="text-[10px] text-muted-foreground/50 italic">{edu.schoolEn}</span>
+                  {edu.rank && <span className="text-[10px] text-primary/70 font-medium">{edu.rank}</span>}
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs text-foreground font-medium">{edu.degree}</span>
+                  <span className="text-[10px] text-muted-foreground/50 italic">{edu.degreeEn}</span>
+                  <span className="text-xs text-muted-foreground">|</span>
+                  <span className="text-xs text-muted-foreground">{edu.major}</span>
+                  <span className="text-[10px] text-muted-foreground/50 italic">{edu.majorEn}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -138,6 +167,8 @@ export function Contact() {
                 <div className="dual-tone-card hover-lift rounded-lg bg-card/40 p-4">
                   <div className="flex flex-wrap items-center gap-2 mb-1">
                     <span className="text-sm font-semibold text-foreground">{exp.role}</span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
                     <span className="text-[10px] text-muted-foreground/50 italic">{exp.roleEn}</span>
                   </div>
                   <div className="flex flex-wrap items-center gap-2 mb-1">

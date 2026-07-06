@@ -3,22 +3,36 @@
 import { useRef, useState } from 'react';
 import { useInView } from '@/hooks/useAnimations';
 
-const shortForm = [
-  { src: '/videos/brand-feed-digital-human.mp4', label: '品牌信息流+数字人', labelEn: 'Brand Feed + Digital Human' },
-  { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流', labelEn: 'Social Trending Feed' },
-  { src: '/videos/katrina-xie-tiktok.mp4', label: '达人：Katrina Xie', labelEn: 'Creator: Katrina Xie' },
-  { src: '/videos/qyoutlaw-tiktok.mp4', label: '达人：QYoutlaw', labelEn: 'Creator: QYoutlaw' },
-  { src: '/videos/2-books-steve-hoffman.mp4', label: '达人：Steve Hoffman (2 Books)', labelEn: 'Creator: Steve Hoffman (2 Books)' },
-  { src: '/videos/3-boring-jobs-steve-hoffman.mp4', label: '达人：Steve Hoffman (3 Jobs)', labelEn: 'Creator: Steve Hoffman (3 Jobs)' },
-  { src: '/videos/6-things-matt.mp4', label: '达人：Matt', labelEn: 'Creator: Matt' },
-  { src: '/videos/pitch-deck-steve-hoffman.mp4', label: '达人：Steve Hoffman (Pitch)', labelEn: 'Creator: Steve Hoffman (Pitch)' },
-  { src: '/videos/showreel-compressed.mp4', label: '作品集混剪', labelEn: 'Showreel' },
+// 秋阳外网口播 (2个)
+const qiuyangOral = [
+  { src: '/videos/katrina-xie-tiktok.mp4', label: '秋阳外网口播 | Katrina Xie', labelEn: 'Qiuyang Oral | Katrina Xie' },
+  { src: '/videos/qyoutlaw-tiktok.mp4', label: '秋阳外网口播 | QYoutlaw', labelEn: 'Qiuyang Oral | QYoutlaw' },
 ];
 
+// 达人孵化内容 (5个)
+const creatorContent = [
+  { src: '/videos/2-books-steve-hoffman.mp4', label: '达人内容 | Steve Hoffman', labelEn: 'Creator Content | Steve Hoffman' },
+  { src: '/videos/3-boring-jobs-steve-hoffman.mp4', label: '达人内容 | Steve Hoffman', labelEn: 'Creator Content | Steve Hoffman' },
+  { src: '/videos/6-things-matt.mp4', label: '达人内容 | Matt', labelEn: 'Creator Content | Matt' },
+  { src: '/videos/pitch-deck-steve-hoffman.mp4', label: '达人内容 | Steve Hoffman', labelEn: 'Creator Content | Steve Hoffman' },
+  { src: '/videos/rejection-guy.mp4', label: '达人内容 | The Rejection Guy', labelEn: 'Creator Content | The Rejection Guy' },
+];
+
+// 品牌与独立站 (3个)
+const brandContent = [
+  { src: '/videos/brand-feed-digital-human.mp4', label: '品牌信息流 | Digital Human', labelEn: 'Brand Feed | Digital Human' },
+  { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流', labelEn: 'Social Trending Feed' },
+  { src: '/videos/independent-site-promo.mp4', label: '独立站宣传 | TAICHI YOUNG', labelEn: 'DTC Store Promo | TAICHI YOUNG' },
+];
+
+// 作品集混剪 (1个)
+const showreel = [
+  { src: '/videos/showreel-compressed.mp4', label: '作品集混剪 | Showreel', labelEn: 'Portfolio Showreel' },
+];
+
+// 长视频 - 品牌片 (1个)
 const longForm = [
-  { src: '/videos/kyuan-brand-film.mp4', label: '凯源品牌片', labelEn: 'Kyuan Brand Film' },
-  { src: '/videos/rejection-guy.mp4', label: '拒绝哥', labelEn: 'The Rejection Guy' },
-  { src: '/videos/independent-site-promo.mp4', label: '独立站宣传', labelEn: 'DTC Store Promo' },
+  { src: '/videos/kyuan-brand-film.mp4', label: '凯源品牌片 | Kyuan Brand Film', labelEn: 'Kyuan Brand Film' },
 ];
 
 function VideoCard({ src, label, labelEn, aspect }: { src: string; label: string; labelEn: string; aspect: '16/9' | '4/3' }) {
@@ -60,6 +74,29 @@ function VideoCard({ src, label, labelEn, aspect }: { src: string; label: string
   );
 }
 
+function VideoSection({ title, titleEn, videos, aspect, color }: { 
+  title: string; 
+  titleEn: string; 
+  videos: typeof qiuyangOral; 
+  aspect: '16/9' | '4/3';
+  color: string;
+}) {
+  return (
+    <div className="mb-10">
+      <h3 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
+        <span className={`w-2 h-2 rounded-full ${color}`} />
+        {title}
+      </h3>
+      <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">{titleEn}</p>
+      <div className={`grid grid-cols-1 ${aspect === '16/9' ? 'sm:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-1'} gap-4`}>
+        {videos.map((v) => (
+          <VideoCard key={v.src} {...v} aspect={aspect} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function VideoPortfolio() {
   const { ref, isVisible } = useInView(0.1);
 
@@ -87,33 +124,47 @@ export function VideoPortfolio() {
           悬停预览 — 从品牌营销到达人内容
         </p>
 
-        {/* 短视频 - 9个，16:9容器 */}
-        <div className="mb-12">
-          <h3 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-primary" />
-            短视频内容
-          </h3>
-          <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Short-Form Content (9 videos)</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {shortForm.map((v) => (
-              <VideoCard key={v.src} {...v} aspect="16/9" />
-            ))}
-          </div>
-        </div>
+        {/* 短视频内容 - 16:9容器 */}
+        <VideoSection 
+          title="秋阳外网口播" 
+          titleEn="Qiuyang Oral Content (2 videos)" 
+          videos={qiuyangOral} 
+          aspect="16/9"
+          color="bg-primary"
+        />
+        
+        <VideoSection 
+          title="达人孵化内容" 
+          titleEn="Creator Incubation Content (5 videos)" 
+          videos={creatorContent} 
+          aspect="16/9"
+          color="bg-primary"
+        />
+        
+        <VideoSection 
+          title="品牌与独立站" 
+          titleEn="Brand & DTC Store (3 videos)" 
+          videos={brandContent} 
+          aspect="16/9"
+          color="bg-primary"
+        />
+        
+        <VideoSection 
+          title="作品集混剪" 
+          titleEn="Portfolio Showreel (1 video)" 
+          videos={showreel} 
+          aspect="16/9"
+          color="bg-primary"
+        />
 
-        {/* 长视频与品牌片 - 3个，4:3容器 */}
-        <div>
-          <h3 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-accent" />
-            长视频与品牌片
-          </h3>
-          <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Long-Form & Brand Films (3 videos)</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {longForm.map((v) => (
-              <VideoCard key={v.src} {...v} aspect="4/3" />
-            ))}
-          </div>
-        </div>
+        {/* 长视频 - 4:3容器 */}
+        <VideoSection 
+          title="长视频与品牌片" 
+          titleEn="Long-Form & Brand Films (1 video)" 
+          videos={longForm} 
+          aspect="4/3"
+          color="bg-accent"
+        />
       </div>
     </section>
   );

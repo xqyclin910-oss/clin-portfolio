@@ -47,14 +47,13 @@ export function Hero() {
         </p>
 
         <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-3">
-          5年社媒内容策略经验，9个月内为
-          <span className="text-primary font-semibold">33个账号</span>
-          构建
+          <span className="text-primary font-semibold">9个月</span>
+          自然流构建
           <span className="text-primary font-semibold">285万+粉丝</span>
-          矩阵
+          社媒矩阵
         </p>
         <p className="text-sm text-muted-foreground/60 italic max-w-2xl mx-auto">
-          5 years crafting social media strategies that built 2.85M+ followers across 33 accounts in 9 months
+          Built a 2.85M+ follower social media matrix organically in 9 months
         </p>
       </div>
 
