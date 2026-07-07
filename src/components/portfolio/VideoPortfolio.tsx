@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { useInView } from '@/hooks/useAnimations';
 
 const shortFormVideos = [
+  { src: '/assets/photos/ai-video-full-flow.mp4', label: '全流程AI创作短片 Full AI Creation Short Film' },
   { src: '/videos/brand-feed-digital-human.mp4', label: '品牌向信息流（含数字人）Brand Feed with Digital Human' },
   { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流 Social Trending Feed' },
   { src: '/videos/rejection-guy.mp4', label: 'TED千万播放Rejection Guy个人故事' },
