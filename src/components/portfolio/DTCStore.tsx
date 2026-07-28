@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useInView } from '@/hooks/useAnimations';
 
@@ -72,20 +73,32 @@ function ScreenshotCard({ item, index }: { item: typeof shopifyScreenshots[0]; i
 
 export function DTCStore() {
   const { ref, isVisible } = useInView(0.2);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  // Lazy load background video: only load src when section is visible
+  useEffect(() => {
+    if (isVisible && videoRef.current && !videoLoaded) {
+      videoRef.current.src = '/videos/independent-site-promo.mp4';
+      videoRef.current.load();
+      setVideoLoaded(true);
+    }
+  }, [isVisible, videoLoaded]);
 
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className="relative py-16 md:py-20 overflow-hidden"
     >
-      {/* 背景视频 */}
+      {/* 背景视频 - lazy loaded */}
       <div className="absolute inset-0 z-0">
         <video
-          src="/videos/independent-site-promo.mp4"
+          ref={videoRef}
           muted
           loop
           playsInline
-          autoPlay
+          autoPlay={isVisible}
+          preload="none"
           className="w-full h-full object-cover opacity-10"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#050a14] via-[#050a14]/90 to-[#050a14]" />

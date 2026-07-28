@@ -17,6 +17,7 @@ export function Hero() {
           muted
           loop
           playsInline
+          preload="metadata"
           className="w-full h-full object-cover opacity-20"
         >
           <source src="/videos/brand-feed-digital-human.mp4" type="video/mp4" />

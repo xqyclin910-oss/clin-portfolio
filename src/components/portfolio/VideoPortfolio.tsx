@@ -26,6 +26,10 @@ function ShortVideoCard({ src, label }: { src: string; label: string }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.src = src;
+      videoRef.current.load();
+    }
     setIsHovered(true);
     videoRef.current?.play().catch(() => {});
   };
@@ -33,7 +37,11 @@ function ShortVideoCard({ src, label }: { src: string; label: string }) {
   const handleMouseLeave = () => {
     setIsHovered(false);
     videoRef.current?.pause();
-    if (videoRef.current) videoRef.current.currentTime = 0;
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.removeAttribute('src');
+      videoRef.current.load();
+    }
   };
 
   return (
@@ -46,12 +54,12 @@ function ShortVideoCard({ src, label }: { src: string; label: string }) {
       <div className="relative w-full" style={{ aspectRatio: '9/16', background: '#0a1929' }}>
         <video
           ref={videoRef}
-          src={src}
           poster="/assets/photos/video-poster-default.svg"
           muted
           loop
           playsInline
           controls
+          preload="none"
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
@@ -67,6 +75,10 @@ function LongVideoCard({ src, label }: { src: string; label: string }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.src = src;
+      videoRef.current.load();
+    }
     setIsHovered(true);
     videoRef.current?.play().catch(() => {});
   };
@@ -74,7 +86,11 @@ function LongVideoCard({ src, label }: { src: string; label: string }) {
   const handleMouseLeave = () => {
     setIsHovered(false);
     videoRef.current?.pause();
-    if (videoRef.current) videoRef.current.currentTime = 0;
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.removeAttribute('src');
+      videoRef.current.load();
+    }
   };
 
   return (
@@ -87,12 +103,12 @@ function LongVideoCard({ src, label }: { src: string; label: string }) {
       <div className="relative w-full" style={{ aspectRatio: '16/9', background: '#0a1929' }}>
         <video
           ref={videoRef}
-          src={src}
           poster="/assets/photos/video-poster-default.svg"
           muted
           loop
           playsInline
           controls
+          preload="none"
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
