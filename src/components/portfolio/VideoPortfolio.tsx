@@ -1,119 +1,78 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useInView } from '@/hooks/useAnimations';
 
-const shortFormVideos = [
-  { src: '/assets/photos/ai-video-full-flow.mp4', label: '全流程AI创作短片 Full AI Creation Short Film' },
-  { src: '/videos/brand-feed-digital-human.mp4', label: '品牌向信息流（含数字人）Brand Feed with Digital Human' },
-  { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流 Social Trending Feed' },
-  { src: '/videos/rejection-guy.mp4', label: 'TED千万播放Rejection Guy个人故事' },
-  { src: '/videos/pitch-deck-steve-hoffman.mp4', label: '氛围感剪辑 Atmospheric Edit' },
-  { src: '/videos/katrina-xie-tiktok.mp4', label: '秋阳外网口播' },
-  { src: '/videos/qyoutlaw-tiktok.mp4', label: '秋阳外网口播' },
-  { src: '/videos/2-books-steve-hoffman.mp4', label: '话题对标自然流百万播放爆款' },
-  { src: '/videos/3-boring-jobs-steve-hoffman.mp4', label: '精准预测自然流百万播放爆款 | 单条涨粉2万' },
-  { src: '/videos/6-things-matt.mp4', label: '争议性话题起号爆款：职场逃离6个信号' },
+interface VideoItem {
+  bvid: string;
+  label: string;
+  ratio: string;
+}
+
+const shortFormVideos: VideoItem[] = [
+  { bvid: 'BV1s2Mh6DEmh', label: '全流程AI创作短片 Full AI Creation Short Film', ratio: '9/16' },
+  { bvid: 'BV1oguJ66EnS', label: '品牌向信息流（含数字人）Brand Feed with Digital Human', ratio: '9/16' },
+  { bvid: 'BV1oguJ6zE4v', label: '社会热点信息流 Social Trending Feed', ratio: '9/16' },
+  { bvid: 'BV1fKuJ6GEkN', label: 'TED千万播放Rejection Guy个人故事', ratio: '9/16' },
+  { bvid: 'BV17uuJ63EPZ', label: '氛围感剪辑 Atmospheric Edit', ratio: '9/16' },
+  { bvid: 'BV1fKuJ6GEtp', label: '秋阳外网口播 Katrina', ratio: '9/16' },
+  { bvid: 'BV1JKuJ6VEgW', label: '秋阳外网口播 QYoutlaw', ratio: '9/16' },
+  { bvid: 'BV1ouuJ6gEi4', label: '话题对标自然流百万播放爆款', ratio: '9/16' },
+  { bvid: 'BV1ZuuJ6gET3', label: '精准预测自然流百万播放爆款 | 单条涨粉2万', ratio: '9/16' },
+  { bvid: 'BV1ouuJ6gEhk', label: '争议性话题起号爆款：职场逃离6个信号', ratio: '9/16' },
 ];
 
-const longFormVideos = [
-  { src: '/videos/independent-site-promo.mp4', label: '独立站宣传 Independent Site Promo' },
-  { src: '/videos/kyuan-brand-film.mp4', label: 'Kyran IP理念片 Kyran IP Concept Film' },
+const longFormVideos: VideoItem[] = [
+  { bvid: 'BV1EKuJ6VEmS', label: '独立站宣传 Independent Site Promo', ratio: '16/9' },
+  { bvid: 'BV1oguJ6zEG1', label: 'Kyran IP理念片 Kyran IP Concept Film', ratio: '16/9' },
 ];
 
-function ShortVideoCard({ src, label }: { src: string; label: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
+function VideoCard({ bvid, label, ratio, maxWidth }: VideoItem & { maxWidth: string }) {
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  const handleMouseEnter = () => {
-    if (videoRef.current) {
-      videoRef.current.src = src;
-      videoRef.current.load();
-    }
-    setIsHovered(true);
-    videoRef.current?.play().catch(() => {});
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    videoRef.current?.pause();
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.removeAttribute('src');
-      videoRef.current.load();
-    }
-  };
+  const handlePlay = () => setIsPlaying(true);
+  const handleStop = () => setIsPlaying(false);
 
   return (
     <div
       className="video-card hover-lift group flex flex-col bg-[#0a1120] rounded-lg overflow-hidden border border-border/20"
-      style={{ maxWidth: '220px', width: '100%' }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      style={{ maxWidth, width: '100%' }}
     >
-      <div className="relative w-full" style={{ aspectRatio: '9/16', background: '#0a1929' }}>
-        <video
-          ref={videoRef}
-          poster="/assets/photos/video-poster-default.svg"
-          muted
-          loop
-          playsInline
-          controls
-          preload="none"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      <div className="relative w-full" style={{ aspectRatio: ratio, background: '#0a1929' }}>
+        {isPlaying ? (
+          <>
+            <iframe
+              src={`https://player.bilibili.com/player.html?bvid=${bvid}&high_quality=1&danmaku=0`}
+              scrolling="no"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+              style={{ border: 'none' }}
+            />
+            <button
+              onClick={handleStop}
+              className="absolute top-2 right-2 z-10 bg-black/70 text-white text-xs px-2 py-1 rounded hover:bg-black/90 transition-colors"
+            >
+              ✕ 关闭
+            </button>
+          </>
+        ) : (
+          <button
+            onClick={handlePlay}
+            className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer group/play bg-gradient-to-b from-white/5 to-transparent hover:from-white/10 transition-all"
+          >
+            <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center group-hover/play:bg-primary group-hover/play:scale-110 transition-all shadow-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <polygon points="6,4 20,12 6,20" />
+              </svg>
+            </div>
+            <span className="text-[10px] text-white/40 mt-2 group-hover/play:text-white/60 transition-colors">
+              点击播放
+            </span>
+          </button>
+        )}
       </div>
       <div className="p-3 bg-[#0a1120] border-t border-border/10">
         <span className="text-xs text-white/90 font-medium line-clamp-2">{label}</span>
-      </div>
-    </div>
-  );
-}
-
-function LongVideoCard({ src, label }: { src: string; label: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    if (videoRef.current) {
-      videoRef.current.src = src;
-      videoRef.current.load();
-    }
-    setIsHovered(true);
-    videoRef.current?.play().catch(() => {});
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    videoRef.current?.pause();
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.removeAttribute('src');
-      videoRef.current.load();
-    }
-  };
-
-  return (
-    <div
-      className="video-card hover-lift group flex flex-col bg-[#0a1120] rounded-lg overflow-hidden border border-border/20"
-      style={{ maxWidth: '380px', width: '100%' }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className="relative w-full" style={{ aspectRatio: '16/9', background: '#0a1929' }}>
-        <video
-          ref={videoRef}
-          poster="/assets/photos/video-poster-default.svg"
-          muted
-          loop
-          playsInline
-          controls
-          preload="none"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      </div>
-      <div className="p-3 bg-[#0a1120] border-t border-border/10">
-        <span className="text-sm text-white/90 font-medium">{label}</span>
       </div>
     </div>
   );
@@ -153,8 +112,8 @@ export function VideoPortfolio() {
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Short-Form Content</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            {shortFormVideos.map((video, index) => (
-              <ShortVideoCard key={video.src} {...video} />
+            {shortFormVideos.map((video) => (
+              <VideoCard key={video.bvid} {...video} maxWidth="220px" />
             ))}
           </div>
         </div>
@@ -173,8 +132,8 @@ export function VideoPortfolio() {
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Long-Form Content</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            {longFormVideos.map((video, index) => (
-              <LongVideoCard key={video.src} {...video} />
+            {longFormVideos.map((video) => (
+              <VideoCard key={video.bvid} {...video} maxWidth="380px" />
             ))}
           </div>
         </div>
