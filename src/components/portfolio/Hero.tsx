@@ -10,18 +10,15 @@ export function Hero() {
       ref={sectionRef}
       className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden"
     >
-      {/* 背景视频 */}
+      {/* 背景视频 - 改用B站CDN加速 (品牌向信息流含数字人) */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="w-full h-full object-cover opacity-20"
-        >
-          <source src="/videos/brand-feed-digital-human.mp4" type="video/mp4" />
-        </video>
+        <iframe
+          src="https://player.bilibili.com/player.html?bvid=BV1oguJ66EnS&autoplay=1&mute=1&danmaku=0&high_quality=1"
+          scrolling="no"
+          allowFullScreen
+          className="w-full h-full pointer-events-none opacity-20"
+          style={{ border: 'none' }}
+        />
         <div className="video-overlay" />
       </div>
 
