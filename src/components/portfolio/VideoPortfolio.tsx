@@ -1,90 +1,119 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useInView } from '@/hooks/useAnimations';
 
-interface VideoItem {
-  bvid: string;
-  label: string;
-  ratio: string;
-  gradient: string;
-}
-
-const shortFormVideos: VideoItem[] = [
-  { bvid: 'BV1s2Mh6DEmh', label: '全流程AI创作短片 Full AI Creation Short Film', ratio: '9/16', gradient: 'from-violet-600/20 to-indigo-900/40' },
-  { bvid: 'BV1oguJ66EnS', label: '品牌向信息流（含数字人）Brand Feed with Digital Human', ratio: '9/16', gradient: 'from-blue-600/20 to-cyan-900/40' },
-  { bvid: 'BV1oguJ6zE4v', label: '社会热点信息流 Social Trending Feed', ratio: '9/16', gradient: 'from-red-600/20 to-orange-900/40' },
-  { bvid: 'BV1fKuJ6GEkN', label: 'TED千万播放Rejection Guy个人故事', ratio: '9/16', gradient: 'from-pink-600/20 to-rose-900/40' },
-  { bvid: 'BV17uuJ63EPZ', label: '氛围感剪辑 Atmospheric Edit', ratio: '9/16', gradient: 'from-amber-600/20 to-yellow-900/40' },
-  { bvid: 'BV1fKuJ6GEtp', label: '秋阳外网口播 Katrina', ratio: '9/16', gradient: 'from-emerald-600/20 to-teal-900/40' },
-  { bvid: 'BV1JKuJ6VEgW', label: '秋阳外网口播 QYoutlaw', ratio: '9/16', gradient: 'from-sky-600/20 to-blue-900/40' },
-  { bvid: 'BV1ouuJ6gEi4', label: '话题对标自然流百万播放爆款', ratio: '9/16', gradient: 'from-fuchsia-600/20 to-purple-900/40' },
-  { bvid: 'BV1ZuuJ6gET3', label: '精准预测自然流百万播放爆款 | 单条涨粉2万', ratio: '9/16', gradient: 'from-orange-600/20 to-red-900/40' },
-  { bvid: 'BV1ouuJ6gEhk', label: '争议性话题起号爆款：职场逃离6个信号', ratio: '9/16', gradient: 'from-cyan-600/20 to-sky-900/40' },
+const shortFormVideos = [
+  { src: '/assets/photos/ai-video-full-flow.mp4', label: '全流程AI创作短片 Full AI Creation Short Film' },
+  { src: '/videos/brand-feed-digital-human.mp4', label: '品牌向信息流（含数字人）Brand Feed with Digital Human' },
+  { src: '/videos/social-trending-feed.mp4', label: '社会热点信息流 Social Trending Feed' },
+  { src: '/videos/rejection-guy.mp4', label: 'TED千万播放Rejection Guy个人故事' },
+  { src: '/videos/pitch-deck-steve-hoffman.mp4', label: '氛围感剪辑 Atmospheric Edit' },
+  { src: '/videos/katrina-xie-tiktok.mp4', label: '秋阳外网口播' },
+  { src: '/videos/qyoutlaw-tiktok.mp4', label: '秋阳外网口播' },
+  { src: '/videos/2-books-steve-hoffman.mp4', label: '话题对标自然流百万播放爆款' },
+  { src: '/videos/3-boring-jobs-steve-hoffman.mp4', label: '精准预测自然流百万播放爆款 | 单条涨粉2万' },
+  { src: '/videos/6-things-matt.mp4', label: '争议性话题起号爆款：职场逃离6个信号' },
 ];
 
-const longFormVideos: VideoItem[] = [
-  { bvid: 'BV1EKuJ6VEmS', label: '独立站宣传 Independent Site Promo', ratio: '16/9', gradient: 'from-indigo-600/20 to-violet-900/40' },
-  { bvid: 'BV1oguJ6zEG1', label: 'Kyran IP理念片 Kyran IP Concept Film', ratio: '16/9', gradient: 'from-teal-600/20 to-emerald-900/40' },
+const longFormVideos = [
+  { src: '/videos/independent-site-promo.mp4', label: '独立站宣传 Independent Site Promo' },
+  { src: '/videos/kyuan-brand-film.mp4', label: 'Kyran IP理念片 Kyran IP Concept Film' },
 ];
 
-function VideoCard({ bvid, label, ratio, gradient, maxWidth }: VideoItem & { maxWidth: string }) {
-  const [isPlaying, setIsPlaying] = useState(false);
+function ShortVideoCard({ src, label }: { src: string; label: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const handlePlay = () => setIsPlaying(true);
-  const handleStop = () => setIsPlaying(false);
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.src = src;
+      videoRef.current.load();
+    }
+    setIsHovered(true);
+    videoRef.current?.play().catch(() => {});
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    videoRef.current?.pause();
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.removeAttribute('src');
+      videoRef.current.load();
+    }
+  };
 
   return (
     <div
       className="video-card hover-lift group flex flex-col bg-[#0a1120] rounded-lg overflow-hidden border border-border/20"
-      style={{ maxWidth, width: '100%' }}
+      style={{ maxWidth: '220px', width: '100%' }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <div className="relative w-full" style={{ aspectRatio: ratio, background: '#0a1929' }}>
-        {isPlaying ? (
-          <>
-            <iframe
-              src={`https://player.bilibili.com/player.html?bvid=${bvid}&high_quality=1&danmaku=0`}
-              scrolling="no"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-              style={{ border: 'none' }}
-            />
-            <button
-              onClick={handleStop}
-              className="absolute top-2 right-2 z-10 bg-black/70 text-white text-xs px-2 py-1 rounded hover:bg-black/90 transition-colors"
-            >
-              ✕ 关闭
-            </button>
-          </>
-        ) : (
-          <button
-            onClick={handlePlay}
-            className={`absolute inset-0 flex flex-col items-center justify-center cursor-pointer group/play bg-gradient-to-br ${gradient} hover:brightness-125 transition-all`}
-          >
-            {/* 装饰线条 */}
-            <div className="absolute inset-4 border border-white/5 rounded" />
-            
-            {/* 播放按钮 */}
-            <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover/play:bg-white/20 group-hover/play:scale-110 transition-all shadow-lg border border-white/20">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-                <polygon points="7,4 21,12 7,20" />
-              </svg>
-            </div>
-            
-            {/* 标题 */}
-            <span className="text-[10px] text-white/60 mt-3 px-3 text-center line-clamp-2 max-w-[90%] group-hover/play:text-white/80 transition-colors">
-              {label}
-            </span>
-            
-            {/* 底部标识 */}
-            <span className="absolute bottom-2 right-2 text-[9px] text-white/30">
-              Bilibili
-            </span>
-          </button>
-        )}
+      <div className="relative w-full" style={{ aspectRatio: '9/16', background: '#0a1929' }}>
+        <video
+          ref={videoRef}
+          poster="/assets/photos/video-poster-default.svg"
+          muted
+          loop
+          playsInline
+          controls
+          preload="none"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
       </div>
       <div className="p-3 bg-[#0a1120] border-t border-border/10">
         <span className="text-xs text-white/90 font-medium line-clamp-2">{label}</span>
+      </div>
+    </div>
+  );
+}
+
+function LongVideoCard({ src, label }: { src: string; label: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.src = src;
+      videoRef.current.load();
+    }
+    setIsHovered(true);
+    videoRef.current?.play().catch(() => {});
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    videoRef.current?.pause();
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.removeAttribute('src');
+      videoRef.current.load();
+    }
+  };
+
+  return (
+    <div
+      className="video-card hover-lift group flex flex-col bg-[#0a1120] rounded-lg overflow-hidden border border-border/20"
+      style={{ maxWidth: '380px', width: '100%' }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className="relative w-full" style={{ aspectRatio: '16/9', background: '#0a1929' }}>
+        <video
+          ref={videoRef}
+          poster="/assets/photos/video-poster-default.svg"
+          muted
+          loop
+          playsInline
+          controls
+          preload="none"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+      <div className="p-3 bg-[#0a1120] border-t border-border/10">
+        <span className="text-sm text-white/90 font-medium">{label}</span>
       </div>
     </div>
   );
@@ -124,8 +153,8 @@ export function VideoPortfolio() {
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Short-Form Content</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            {shortFormVideos.map((video) => (
-              <VideoCard key={video.bvid} {...video} maxWidth="220px" />
+            {shortFormVideos.map((video, index) => (
+              <ShortVideoCard key={video.src} {...video} />
             ))}
           </div>
         </div>
@@ -144,8 +173,8 @@ export function VideoPortfolio() {
           </h3>
           <p className="text-xs text-muted-foreground/60 italic mb-4 ml-4">Long-Form Content</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            {longFormVideos.map((video) => (
-              <VideoCard key={video.bvid} {...video} maxWidth="380px" />
+            {longFormVideos.map((video, index) => (
+              <LongVideoCard key={video.src} {...video} />
             ))}
           </div>
         </div>
