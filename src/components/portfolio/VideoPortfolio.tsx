@@ -21,6 +21,11 @@ const shortFormVideos: VideoItem[] = [
   { bvid: 'BV1ouuJ6gEi4', label: '话题对标自然流百万播放爆款', ratio: '9/16', gradient: 'from-fuchsia-600/20 to-purple-900/40' },
   { bvid: 'BV1ZuuJ6gET3', label: '精准预测自然流百万播放爆款 | 单条涨粉2万', ratio: '9/16', gradient: 'from-orange-600/20 to-red-900/40' },
   { bvid: 'BV1ouuJ6gEhk', label: '争议性话题起号爆款：职场逃离6个信号', ratio: '9/16', gradient: 'from-cyan-600/20 to-sky-900/40' },
+  { bvid: 'BV1FahB69E4x', label: 'AI选品知识科普 AI Product Selection Knowledge', ratio: '9/16', gradient: 'from-indigo-600/20 to-blue-900/40' },
+  { bvid: 'BV1nahB69EF7', label: 'AI海外病毒营销视频 AI Overseas Viral Marketing Video', ratio: '9/16', gradient: 'from-rose-600/20 to-red-900/40' },
+  { bvid: 'BV1cahB69EFC', label: 'AI一键搭建独立站 AI Shopify Store Build', ratio: '9/16', gradient: 'from-purple-600/20 to-indigo-900/40' },
+  { bvid: 'BV1ZqhB6JEnp', label: '海外AI数字人知识口播 Overseas AI Digital Human Knowledge Voiceover', ratio: '9/16', gradient: 'from-teal-600/20 to-cyan-900/40' },
+  { bvid: 'BV1FahB69Efe', label: '海外AI软件产品宣传视频 Overseas AI Software Product Promo', ratio: '9/16', gradient: 'from-sky-600/20 to-indigo-900/40' },
 ];
 
 const longFormVideos: VideoItem[] = [
