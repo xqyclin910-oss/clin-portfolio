@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useInView } from '@/hooks/useAnimations';
 
 interface VideoItem {
@@ -64,25 +65,34 @@ function VideoCard({ bvid, label, ratio, gradient, maxWidth }: VideoItem & { max
         ) : (
           <button
             onClick={handlePlay}
-            className={`absolute inset-0 flex flex-col items-center justify-center cursor-pointer group/play bg-gradient-to-br ${gradient} hover:brightness-125 transition-all`}
+            className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer group/play overflow-hidden hover:brightness-110 transition-all"
           >
-            {/* 装饰线条 */}
-            <div className="absolute inset-4 border border-white/5 rounded" />
-            
+            {/* 封面图 */}
+            <Image
+              src={`/covers/${bvid}.jpg`}
+              alt=""
+              fill
+              sizes={`(max-width: 768px) 50vw, ${maxWidth}`}
+              className="object-cover"
+            />
+            {/* 颜色晕染 + 底部压暗，保证文字可读 */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-30`} />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/70" />
+
             {/* 播放按钮 */}
-            <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover/play:bg-white/20 group-hover/play:scale-110 transition-all shadow-lg border border-white/20">
+            <div className="relative w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center group-hover/play:bg-black/60 group-hover/play:scale-110 transition-all shadow-lg border border-white/30">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
                 <polygon points="7,4 21,12 7,20" />
               </svg>
             </div>
-            
+
             {/* 标题 */}
-            <span className="text-[10px] text-white/60 mt-3 px-3 text-center line-clamp-2 max-w-[90%] group-hover/play:text-white/80 transition-colors">
+            <span className="relative text-[10px] text-white/90 mt-3 px-3 text-center line-clamp-2 max-w-[90%] drop-shadow group-hover/play:text-white transition-colors">
               {label}
             </span>
-            
+
             {/* 底部标识 */}
-            <span className="absolute bottom-2 right-2 text-[9px] text-white/30">
+            <span className="absolute bottom-2 right-2 text-[9px] text-white/70 bg-black/30 px-1.5 py-0.5 rounded">
               Bilibili
             </span>
           </button>
