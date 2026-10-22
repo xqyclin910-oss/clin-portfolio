@@ -63,3 +63,15 @@
 
 - 模板默认预装核心组件库 `shadcn/ui`，位于`src/components/ui/`目录下
 - Next.js 项目**必须默认**采用 shadcn/ui 组件、风格和规范，**除非用户指定用其他的组件和规范。**
+
+## 本地与 Cloud Agent 运行
+
+作品集是单页静态站，源码不读取数据库、Supabase、S3 或密钥。依赖只通过 pnpm 安装（`packageManager` 为 `pnpm@9.0.0`）。
+
+- 安装：`pnpm install --frozen-lockfile`
+- `scripts/dev.sh` 用 `ss` 清理占用端口，系统需要 `iproute2`（提供 `/usr/bin/ss`）
+- 开发服务器：`pnpm dev`，自定义入口 `src/server.ts`，端口 **5000**
+- 浏览器打开 `http://localhost:5000`。不要用 `http://127.0.0.1:5000`：`next.config.mjs` 的 `allowedDevOrigins` 只有 `*.dev.coze.site`，Next.js 16 会拒绝来自其他主机名的 `/_next` 请求，客户端无法水合，按钮点击无效
+- 检查：`pnpm validate`（`tsc` 与 `eslint . --quiet`）
+- 生产：`pnpm build`（`next build` 再把 `src/server.ts` 打到 `dist/server.js`），然后 `pnpm start`
+- README 里的 `coze dev` / `coze build` / `coze start` 是扣子 CLI 别名；本仓库对应命令是 `pnpm dev`、`pnpm build`、`pnpm start`
